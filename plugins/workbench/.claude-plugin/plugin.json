@@ -1,0 +1,9 @@
+{
+  "name": "workbench",
+  "version": "0.1.0",
+  "description": "House rules, guard hooks and guided setup: secret scans on every commit and push, sileo toasts, no emojis in UI, a confirm step before production or infrastructure changes, and the owner profile every other workbench plugin reads.",
+  "author": { "name": "Starter Pack contributors", "url": "https://github.com/sanath1599" },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": ["house-rules", "guardrails", "secrets", "setup", "preferences"]
+}

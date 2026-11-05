@@ -1,0 +1,13 @@
+{
+  "name": "starter-pack",
+  "private": true,
+  "type": "module",
+  "description": "Claude Code plugin marketplace: house rules, project kickoff and cloud handoff, stack skills, design, engineering and SRE procedures.",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test --test-reporter=spec \"tests/**/*.test.mjs\"",
+    "validate": "node scripts/validate-all.mjs",
+    "maintenance:collect": "node maintenance/collect.mjs"
+  }
+}

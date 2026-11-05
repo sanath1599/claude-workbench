@@ -1,0 +1,17 @@
+{
+  "name": "stack-connectors",
+  "version": "0.1.0",
+  "description": "MCP connectors the stack needs that the official catalog lacks: Temporal docs and Qdrant. Points to official plugins for the rest.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "mcp",
+    "connectors",
+    "temporal",
+    "qdrant"
+  ]
+}

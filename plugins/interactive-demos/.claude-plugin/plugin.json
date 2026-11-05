@@ -1,0 +1,17 @@
+{
+  "name": "interactive-demos",
+  "version": "0.1.0",
+  "description": "Build click-through interactive product demos from a repository with the Animated Technical Interactive connector (app.antm.ai).",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "demo",
+    "presentation",
+    "connector",
+    "mcp"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "engineering-craft",
+  "version": "0.1.0",
+  "description": "Engineering procedures: system design with ADRs, distributed-systems hardening, contract-first APIs, LLM feature design and evals, QA passes, security review, test planning and PR review replies.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "architecture",
+    "distributed-systems",
+    "api",
+    "llm",
+    "qa",
+    "security",
+    "testing"
+  ]
+}

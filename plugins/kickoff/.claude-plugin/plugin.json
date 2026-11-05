@@ -1,0 +1,18 @@
+{
+  "name": "kickoff",
+  "version": "0.1.0",
+  "description": "Start projects the owner's way and hand them to Claude Code cloud sessions: kickoff interview (cloud question first), private repo, cloud kit, handoff brief, verified launch and landing.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "kickoff",
+    "bootstrap",
+    "cloud",
+    "handoff",
+    "routines"
+  ]
+}

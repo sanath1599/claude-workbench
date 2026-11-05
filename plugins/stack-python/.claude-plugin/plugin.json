@@ -1,0 +1,19 @@
+{
+  "name": "stack-python",
+  "version": "0.1.0",
+  "description": "Python agentic backend defaults: Pydantic AI agents, Temporal workflows with a pattern picker, Postgres and Qdrant, FastAPI services, reliable LLM calls and LiveKit voice agents.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "pydantic-ai",
+    "temporal",
+    "qdrant",
+    "postgres",
+    "fastapi",
+    "livekit"
+  ]
+}
