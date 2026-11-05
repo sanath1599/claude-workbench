@@ -17,6 +17,7 @@ Vercel hosts everything it can: SPAs, TanStack Start, Next.js, FastAPI. Producti
 
 - Attaching `<name>.{{wb.domain}}`: `stack-web:adding-subdomains`.
 - Temporal workers, long-lived sockets, anything that must stay up beyond function limits: `ops-and-sre:deploying-to-a-vps`.
+- Function runtime, limits and caching: `stack-web:sizing-vercel-functions`. Cron, Queues, Workflow: `stack-web:choosing-background-work-on-vercel`. Blob, Global Config, Postgres: `stack-web:storing-data-on-vercel`. Firewall, promote, rollback: `stack-web:protecting-and-promoting-on-vercel`.
 
 ## Procedure
 
@@ -28,16 +29,20 @@ Vercel hosts everything it can: SPAs, TanStack Start, Next.js, FastAPI. Producti
    - FastAPI: expose `app` from `app.py`, `index.py`, `server.py` or `main.py` (also under `src/` or `app/`), or set `[tool.vercel] entrypoint` in `pyproject.toml`. The whole app is one function. Pin Python through `requires-python`.
    - TS frontend + Python backend in one repo: **Vercel Services is beta**. Use it only if the owner accepts beta; the safe alternative is two Vercel projects (frontend, api) joined by a rewrite or CORS. Re-read https://vercel.com/docs/services before use.
    - Use `vercel.json` or `vercel.ts`, never both.
-3. **Check for build breakers.** A stray `.npmrc` or `.env.production.local` has broken builds here before: look for them, and delete or ignore them only with the owner's agreement. Use npm. Pin `engines.node`.
+3. **Check for build breakers.** A stray `.npmrc` or `.env.production.local` has broken builds here before: look for them, and delete or ignore them only with the owner's agreement. Pin `engines.node`. Use `{{wb.package_manager}}` for new projects; in an existing repo keep the committed lockfile and declare it in `package.json` (`"packageManager": "pnpm@x.y.z"`), never two lockfiles. CI and agent sessions install with the frozen form (`npm ci`, `pnpm install --frozen-lockfile`).
 4. **Commit author.** On Hobby, Vercel blocks deploys whose commit author is not linked to the owner's account. Set `git config user.email {{wb.git_author_email}}` in repos Vercel deploys, including merge commits.
 5. **Env vars, non-interactive, no echo.**
    - Add: `vercel env add NAME production --sensitive --yes < secret-file` (stdin from a file, never `echo "$SECRET" |` into shell history or logs). Use `--value` only for non-secrets.
    - Scope preview variables with a git branch when they differ.
    - `vercel env ls`, `vercel env pull .env.local` (merges, keeps local-only keys), `vercel env rm NAME production --yes`.
    - Secret values cannot be read back; never print them.
+   - Before a first run on a new machine, compare variable names (never values) between `.env.example` and `.env.local` and stop on any missing: `comm -23 <(grep -E '^[A-Za-z_]\w*=' .env.example | cut -d= -f1 | sort -u) <(grep -E '^[A-Za-z_]\w*=' .env.local | cut -d= -f1 | sort -u)`.
+   - Generate a secret with `node -e` and pipe it straight into `vercel env add NAME production`, then `unset` the variable. The development scope needs its own `vercel env add` call; it cannot share one with production and preview.
+   - Run `vercel project inspect --non-interactive` before any project mutation to confirm the link.
 6. **Run the CLI safely from an agent.** Always `</dev/null`, a `timeout`, `--yes`, and auth by `VERCEL_TOKEN` in the environment (not `--token`, which shows in process lists) or an already linked project (`VERCEL_ORG_ID` + `VERCEL_PROJECT_ID` skip `vercel link`). Example: `timeout 600 vercel deploy --yes </dev/null`.
+   The CLI can exit non-zero after printing an update notice even when the command worked: confirm the effect (`vercel env ls`, `vercel inspect <url>`) rather than trusting the exit code alone. Raw `*.vercel.app` URLs return the Vercel login page when deployment protection is on; test them with `vercel curl <path> --deployment <url>` or test the real domain. Read failed build logs with `vercel inspect <url> --logs`.
    **Done when:** the command exits 0 and prints a deployment URL.
-7. **Preview first.** `vercel deploy` makes a preview; pushes to feature branches do too. Test the preview without side effects: mock or test recipients for email, test data, no real sends.
+7. **Preview first.** `vercel deploy` makes a preview; pushes to feature branches do too. Test the preview without side effects: mock or test recipients for email, test data, no real sends. Check which `DATABASE_URL` the Preview scope holds (`vercel env ls`): a database integration often copies the production URL there. Either point Preview at a database branch (per PR) or make every write path and release step refuse to run when `VERCEL_ENV !== "production"`, and say which in the handoff.
 8. **Production gate.** Stop and ask the owner before `vercel deploy --prod`, a push to the production branch that auto-deploys, a production env change, or a production database migration. State the cost (prefer free tiers), what changes, and the rollback (`vercel rollback`, previous deployment). Check first for builds in progress. Run migrations from the owner's machine before the deploy that needs them.
 9. **Confirm what is live.** After `vercel deploy`, the domain can briefly serve the previous deployment. Expose a version marker (commit SHA at `/api/health` or a meta tag), poll until it matches, and only then run any request with side effects.
    **Done when:** the live URL returns the new marker and a smoke request passes.
@@ -56,6 +61,7 @@ Vercel hosts everything it can: SPAs, TanStack Start, Next.js, FastAPI. Producti
 | Services | beta |
 | Hobby commits | author `{{wb.git_author_email}}` |
 | CLI in agents | `</dev/null`, `timeout`, `--yes`, `VERCEL_TOKEN` |
+| Release steps (migrate, content) | build script, production only, asked for explicitly |
 
 ## Verification
 
@@ -68,7 +74,7 @@ Vercel hosts everything it can: SPAs, TanStack Start, Next.js, FastAPI. Producti
 
 | File | Load when |
 |---|---|
-| references/config.md | writing vercel.json, Start/Nitro config, FastAPI layout, Services config, limits |
+| references/config.md | writing vercel.json, Start/Nitro config, FastAPI layout, Services config, limits, release steps in the build, a password-gated private app, sharing code between a local server and a function |
 
 ## Versions
 

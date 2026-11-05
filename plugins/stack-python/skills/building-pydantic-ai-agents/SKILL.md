@@ -93,7 +93,7 @@ Full examples and tuning flags are in `references/patterns.md`.
 
 | File | Load when |
 |---|---|
-| references/patterns.md | choosing or writing any pattern, provider setup, v1 to v2 migration |
+| references/patterns.md | choosing or writing any pattern, provider setup, v1 to v2 migration, or a hand-rolled bounded tool loop on a serverless platform (section 21) |
 
 ## Versions
 

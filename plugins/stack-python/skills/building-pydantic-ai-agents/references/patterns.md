@@ -326,6 +326,16 @@ gateway = OpenAIChatModel("model-name", provider=OpenAIProvider(base_url="https:
 - For other OpenAI-compatible servers, read https://pydantic.dev/docs/ai/models/compatible-apis/index.md (provider classes and `OpenAIModelProfile` flags).
 - Tests: `TestModel` / `FunctionModel` or `LLM_PROVIDER=mock`; set `ALLOW_MODEL_REQUESTS = False` in conftest (`pydantic_ai.models.ALLOW_MODEL_REQUESTS`) so a stray real call fails loudly.
 
+## 21. Hand-rolled tool loop on a request/response platform
+
+When you drive the Messages API yourself inside a serverless function:
+
+- Cap rounds (about 16) and set a deadline a safe margin under the platform limit (230 s for a 300 s function). On the last round or past the deadline set `tool_choice: {"type": "none"}` so the model must write its answer.
+- Append the assistant message exactly as returned, thinking blocks included, before the tool results; editing or dropping them breaks the next call.
+- Tool errors go back as `is_error` tool results with a short fix hint ("send the tool input again as a JSON object"); never throw out of the loop.
+- Text written before a tool call is a progress note, not the answer: emit a `demote` event so the UI moves it into the step list.
+- Cap `max_tokens` per round and the tools run per round.
+
 ## 20. v1 to v2 gotchas
 
 - Old tutorials: `result.data` became `result.output`; `result.usage()` is deprecated for `.usage`.

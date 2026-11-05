@@ -1,0 +1,29 @@
+[
+  {
+    "name": "maplibre-gl",
+    "ecosystem": "npm",
+    "documented": "6.16.0",
+    "changelog": "https://github.com/maplibre/maplibre-gl-js/releases",
+    "skills": [
+      "building-map-apps"
+    ]
+  },
+  {
+    "name": "react-email",
+    "ecosystem": "npm",
+    "documented": "6.11.6",
+    "changelog": "https://github.com/resend/react-email/releases",
+    "skills": [
+      "sending-email-with-resend"
+    ]
+  },
+  {
+    "name": "@react-email/components",
+    "ecosystem": "npm",
+    "documented": "1.0.12",
+    "changelog": "https://github.com/resend/react-email/releases",
+    "skills": [
+      "sending-email-with-resend"
+    ]
+  }
+]

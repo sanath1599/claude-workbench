@@ -6,7 +6,7 @@ import { join } from "node:path";
 const root = new URL("../../", import.meta.url).pathname;
 const plugin = join(root, "plugins/stack-web");
 const skills = readdirSync(join(plugin, "skills"));
-const EXPECTED = ["adding-auth", "adding-subdomains", "building-tanstack-frontends", "deploying-on-vercel", "sending-email-with-resend", "working-in-nextjs-16"];
+const EXPECTED = ["adding-auth", "adding-subdomains", "building-map-apps", "building-tanstack-frontends", "choosing-background-work-on-vercel", "debugging-web-performance-in-chrome", "deploying-on-vercel", "handling-inbound-email-safely", "protecting-and-promoting-on-vercel", "running-content-pipelines", "sending-email-with-resend", "sizing-vercel-functions", "storing-data-on-vercel", "testing-apis-from-the-command-line", "using-cloudflare-beyond-dns", "working-in-nextjs-16"];
 
 function walk(dir) {
   return readdirSync(dir).flatMap((f) => {
@@ -16,7 +16,7 @@ function walk(dir) {
 }
 const text = (p) => readFileSync(p, "utf8");
 
-test("the six core skills exist", () => { for (const s of EXPECTED) assert.ok(skills.includes(s), s); });
+test("the expected skills exist", () => { for (const s of EXPECTED) assert.ok(skills.includes(s), s); });
 
 for (const s of EXPECTED) {
   test(`${s}: frontmatter and size`, () => {

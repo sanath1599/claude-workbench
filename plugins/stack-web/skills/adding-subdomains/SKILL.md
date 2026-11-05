@@ -29,7 +29,8 @@ Every app lives at `<name>.{{wb.domain}}` with DNS on {{wb.dns_provider}}. The r
 6. **Apply.** `node scripts/cf-dns.mjs upsert <fqdn> CNAME <target> --apply`. The script needs `CF_API_TOKEN` in the environment (zone-scoped "Edit zone DNS" token; add Zone Read, or set `CF_ZONE_ID`, for lookup). It never prints the token. If the token is missing, give the owner the one-line export to run and do not ask for the value in chat.
 7. **Verify.** Re-run `vercel domains verify`, then `dig +short <fqdn>` and `curl -sI https://<fqdn>`. The certificate issues automatically after verification (`vercel certs ls`); allow a few minutes. Confirm the response carries the new version marker.
    **Done when:** HTTPS answers 200 or the expected redirect from the right deployment.
-8. **Record it.** Add a row to `references/subdomains.md` (name, host, target type; no IPs, no secrets).
+8. **Canonical host (optional).** Once the custom domain works, redirect page requests that arrive on the platform host to it. In `proxy.ts`: only when `VERCEL_ENV === "production"` and `APP_URL` is set, only when the host ends in `.vercel.app`, answer 308 keeping path and query. Exclude `api/`, `_next/` and file extensions in `config.matcher`, so workers, webhooks and cron keep working on the old host. Set `APP_URL` in the worker's secrets too.
+9. **Record it.** Add a row to `references/subdomains.md` (name, host, target type; no IPs, no secrets).
 
 ### VPS variant
 

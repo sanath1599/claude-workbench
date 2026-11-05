@@ -32,7 +32,7 @@ A voice agent is a latency-bound pipeline (speech in, text model, speech out). K
      src/app_client.py     # HTTPS client to your backend (bearer secret, constant-time checked server-side)
      tests/                # pure-Python tests; respx for HTTP
    ```
-   The agent talks to the product backend over HTTPS only (no database access). Every call is idempotent (idempotency key, segment ids).
+   The agent talks to the product backend over HTTPS only (no database access). Every call is idempotent (idempotency key, segment ids). The finishing call returns the stored result on any repeat, and the backend supplies the closing message the worker speaks verbatim (`references/planned-path.md`). Send the worker a minimal participant context (first name, skills summary), with no email, phone or address.
    **Done when:** `uv run pytest` passes without importing `livekit` in the logic modules.
 3. **Accept only dispatched jobs.** Use explicit dispatch by `agent_name`, with job metadata such as `{"sessionId": "..."}`; reject jobs without valid metadata, and re-validate the session with the backend before saying anything. Local dev uses a different agent name (`<name>-dev`) so it never steals production jobs.
    **Done when:** a test shows a job with missing or malformed metadata is rejected.
@@ -52,6 +52,7 @@ A voice agent is a latency-bound pipeline (speech in, text model, speech out). K
            llm_conn_options=APIConnectOptions(max_retry=1, retry_interval=1.0, timeout=5)),
    )
    ```
+   Privacy and SDK notes verified on 1.8.x: pass `record=False` to `session.start` so the vendor does not capture audio, transcripts or traces, and `text_input=False` to keep a voice-only product voice-only. The LLM plugin's default read timeout is 5 s, so raise it where answers are long. A tool cannot await the speech it triggered: run the finish sequence as a separate task.
    This mirrors the owner's working agent on livekit-agents 1.8.x; the `turn_handling` keys are version-specific, so confirm them in the docs.
    **Done when:** a local `dev` run connects and answers one scripted turn.
 5. **Budget latency.** Target under about 1 second from end of speech to first audio. Spend it deliberately: endpointing delay (0.3 to 0.6 s), LLM time to first token (small prompt, low reasoning effort, short answers), TTS first byte. Measure with the SDK's metrics events, not by feel. Keep prompts short; push static facts into the system prompt once, not per turn. Preemptive generation helps but is discarded when you edit context in `on_user_turn_completed`; disable it if you inject per-turn directives.
@@ -66,6 +67,10 @@ A voice agent is a latency-bound pipeline (speech in, text model, speech out). K
    **Done when:** a test simulates a dropped participant and sees exactly one finalise call.
 10. **Mock mode.** `VOICE_MODE=mock` (or `LLM_PROVIDER=mock`) replaces STT, TTS and LLM with scripted fakes, so tests and CI never call LiveKit Inference, Ollama, Claude or Resend. Real-provider checks are opt-in behind an env var (`test_ollama_integration.py` style).
    **Done when:** `uv run pytest` passes offline.
+
+## Planned path
+
+For time-boxed multi-topic conversations, let the backend compute an ordered plan of stages and have the agent follow it, rather than choosing topics greedily. Stage rules, skipping and the finish contract are in `references/planned-path.md`.
 
 ## Owner-machine steps
 
@@ -103,6 +108,12 @@ The backend receives LiveKit webhooks (`room_finished`, `participant_left`) on a
 - [ ] Latency p50/p95 per stage logged; interruption works.
 - [ ] Finalisation idempotent and triggered on shutdown.
 - [ ] No deploy, secret update or paid smoke test run without the owner's yes.
+
+## References
+
+| File | Load when |
+|---|---|
+| references/planned-path.md | the conversation has several topics inside a time budget, or you are defining the finish and fail calls to the backend |
 
 ## Versions
 

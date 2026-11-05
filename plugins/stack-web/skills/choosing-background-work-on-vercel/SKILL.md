@@ -24,7 +24,7 @@ Pick the smallest mechanism that survives the failure you actually fear. The own
    **Done when:** one sentence states the failure and the maximum runtime.
 2. **Choose with the table below.** Prefer the first row that fits.
 3. **Make every handler idempotent.** Queues deliver at least once. Use a stable key (`<event>/<entity-id>`) for side effects such as email sends.
-4. **Register the trigger.** A Queues consumer route with no `experimentalTriggers` entry in `vercel.json` or `vercel.ts` never receives anything. Cron entries live in the same file; Hobby crons run once a day at most.
+4. **Register the trigger.** A Queues consumer route with no `experimentalTriggers` entry in `vercel.json` or `vercel.ts` never receives anything. Cron entries live in the same file; Hobby crons run once a day at most. Protect the cron route with `CRON_SECRET` (sent as a Bearer token). For stale-session or pending-job sweeps on Hobby, keep the daily cron as the backstop and also run the same sweep from `after()` on a busy page, throttled by a module-level timestamp (about 5 minutes) and guarded by a cheap count query. Wrap `after()` in try/catch because it throws outside a request scope (scripts, tests). On Pro use a real short cron instead.
 5. **Run `vercel link` and `vercel env pull` before local tests** of Queues or Workflow, or `send()` fails with an auth error.
 6. **Set a poison-message rule.** Acknowledge after a delivery-count threshold, with exponential backoff, or a bad message retries until it expires (24 h default, 7 days max).
 7. **Ask before adding infrastructure.** Queues and Workflow are beta-level products with their own pricing. State the cost and the fallback (a Postgres jobs table polled by Cron) and get a yes.

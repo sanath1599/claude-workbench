@@ -47,7 +47,7 @@ Postgres is the system of record. Local runs in a per-project container on a uni
 - Money as `numeric(12,2)` or integer minor units; never float. Times as `timestamptz`, stored in UTC.
 - Enums as `text` plus a `CHECK` constraint (or a lookup table) rather than native enums, which are painful to alter.
 - Foreign keys always; index every foreign key you join or delete by. Use partial unique indexes for soft-delete uniqueness.
-- Constraints in the database, not only in code: `NOT NULL`, `UNIQUE`, `CHECK`.
+- Constraints in the database, not only in code: `NOT NULL`, `UNIQUE`, `CHECK`. Name every foreign key, unique and check constraint explicitly in the migration (`op.create_foreign_key("fk_candidate_recruiter", ...)`): generated names differ per database and make the downgrade fail. Match the referenced column's exact type (uuid versus int). After adding an owner column, audit every list, detail, download and notification endpoint for the owner filter.
 - JSONB for genuinely schemaless blobs (model messages, provider payloads); promote fields you filter on to columns. Validate JSONB with Pydantic at the edge.
 - Multi-tenant: `tenant_id` on every row, composite indexes starting with it; consider row-level security if several services share the database.
 - Audit trail for people-affecting decisions (who changed what, when).
@@ -102,6 +102,7 @@ Client generated into the source tree (for example `src/generated/prisma`, git-i
 - Transaction pooling breaks session state: no session-level prepared statements (psycopg: `prepare_threshold=None`; asyncpg: `statement_cache_size=0`), no `SET` outside a transaction.
 - Keep engine pools small (`pool_size=1..2`, `max_overflow=0`) per serverless instance, or use `NullPool` with the pooled URL. Long-lived workers on the VPS use a normal pool against the unpooled URL.
 - Cold Neon compute can add latency to the first query; set connect timeouts and retry the first connection once.
+- A cloud or sandbox session usually has outbound HTTPS only and cannot reach a hosted Postgres on 5432. Give it a local Postgres with `DATABASE_URL` pointing at it, and make production `migrate deploy` plus seed an owner step. Keep production URLs in a separate git-ignored file (for example `.env.deploy.local`) that the dev server never loads, so a local `migrate dev` cannot touch production; say so in the project `CLAUDE.md`.
 - Branches are cheap: use a Neon branch for risky migrations, with the owner's yes.
 
 ## pgvector (when it is the right call)

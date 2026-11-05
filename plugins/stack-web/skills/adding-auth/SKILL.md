@@ -25,6 +25,9 @@ Choose the lightest auth that works for the audience, state the choice in one li
 | Multi-user developer product | GitHub sign-in (OAuth) + GitHub App for repo access | Users bring their own GitHub identity. |
 | Business app with named staff | Local accounts provisioned by an admin | No public sign-up. argon2 hashes. |
 | Enterprise client | The client's OIDC, for example Entra | Use their tenant; no local passwords. |
+| Applicants or guests, no accounts | Random token, hash stored, cookie per resource | `references/variants.md` |
+| Staff with roles, instant revocation | Database sessions | `references/variants.md` |
+| Internal tool, org already has sign-in | Verify once, then your own 8-hour signed cookie | `references/variants.md` |
 
 Ask only if the audience is truly unclear, in the same batch as other open questions.
 
@@ -37,7 +40,7 @@ Ask only if the audience is truly unclear, in the same batch as other open quest
 5. **Rate-limit login.** Limit by IP and by account (for example 5 attempts per 15 minutes), return the same error for unknown user and wrong password, and add a small constant delay. Back it with the database or Redis; an in-memory counter is only acceptable on a single long-lived process.
 6. **Frontend guard (TanStack Router).** Put the check in `beforeLoad` of a layout route: read the session (a `/api/me` call through the query client or `context.auth`), and `throw redirect({ to: "/login", search: { next: location.href } })` when missing. Guards improve UX only; the API must enforce access itself.
 7. **Backend guard (FastAPI).** A dependency (`Depends(current_user)`) that verifies the cookie and returns the user or raises 401; an admin dependency wraps it and raises 403. Apply it at the router level so new endpoints are protected by default.
-8. **GitHub OAuth + GitHub App outline.** Register a GitHub App (not just an OAuth App) with minimal permissions. Flow: redirect to GitHub with a random `state` stored in a short-lived cookie; on callback verify `state`, exchange the `code` server-side, fetch the user, create your session cookie. For repo access, store the installation id and mint short-lived installation tokens server-side; never ship tokens to the browser. Read https://docs.github.com/en/apps before implementing.
+8. **GitHub OAuth + GitHub App outline.** Register a GitHub App (not just an OAuth App) with minimal permissions. Flow: redirect to GitHub with a random `state` stored in a short-lived cookie; on callback verify `state`, exchange the `code` server-side, fetch the user, create your session cookie. For repo access, store the installation id and mint short-lived installation tokens server-side; never ship tokens to the browser. Permissions, token minting and setup flow are in `references/variants.md`. Read https://docs.github.com/en/apps before implementing.
 9. **Provisioned accounts.** An admin creates users and an invite or temporary-password flow sets their own password. Disable sign-up routes entirely. Log admin actions.
 10. **Test.** Cover: wrong password, expired or tampered cookie, missing cookie on a protected route (401 or redirect), CSRF origin rejection, and rate-limit lockout. Tests use a fixed `SESSION_SECRET` and never real identity providers.
     **Done when:** those tests pass and an unauthenticated request to every protected endpoint is rejected.
@@ -57,6 +60,12 @@ Ask only if the audience is truly unclear, in the same batch as other open quest
 - Secrets (`SESSION_SECRET`, OAuth secrets) in env only.
 - Cookie flags checked in a real response.
 - Server rejects unauthenticated calls independent of the frontend.
+
+## References
+
+| File | Load when |
+|---|---|
+| references/variants.md | accountless links, role-based DB sessions, org sign-in with your own cookie, or a GitHub App |
 
 ## Versions
 

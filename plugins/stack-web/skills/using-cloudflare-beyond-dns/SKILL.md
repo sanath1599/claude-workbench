@@ -15,7 +15,7 @@ Cloudflare is the DNS provider and stays DNS-only for Vercel hosts. Reach for it
 
 ## When not to use
 
-- A CNAME or A record for an app: `stack-web:adding-subdomains` (and `scripts/cf-dns.mjs` there).
+- A CNAME or A record for an app: `stack-web:adding-subdomains` (it owns the cf-dns script).
 - Hosting a TanStack or Next.js app: Vercel first, `stack-web:deploying-on-vercel`.
 - Vercel's own firewall: `stack-web:protecting-and-promoting-on-vercel`.
 

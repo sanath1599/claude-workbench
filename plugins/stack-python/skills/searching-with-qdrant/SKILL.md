@@ -37,7 +37,7 @@ Start with Postgres (pgvector for small corpora). Add Qdrant only when a real re
 ## Collection design
 
 - **Named vectors:** one collection, several vectors per point: `dense`, `sparse`, optionally a multivector for late interaction. Sparse config `Modifier.IDF` for BM25-style weighting.
-- **Hybrid query:** prefetch sparse and dense, fuse server-side.
+- **Hybrid query:** prefetch sparse and dense, fuse server-side. When exact terms matter (names, codes), this or a text payload index is the answer; do not add another vector store for keyword search.
 - **Payload indexes:** create one on every field you filter on (keyword, integer, datetime, text). Filters combine with ANN in the HNSW traversal.
 - **Multitenancy:** one collection plus a tenant keyword field indexed with `is_tenant=True`; filter on tenant in every query, enforced in one data-access function, never at call sites. Collection-per-tenant does not scale (Cloud caps collections).
 - **Quantization:** scalar int8 as the default (about 4x smaller, small recall loss); keep originals on disk and use `rescore` with oversampling. Binary and product quantization only with a measured need. Check the docs for the newer TurboQuant options before choosing.

@@ -28,7 +28,7 @@ Existing projects stay on Next.js 16. New projects do not use Next.js. This vers
    - Server-only modules start with `import "server-only"`; Client Components cannot import them.
    - Route handlers and server actions are public endpoints: validate input with Zod and check auth in each.
 3. **Prisma 7.** The client is generated to `src/generated/prisma` (git-ignored); import from `@/generated/prisma/client`; always construct it with the `PrismaPg` adapter. Run `npx prisma generate` after every schema change and before build (`prisma generate && next build`). Local migrations with `prisma migrate dev`; production with `prisma migrate deploy` from the owner's machine, never against production from a dev command. Prisma's npm `latest` can be a prerelease (8.0.0-rc at the last check); stay on the stable 7.x line unless asked (`npm view prisma dist-tags`).
-4. **Conventions.** Toasts use `sileo` (never sonner), mounted once in the root layout and called from Client Components. Icons from Lucide. Secrets stay out of the repo, logs and `NEXT_PUBLIC_` variables. Never overwrite the owner's `.env`.
+4. **Conventions.** Toasts use `sileo` (never sonner), mounted once in the root layout and called from Client Components. Icons from Lucide. Secrets stay out of the repo, logs and `NEXT_PUBLIC_` variables. Never overwrite the owner's `.env`. Read config through one server-only module whose helper treats an empty string as unset (fallbacks use `||`, not `??`), lazily, so `next build` needs no secrets. Details in `references/runtime-notes.md`.
 5. **Verify.** Run `npm run build`, the project's typecheck and `npx vitest run`. If the repo has E2E, run it against mocks.
    **Done when:** build and tests pass with the output shown.
 6. **Deploy and email** follow `stack-web:deploying-on-vercel` and `stack-web:sending-email-with-resend`; production steps need the owner's yes.
@@ -43,12 +43,22 @@ Existing projects stay on Next.js 16. New projects do not use Next.js. This vers
 | After schema edit | `npx prisma generate` |
 | Toasts | sileo |
 | Docs | `node_modules/next/dist/docs/` |
+| Config fallbacks | `||` or an empty-as-unset helper, never `??` |
+| Seeds and scripts | `tsx --conditions=react-server`; alias `server-only` in Vitest |
+| Behind a TLS proxy | rewrite to sign-in, cookie `Secure` from the public URL |
+| Dev returns 500 in a cloud session | `NODE_ENV=development`; do not `build` while dev runs |
 
 ## Verification
 
 - Docs consulted for each non-trivial API.
 - No `middleware.ts` added; no sonner; no committed generated client.
 - Build and tests green.
+
+## References
+
+| File | Load when |
+|---|---|
+| references/runtime-notes.md | writing the env module, running seeds or tests outside Next, meeting the three kinds of middleware, sitting behind nginx, or a dev server misbehaving in a cloud session |
 
 ## Versions
 
