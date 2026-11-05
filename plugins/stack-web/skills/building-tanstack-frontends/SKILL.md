@@ -67,7 +67,7 @@ New frontends are TypeScript + Vite + TanStack (Router, Query, Form, Table), wit
 
 - @tanstack/react-router 1.170.46 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/react-router)
 - @tanstack/router-plugin 1.168.48 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/router-plugin)
-- @tanstack/react-query 5.106.0 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/react-query)
+- @tanstack/react-query 5.106.1 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/react-query)
 - @tanstack/react-start 1.169.4, stable, needs vite 8 or newer (verified 2026-11-05, https://tanstack.com/start/latest/docs/framework/react/overview)
 - @tanstack/react-form 1.33.5 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/react-form)
 - @tanstack/react-table 9.3.1 (verified 2026-11-05, https://www.npmjs.com/package/@tanstack/react-table)

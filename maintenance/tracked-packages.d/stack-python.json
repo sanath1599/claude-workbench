@@ -11,7 +11,7 @@
   {
     "name": "pydantic",
     "ecosystem": "PyPI",
-    "documented": "2.14.2",
+    "documented": "2.14.3",
     "changelog": "https://pydantic.dev/docs/validation/latest/get-started/changelog/",
     "skills": [
       "stack-python:building-pydantic-ai-agents"

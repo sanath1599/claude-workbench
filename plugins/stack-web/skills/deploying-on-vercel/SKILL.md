@@ -80,6 +80,7 @@ Vercel hosts everything it can: SPAs, TanStack Start, Next.js, FastAPI. Producti
 
 - vercel CLI 65.11.0 (verified 2026-11-05, https://registry.npmjs.org/vercel/latest)
 - @tanstack/react-start 1.169.4 with nitro 3.0.261103-rc, a release candidate; Nitro is required by Start on Vercel (verified 2026-11-05, https://vercel.com/docs/frameworks/full-stack/tanstack-start)
+- nitro security: GHSA-5w89-w975-hf9q (proxy `routeRules` scope bypass via percent-encoded path traversal) and GHSA-9phm-9p8f-hw5m (open redirect via protocol-relative URL in wildcard route rules) affect every nitro before 3.0.260429-beta. Use 3.0.260429-beta or later; never pin 3.0.0 or older (verified 2026-11-05, https://osv.dev/vulnerability/GHSA-5w89-w975-hf9q)
 - Function limits: 4.5 MB body, 300 s default, Pro up to 800 s, Python bundle 500 MB (verified 2026-11-05, https://vercel.com/docs/functions/limitations)
 - FastAPI on Vercel; Python 3.12 default, 3.13 and 3.14 available (verified 2026-11-05, https://vercel.com/docs/frameworks/backend/fastapi)
 - Vercel Services, beta (verified 2026-11-05, https://vercel.com/docs/services)
