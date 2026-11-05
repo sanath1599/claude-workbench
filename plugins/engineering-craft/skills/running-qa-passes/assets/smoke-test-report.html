@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smoke test report</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --ok:#17794a; --warn:#9a6700; --bad:#b42318; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#eee; --muted:#999; --line:#333; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171; } }
+  body { font: 16px/1.5 system-ui, sans-serif; background:var(--bg); color:var(--fg); max-width: 60rem; margin: 0 auto; padding: 1rem; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.2rem; margin-top: 2rem; border-bottom:1px solid var(--line); padding-bottom:.25rem; }
+  table { width:100%; border-collapse: collapse; display:block; overflow-x:auto; }
+  th, td { text-align:left; padding:.4rem .6rem; border-bottom:1px solid var(--line); vertical-align: top; }
+  .pass { color:var(--ok); font-weight:600; } .fail { color:var(--bad); font-weight:600; } .open { color:var(--warn); font-weight:600; }
+  .verdict { padding:.75rem 1rem; border:1px solid var(--line); border-radius:.5rem; }
+  pre { background: color-mix(in srgb, var(--fg) 6%, transparent); padding:.75rem; overflow-x:auto; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<h1>Smoke test report: PRODUCT NAME</h1>
+<p class="muted">Date: YYYY-MM-DD. Commit: HASH. Tester: NAME. Environment: URL, local Postgres, mock LLM, mock voice.</p>
+
+<div class="verdict"><strong>Verdict: GO | NO-GO.</strong> One sentence on why. Open S1: 0. Open S2: 0.</div>
+
+<h2>Scope</h2>
+<p>What was walked, which personas, which viewports. What was not tested and why.</p>
+
+<h2>Results by persona and journey</h2>
+<table>
+  <thead><tr><th>Persona</th><th>Journey</th><th>Result</th><th>Defects</th></tr></thead>
+  <tbody>
+    <tr><td>Candidate</td><td>Accept invite, complete interview</td><td class="pass">Pass</td><td>none</td></tr>
+    <tr><td>HR admin</td><td>Create role, publish, review scores</td><td class="fail">Fail</td><td>QA-03</td></tr>
+  </tbody>
+</table>
+
+<h2>Defects</h2>
+<table>
+  <thead><tr><th>Id</th><th>Severity</th><th>Title</th><th>Status</th><th>Evidence or fix</th></tr></thead>
+  <tbody>
+    <tr><td>QA-03</td><td>S2</td><td>Example title</td><td class="pass">Fixed</td><td>test name or commit</td></tr>
+    <tr><td>QA-07</td><td>S4</td><td>Example polish item</td><td class="open">Open</td><td>NEXT_STEPS.md</td></tr>
+  </tbody>
+</table>
+
+<h2>Automated verification</h2>
+<pre>$ npx playwright test
+  N passed (Xs)
+$ npx vitest run
+  N passed</pre>
+
+<h2>Re-walk after fixes</h2>
+<p>Journeys re-run, new defects found (none or list).</p>
+
+<h2>Not tested and follow-ups</h2>
+<ul><li>Item and reason.</li></ul>
+</body>
+</html>

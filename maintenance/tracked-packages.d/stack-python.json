@@ -1,0 +1,213 @@
+[
+  {
+    "name": "temporalio",
+    "ecosystem": "PyPI",
+    "documented": "1.35.0",
+    "changelog": "https://github.com/temporalio/sdk-python/releases",
+    "skills": [
+      "stack-python:orchestrating-with-temporal"
+    ]
+  },
+  {
+    "name": "pydantic",
+    "ecosystem": "PyPI",
+    "documented": "2.14.2",
+    "changelog": "https://pydantic.dev/docs/validation/latest/get-started/changelog/",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "pydantic-ai",
+    "ecosystem": "PyPI",
+    "documented": "2.66.0",
+    "changelog": "https://pydantic.dev/docs/ai/project/changelog/",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents",
+      "stack-python:orchestrating-with-temporal"
+    ]
+  },
+  {
+    "name": "pydantic-settings",
+    "ecosystem": "PyPI",
+    "documented": "2.16.2",
+    "changelog": "https://pypi.org/project/pydantic-settings/#history",
+    "skills": [
+      "stack-python:building-fastapi-services"
+    ]
+  },
+  {
+    "name": "pydantic-graph",
+    "ecosystem": "PyPI",
+    "documented": "2.66.0",
+    "changelog": "https://pydantic.dev/docs/ai/project/changelog/",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "pydantic-evals",
+    "ecosystem": "PyPI",
+    "documented": "2.66.0",
+    "changelog": "https://pydantic.dev/docs/ai/project/changelog/",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "pydantic-ai-harness",
+    "ecosystem": "PyPI",
+    "documented": "0.66.0",
+    "changelog": "https://pypi.org/project/pydantic-ai-harness/#history",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "fasta2a",
+    "ecosystem": "PyPI",
+    "documented": "2.1.1",
+    "changelog": "https://pypi.org/project/fasta2a/#history",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "logfire",
+    "ecosystem": "PyPI",
+    "documented": "5.4.0",
+    "changelog": "https://pypi.org/project/logfire/#history",
+    "skills": [
+      "stack-python:building-pydantic-ai-agents"
+    ]
+  },
+  {
+    "name": "qdrant-client",
+    "ecosystem": "PyPI",
+    "documented": "1.20.0",
+    "changelog": "https://github.com/qdrant/qdrant-client/releases",
+    "skills": [
+      "stack-python:searching-with-qdrant"
+    ]
+  },
+  {
+    "name": "fastapi",
+    "ecosystem": "PyPI",
+    "documented": "0.162.0",
+    "changelog": "https://fastapi.tiangolo.com/release-notes/",
+    "skills": [
+      "stack-python:building-fastapi-services"
+    ]
+  },
+  {
+    "name": "uvicorn",
+    "ecosystem": "PyPI",
+    "documented": "0.54.0",
+    "changelog": "https://pypi.org/project/uvicorn/#history",
+    "skills": [
+      "stack-python:building-fastapi-services"
+    ]
+  },
+  {
+    "name": "sqlalchemy",
+    "ecosystem": "PyPI",
+    "documented": "2.1.8",
+    "changelog": "https://docs.sqlalchemy.org/en/21/changelog/",
+    "skills": [
+      "stack-python:modeling-data-in-postgres"
+    ]
+  },
+  {
+    "name": "alembic",
+    "ecosystem": "PyPI",
+    "documented": "1.20.1",
+    "changelog": "https://alembic.sqlalchemy.org/en/latest/changelog.html",
+    "skills": [
+      "stack-python:modeling-data-in-postgres"
+    ]
+  },
+  {
+    "name": "psycopg",
+    "ecosystem": "PyPI",
+    "documented": "3.3.8",
+    "changelog": "https://pypi.org/project/psycopg/#history",
+    "skills": [
+      "stack-python:modeling-data-in-postgres"
+    ]
+  },
+  {
+    "name": "asyncpg",
+    "ecosystem": "PyPI",
+    "documented": "0.32.0",
+    "changelog": "https://pypi.org/project/asyncpg/#history",
+    "skills": [
+      "stack-python:modeling-data-in-postgres"
+    ]
+  },
+  {
+    "name": "pgvector",
+    "ecosystem": "PyPI",
+    "documented": "0.5.1",
+    "changelog": "https://pypi.org/project/pgvector/#history",
+    "skills": [
+      "stack-python:modeling-data-in-postgres",
+      "stack-python:searching-with-qdrant"
+    ]
+  },
+  {
+    "name": "livekit-agents",
+    "ecosystem": "PyPI",
+    "documented": "1.8.10",
+    "changelog": "https://github.com/livekit/agents/releases",
+    "skills": [
+      "stack-python:building-voice-agents"
+    ]
+  },
+  {
+    "name": "ollama",
+    "ecosystem": "PyPI",
+    "documented": "0.6.3",
+    "changelog": "https://pypi.org/project/ollama/#history",
+    "skills": [
+      "stack-python:calling-llms-reliably"
+    ]
+  },
+  {
+    "name": "anthropic",
+    "ecosystem": "PyPI",
+    "documented": "2.5.0",
+    "changelog": "https://github.com/anthropics/anthropic-sdk-python/releases",
+    "skills": [
+      "stack-python:calling-llms-reliably"
+    ]
+  },
+  {
+    "name": "httpx",
+    "ecosystem": "PyPI",
+    "documented": "0.28.1",
+    "changelog": "https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+    "skills": [
+      "stack-python:calling-llms-reliably",
+      "stack-python:building-fastapi-services"
+    ]
+  },
+  {
+    "name": "pytest-asyncio",
+    "ecosystem": "PyPI",
+    "documented": "1.4.1.post1",
+    "changelog": "https://pypi.org/project/pytest-asyncio/#history",
+    "skills": [
+      "stack-python:building-fastapi-services"
+    ]
+  },
+  {
+    "name": "uv",
+    "ecosystem": "github",
+    "repo": "astral-sh/uv",
+    "documented": "0.13.7",
+    "changelog": "https://github.com/astral-sh/uv/releases",
+    "skills": [
+      "stack-python:building-fastapi-services"
+    ]
+  }
+]

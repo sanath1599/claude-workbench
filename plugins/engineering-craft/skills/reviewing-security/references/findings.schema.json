@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security audit findings",
+  "type": "object",
+  "required": ["scope", "findings", "rejected"],
+  "additionalProperties": false,
+  "properties": {
+    "scope": {
+      "type": "object",
+      "required": ["target", "commit", "out_of_scope"],
+      "additionalProperties": false,
+      "properties": {
+        "target": { "type": "string" },
+        "commit": { "type": "string" },
+        "out_of_scope": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "severity", "category", "location", "description", "exploit_scenario", "evidence", "recommendation", "confidence", "verification"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^SEC-[0-9]{2,}$" },
+          "title": { "type": "string", "minLength": 5 },
+          "severity": { "enum": ["critical", "high", "medium", "low", "info"] },
+          "category": {
+            "enum": ["authz", "authn", "injection", "ssrf", "upload", "secrets", "session", "csrf", "xss", "headers", "webhook", "prompt-injection", "dependency", "data-exposure", "rate-limit", "config", "other"]
+          },
+          "location": {
+            "type": "object",
+            "required": ["file", "line"],
+            "additionalProperties": false,
+            "properties": {
+              "file": { "type": "string" },
+              "line": { "type": "integer", "minimum": 1 },
+              "symbol": { "type": "string" }
+            }
+          },
+          "description": { "type": "string", "minLength": 10 },
+          "exploit_scenario": { "type": "string", "minLength": 10 },
+          "evidence": { "type": "string", "minLength": 3, "description": "Code excerpt or command output. Redact secret values." },
+          "recommendation": { "type": "string", "minLength": 5 },
+          "confidence": { "enum": ["high", "medium", "low"] },
+          "verification": {
+            "type": "object",
+            "required": ["verdict", "evidence"],
+            "additionalProperties": false,
+            "properties": {
+              "verdict": { "const": "CONFIRMED" },
+              "evidence": { "type": "string", "minLength": 5 }
+            }
+          }
+        }
+      }
+    },
+    "rejected": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string" },
+          "reason": { "type": "string" },
+          "verdict": { "enum": ["REJECTED", "FALSE_POSITIVE_FILTER"] }
+        }
+      }
+    }
+  }
+}
