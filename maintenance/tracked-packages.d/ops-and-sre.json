@@ -1,0 +1,15 @@
+[
+  {"name": "logfire", "ecosystem": "PyPI", "documented": "5.4.0", "changelog": "https://pydantic.dev/docs/logfire/", "skills": ["instrumenting-services"]},
+  {"name": "opentelemetry-sdk", "ecosystem": "PyPI", "documented": "1.45.2", "changelog": "https://github.com/open-telemetry/opentelemetry-python/blob/main/CHANGELOG.md", "skills": ["instrumenting-services"]},
+  {"name": "temporalio", "ecosystem": "PyPI", "documented": "1.35.0", "changelog": "https://github.com/temporalio/sdk-python/releases", "skills": ["instrumenting-services", "releasing-safely", "deploying-to-a-vps"]},
+  {"name": "pydantic-ai", "ecosystem": "PyPI", "documented": "2.66.0", "changelog": "https://github.com/pydantic/pydantic-ai/releases", "skills": ["instrumenting-services"]},
+  {"name": "alembic", "ecosystem": "PyPI", "documented": "1.20.1", "changelog": "https://alembic.sqlalchemy.org/en/latest/changelog.html", "skills": ["releasing-safely"]},
+  {"name": "prisma", "ecosystem": "npm", "documented": "8.0.0-rc.30", "changelog": "https://github.com/prisma/prisma/releases", "skills": ["releasing-safely"]},
+  {"name": "rhysd/actionlint", "ecosystem": "github", "repo": "rhysd/actionlint", "documented": "1.7.12", "changelog": "https://github.com/rhysd/actionlint/releases", "skills": ["setting-up-ci"]},
+  {"name": "actions/checkout", "ecosystem": "github", "repo": "actions/checkout", "documented": "7.0.1", "changelog": "https://github.com/actions/checkout/releases", "skills": ["setting-up-ci"]},
+  {"name": "actions/setup-node", "ecosystem": "github", "repo": "actions/setup-node", "documented": "7.1.0", "changelog": "https://github.com/actions/setup-node/releases", "skills": ["setting-up-ci"]},
+  {"name": "actions/cache", "ecosystem": "github", "repo": "actions/cache", "documented": "6.1.0", "changelog": "https://github.com/actions/cache/releases", "skills": ["setting-up-ci"]},
+  {"name": "actions/upload-artifact", "ecosystem": "github", "repo": "actions/upload-artifact", "documented": "7.0.2", "changelog": "https://github.com/actions/upload-artifact/releases", "skills": ["setting-up-ci"]},
+  {"name": "astral-sh/setup-uv", "ecosystem": "github", "repo": "astral-sh/setup-uv", "documented": "10.3.3", "changelog": "https://github.com/astral-sh/setup-uv/releases", "skills": ["setting-up-ci"]},
+  {"name": "gitleaks/gitleaks-action", "ecosystem": "github", "repo": "gitleaks/gitleaks-action", "documented": "3.0.0", "changelog": "https://github.com/gitleaks/gitleaks-action/releases", "skills": ["setting-up-ci"]}
+]

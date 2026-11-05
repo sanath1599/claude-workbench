@@ -1,0 +1,20 @@
+[
+  {"name":"@tanstack/react-router","ecosystem":"npm","documented":"1.170.46","changelog":"https://github.com/TanStack/router/blob/main/packages/react-router/CHANGELOG.md","skills":["building-tanstack-frontends"]},
+  {"name":"@tanstack/router-plugin","ecosystem":"npm","documented":"1.168.48","changelog":"https://github.com/TanStack/router/blob/main/packages/router-plugin/CHANGELOG.md","skills":["building-tanstack-frontends"]},
+  {"name":"@tanstack/react-query","ecosystem":"npm","documented":"5.106.0","changelog":"https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md","skills":["building-tanstack-frontends"]},
+  {"name":"@tanstack/react-start","ecosystem":"npm","documented":"1.169.4","changelog":"https://github.com/TanStack/router/blob/main/packages/react-start/CHANGELOG.md","skills":["building-tanstack-frontends","deploying-on-vercel"]},
+  {"name":"@tanstack/react-form","ecosystem":"npm","documented":"1.33.5","changelog":"https://github.com/TanStack/form/releases","skills":["building-tanstack-frontends"]},
+  {"name":"@tanstack/react-table","ecosystem":"npm","documented":"9.3.1","changelog":"https://github.com/TanStack/table/releases","skills":["building-tanstack-frontends"]},
+  {"name":"vite","ecosystem":"npm","documented":"8.3.6","changelog":"https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md","skills":["building-tanstack-frontends"]},
+  {"name":"typescript","ecosystem":"npm","documented":"7.0.2","changelog":"https://github.com/microsoft/TypeScript/releases","skills":["building-tanstack-frontends"]},
+  {"name":"zod","ecosystem":"npm","documented":"4.6.7","changelog":"https://github.com/colinhacks/zod/releases","skills":["building-tanstack-frontends"]},
+  {"name":"resend","ecosystem":"npm","documented":"6.37.0","changelog":"https://github.com/resend/resend-node/blob/main/CHANGELOG.md","skills":["sending-email-with-resend"]},
+  {"name":"resend","ecosystem":"PyPI","documented":"2.51.0","changelog":"https://github.com/resend/resend-python/releases","skills":["sending-email-with-resend"]},
+  {"name":"vercel","ecosystem":"npm","documented":"65.11.0","changelog":"https://github.com/vercel/vercel/releases","skills":["deploying-on-vercel","adding-subdomains"]},
+  {"name":"nitro","ecosystem":"npm","documented":"3.0.261103-rc","changelog":"https://github.com/nitrojs/nitro/releases","skills":["deploying-on-vercel"]},
+  {"name":"next","ecosystem":"npm","documented":"16.4.5","changelog":"https://nextjs.org/blog","skills":["working-in-nextjs-16"]},
+  {"name":"prisma","ecosystem":"npm","documented":"7.10.1","changelog":"https://www.prisma.io/changelog","skills":["working-in-nextjs-16"],"note":"npm latest is a prerelease (8.0.0-rc.30); track the stable line via the prev dist-tag"},
+  {"name":"sileo","ecosystem":"npm","documented":"0.1.6","changelog":"https://www.npmjs.com/package/sileo","skills":["building-tanstack-frontends","working-in-nextjs-16"]},
+  {"name":"lucide-react","ecosystem":"npm","documented":"1.69.0","changelog":"https://github.com/lucide-icons/lucide/releases","skills":["building-tanstack-frontends"]},
+  {"name":"argon2","ecosystem":"npm","documented":"0.45.2","changelog":"https://github.com/ranisalt/node-argon2/releases","skills":["adding-auth"]}
+]

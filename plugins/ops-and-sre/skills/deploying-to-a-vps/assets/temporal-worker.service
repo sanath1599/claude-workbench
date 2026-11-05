@@ -1,0 +1,25 @@
+# /etc/systemd/system/<app>-worker.service
+# Backslashes in env values must be single-quoted in the EnvironmentFile.
+[Unit]
+Description=<app> Temporal worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<service-user>
+WorkingDirectory=/srv/<app>/current
+EnvironmentFile=/etc/<app>/worker.env
+ExecStart=/srv/<app>/current/.venv/bin/python -m <package>.worker
+Restart=always
+RestartSec=5
+# SIGTERM lets the worker stop polling and finish running activities.
+KillSignal=SIGTERM
+# Longer than the longest activity.
+TimeoutStopSec=300
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

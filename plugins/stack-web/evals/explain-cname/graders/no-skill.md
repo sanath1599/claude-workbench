@@ -1,0 +1,7 @@
+---
+type: tool_used
+weight: 1
+arm: with-only
+negate: true
+---
+Skill

@@ -1,0 +1,7 @@
+[
+  {"name": "@stoplight/spectral-cli", "ecosystem": "npm", "documented": "6.17.0", "changelog": "https://github.com/stoplightio/spectral/releases", "skills": ["designing-apis"]},
+  {"name": "@redocly/cli", "ecosystem": "npm", "documented": "2.75.0", "changelog": "https://github.com/Redocly/redocly-cli/releases", "skills": ["designing-apis"]},
+  {"name": "@hey-api/openapi-ts", "ecosystem": "npm", "documented": "0.99.0", "changelog": "https://github.com/hey-api/openapi-ts/releases", "skills": ["designing-apis"]},
+  {"name": "oasdiff", "ecosystem": "github", "repo": "oasdiff/oasdiff", "documented": "v1.35.0", "changelog": "https://github.com/oasdiff/oasdiff/releases", "skills": ["designing-apis"]},
+  {"name": "pydantic-evals", "ecosystem": "PyPI", "documented": "2.66.0", "changelog": "https://github.com/pydantic/pydantic-ai/releases", "skills": ["building-llm-features"]}
+]

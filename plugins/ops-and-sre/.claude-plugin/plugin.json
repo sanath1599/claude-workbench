@@ -10,11 +10,17 @@
   "license": "PolyForm-Noncommercial-1.0.0",
   "keywords": [
     "ci",
+    "github-actions",
     "release",
+    "migrations",
     "incident",
+    "postmortem",
     "slo",
+    "burn-rate",
     "observability",
+    "logfire",
     "runbook",
-    "vps"
+    "vps",
+    "temporal"
   ]
 }
