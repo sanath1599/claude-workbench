@@ -1,7 +1,7 @@
 [
   {"name":"@tanstack/react-router","ecosystem":"npm","documented":"1.170.46","changelog":"https://github.com/TanStack/router/blob/main/packages/react-router/CHANGELOG.md","skills":["building-tanstack-frontends"]},
   {"name":"@tanstack/router-plugin","ecosystem":"npm","documented":"1.168.48","changelog":"https://github.com/TanStack/router/blob/main/packages/router-plugin/CHANGELOG.md","skills":["building-tanstack-frontends"]},
-  {"name":"@tanstack/react-query","ecosystem":"npm","documented":"5.106.0","changelog":"https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md","skills":["building-tanstack-frontends"]},
+  {"name":"@tanstack/react-query","ecosystem":"npm","documented":"5.106.1","changelog":"https://github.com/TanStack/query/blob/main/packages/react-query/CHANGELOG.md","skills":["building-tanstack-frontends"]},
   {"name":"@tanstack/react-start","ecosystem":"npm","documented":"1.169.4","changelog":"https://github.com/TanStack/router/blob/main/packages/react-start/CHANGELOG.md","skills":["building-tanstack-frontends","deploying-on-vercel"]},
   {"name":"@tanstack/react-form","ecosystem":"npm","documented":"1.33.5","changelog":"https://github.com/TanStack/form/releases","skills":["building-tanstack-frontends"]},
   {"name":"@tanstack/react-table","ecosystem":"npm","documented":"9.3.1","changelog":"https://github.com/TanStack/table/releases","skills":["building-tanstack-frontends"]},

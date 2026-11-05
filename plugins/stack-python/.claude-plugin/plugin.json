@@ -1,6 +1,6 @@
 {
   "name": "stack-python",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Python agentic backend defaults: Pydantic AI v2 agents, a Temporal pattern picker, Postgres first with Qdrant when needed, reliable LLM calls, LiveKit voice agents and FastAPI services.",
   "author": {
     "name": "Starter Pack contributors",

@@ -24,7 +24,7 @@ import viteReact from "@vitejs/plugin-react";
 export default defineConfig({ plugins: [tanstackStart(), nitro(), viteReact()] });
 ```
 
-Runs as Vercel Functions. Docs: https://vercel.com/docs/frameworks/full-stack/tanstack-start
+Use nitro 3.0.260429-beta or later: earlier versions have two route-rule advisories (proxy scope bypass, wildcard open redirect; GHSA-5w89-w975-hf9q, GHSA-9phm-9p8f-hw5m). Runs as Vercel Functions. Docs: https://vercel.com/docs/frameworks/full-stack/tanstack-start
 
 ## FastAPI
 
