@@ -111,7 +111,16 @@ async function vulnerabilities(pkgs) {
 }
 
 export function extractLinks(text) {
-  return [...new Set([...String(text).matchAll(/https?:\/\/[^\s)<>"'`\]|]+/g)].map((m) => m[0].replace(/[.,;:]+$/, '')))].filter((u) => !/\{\{|<|example\.(?:com|org)|localhost|127\.0\.0\.1|\$\{/.test(u));
+  return [...new Set([...String(text).matchAll(/https?:\/\/[^\s)<>"'`\]|]+/g)].map((m) => m[0].replace(/[.,;:]+$/, '')))].filter((u) => !/\{\{|<|example\.(?:com|org)|localhost|127\.0\.0\.1|\$\{/.test(u))
+    .filter((u) => {
+      try {
+        const { hostname, pathname } = new URL(u);
+        if (!hostname.includes('.') || /\.(?:example|test|local|internal|invalid)$/.test(hostname)) return false; // placeholders
+        return !/\/(?:v\d+|api|mcp)\/?$/.test(pathname); // API base URLs, not pages
+      } catch {
+        return false;
+      }
+    });
 }
 
 async function checkLinks(urls) {

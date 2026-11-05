@@ -125,7 +125,7 @@ export function NewTask({ onCreate }: { onCreate: (v: z.infer<typeof schema>) =>
 
 ## Table (v9)
 
-Table v9 changed its setup from v8. Read https://tanstack.com/table/latest/docs/introduction and its migration guide before writing the hook call; do not paste v8 code. Keep column definitions at module scope, memoise data, and show an empty state when `rows.length === 0`.
+Table v9 changed its setup from v8. Read https://tanstack.com/table/latest/docs/overview and its migration guide before writing the hook call; do not paste v8 code. Keep column definitions at module scope, memoise data, and show an empty state when `rows.length === 0`.
 
 ## Tokens (src/styles/tokens.css)
 
