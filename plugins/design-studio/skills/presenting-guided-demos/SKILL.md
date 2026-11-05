@@ -32,7 +32,7 @@ A guided demo is one standalone HTML deck that walks an audience through the rea
 
 ## Procedure
 
-1. **Plan the story.** List 5 to 8 tasks the audience cares about, each as one slide with 2 to 5 steps. Write copy for executives: no jargon, spell out acronyms, say what it saves or enables. Sentence case, no emojis.
+1. **Plan the story.** List 5 to 8 tasks the audience cares about, each as one slide with 2 to 5 steps. Write copy for executives: no jargon, spell out acronyms, say what it saves or enables. Sentence case, no emojis. Open with the audience's problem in one line, not the product name. Each slide carries one claim as its title, a sentence in sentence case that states the point (for example "Approvals now take minutes"), and one supporting visual. Close on the next action, with a name and a date. Charts follow `design-studio:styling-charts-and-data-displays`, with the same chart tokens as the app.
    **Done when:** a table of slide, steps, element to highlight exists and the owner has not objected.
 2. **Capture the real UI.** Serve the app locally with fictional seeded data (never real customers or candidates). Capture each screen's rendered DOM and computed CSS, or reuse the app's components in a static build. Do not redraw it by hand; if the app's styles are not inlined the tour will drift from the app.
 3. **Assemble.** Copy `assets/skeleton.html`. Put each screen in a `<section class="slide">` inside the stage. Give highlighted elements a `data-step` attribute with `data-title` and `data-text`. Keep one JS block for navigation.
@@ -40,6 +40,10 @@ A guided demo is one standalone HTML deck that walks an audience through the rea
 5. **Verify.** Run `design-studio:verifying-ui-in-browser` at 1280 and 1536 and on a phone width (the stage scales). Press every key; follow every deep link; confirm the "Your turn" slide is interactive.
    **Done when:** no console errors, popovers never cover their target, and the file opens offline.
 6. **Hand over.** Give the file path and the keys cheat sheet. Offer a hosted copy only if asked; deploys need the owner's yes.
+
+## Static banners and social images
+
+For the occasional banner, export at the platform size (for example 1200x630 for link previews, 1500x500 for profile headers, 1080x1080 for square posts). Keep one message and one call to action, and keep text within the central safe area because platforms crop edges.
 
 ## Quick reference
 

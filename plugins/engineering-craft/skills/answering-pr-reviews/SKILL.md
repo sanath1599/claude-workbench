@@ -26,18 +26,19 @@ Every review comment gets a fix or a justification, nothing is posted unverified
 2. Read the diff in context: the changed files in full where the change is not obvious, the tests, and the project's CLAUDE.md rules.
 3. Run the repo's checks on the PR branch (tests, type check, lint, build). Report failures with output.
 4. List candidate findings: bugs, rule violations, missing tests, risky migrations, security issues. Include file and line, why it matters, and a suggested fix.
-5. Validate each candidate with a second pass: re-read the code, try to disprove it (is it handled elsewhere, is the path reachable, does a test cover it). Drop what does not survive. Run reviews on `sonnet`.
+5. Validate each candidate with a second pass: re-read the code, try to disprove it (is it handled elsewhere, is the path reachable, does a test cover it). Drop what does not survive. Run reviews on `sonnet`. For a whole-branch review, follow `workflow:reviewing-code-before-merge`: focused reviewers in parallel, an independent verifier for each finding, a false-positive filter and a counts line. Use this mode only for the `pr_N_review.md` write-up and the reply to the author.
 6. Write `pr_N_review.md` using `assets/pr-review-template.md`. Post comments to GitHub only when the owner says to, and only validated findings.
 
 **Done when:** `pr_N_review.md` exists with only validated findings, each with file, line and a fix suggestion.
 
 ### Mode B: answering comments (you are the author)
 
-1. Pull every comment: `gh api repos/{owner}/{repo}/pulls/N/comments --paginate` and `gh pr view N --comments` for review summaries. List them all with ids, including resolved ones you still need to acknowledge.
-2. For each comment, decide before editing:
+1. Pull every comment: `gh api repos/{owner}/{repo}/pulls/N/comments --paginate` and `gh pr view N --comments` for review summaries. List them all with ids, including resolved ones you still need to acknowledge. Read the whole set before changing anything. If any item is unclear, ask about the unclear ones first, because related items often depend on each other; do not implement the clear ones and ask about the rest later.
+2. For each comment, restate the requirement in your own words and check it against the code, then decide before editing. Do not open a reply with praise or "you are right"; say what you changed or why you did not.
    - Correct and clear: fix it.
    - Correct but already handled elsewhere: point to where, with the line.
    - Unclear: verify what the reviewer means from the code before acting; ask in the reply only if still ambiguous.
+   - Asks for a feature nothing uses: search the code for real callers first, and propose removing it instead of building it.
    - Wrong, or trading something worse: defend it with evidence (test, benchmark, doc link, constraint) in a polite, specific reply. Defend where needed; do not accept a suggestion that breaks behaviour just to close a thread.
 3. Make the fixes with tests where behaviour changes; run the full checks. For a large review, state the round's constraint up front ("no breaking changes"), and put anything that would change business behaviour under "decision needed" with a proposal. Call out any change to an endpoint's contract explicitly.
 4. Record each comment in `pr_N_review.md`: comment id, summary, decision (fixed, justified, deferred with issue), commit hash or reasoning. For a large review make it an audit table, one row per thread: final status (fixed, removed, justified, decision needed, n/a), the change, and why it is non-breaking. Verify each row against the current code, not against the earlier reply.

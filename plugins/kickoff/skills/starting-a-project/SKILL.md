@@ -30,7 +30,7 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 3. **Choose the stack** with kickoff:choosing-the-stack, then write the design spec with kickoff:writing-the-design-spec. Include an "Environment findings" section verified on this machine (CLIs logged in, keys present by name, ports free), and an "Owner-machine work" section.
 
 4. **Scaffold:**
-   - `git init -b main`. Copy `assets/gitignore` to `.gitignore` (env files, caches, build output, graphify caches) and merge it with any framework default.
+   - `git init -b main`. Copy `assets/gitignore` to `.gitignore` (env files, caches, build output, graphify working files) and merge it with any framework default.
    - `.env.example` with every variable name and a placeholder. The owner fills `.env`; never write their values.
    - `CLAUDE.md` from `assets/CLAUDE.md`: Start here, Rules, Commands, Local services. Keep it short and specific.
    - Local Postgres when needed: a Docker container bound to `127.0.0.1` on a free port. Check `docker ps --format '{{.Ports}}'` and `lsof -iTCP -sTCP:LISTEN` first; never reuse another project's port. Record the port in CLAUDE.md.
@@ -52,7 +52,8 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 8. **Prove the bootstrap** by running it: install, typecheck, tests, database up and migrated, dev server answering. Fix anything that fails now, while it's cheap.
    **Done when:** each command ran and its output was shown.
 
-9. **Graph it.** Once the base is in, run `/graphify .` (or the `graphify` CLI), and commit `graphify-out/GRAPH_REPORT.md` if it is small. Re-run with `--update` after big changes.
+9. **Graph it.** First check `.claude/workbench.json`: if `graphify` is false, skip this step. If the `graphify` command is missing, install it with `pipx install graphifyy`. After the base setup is committed, run `graphify update .` (code-only, no tokens), then `graphify claude install` and `graphify hook install`. These edit `CLAUDE.md` and `.claude/settings.json`, so review the diff and commit the changes. Commit `graphify-out/GRAPH_REPORT.md` and `graph.json`. If the repo has substantial docs, specs or images, ask the owner whether to also run `/graphify .` for the semantic pass. For a repo with more than about 200 code files, tell the owner which subfolder you chose.
+   **Done when:** `graphify-out/graph.json` exists and the hooks are committed, or the owner chose to skip it.
 
 10. **Report** in at most 8 lines: repo URL, stack, what was verified, the cloud kit status, and the owner's next steps as `! commands`.
 
@@ -60,7 +61,7 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 - [ ] `.claude/workbench.json` records the four answers.
 - [ ] The repo is pushed; `git status` is clean; no secrets were committed.
 - [ ] Every bootstrap command ran green, with output shown.
-- [ ] The graphify map exists (or the owner chose to skip it).
+- [ ] `graphify-out/GRAPH_REPORT.md` and `graph.json` exist and the hooks are installed (or `graphify` is false in `.claude/workbench.json`, or the owner chose to skip it).
 
 ## References
 | File | Load when |

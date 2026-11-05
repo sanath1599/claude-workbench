@@ -35,7 +35,7 @@ export function buildContext({ cwd, profileInfo, projectInfo, env = process.env,
     const c = projectInfo.config;
     parts.push(`**This project** (${projectInfo.path}): commits=${c.commits}, co-author trailer=${c.coAuthorTrailer}, branches=${c.branchPolicy}, cloud handoff=${c.cloudHandoff}, production deploys=${c.productionDeploys}.`);
     if (c.graphify !== false && !existsSync(join(projectInfo.root, 'graphify-out'))) {
-      parts.push('This project has no graphify graph yet. Once the base setup is done, run `/graphify`.');
+      parts.push('This project has no graphify graph yet. Once the base setup is done, run `graphify update .` (then `graphify claude install`).');
     }
   } else if (existsSync(join(projectInfo.root, '.git'))) {
     parts.push('This repo has no `.claude/workbench.json` yet. If the owner is starting or reshaping the project, use kickoff:starting-a-project, which records the commit, cloud and deploy policy. Otherwise apply the defaults above.');

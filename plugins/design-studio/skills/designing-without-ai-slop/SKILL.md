@@ -20,7 +20,7 @@ The owner wants modern, minimal, intentional UI. Slop is what appears when defau
 
 ## Procedure
 
-1. **Gather direction.** Invoke `frontend-design:frontend-design` for aesthetic direction, `ui-ux-pro-max:ui-ux-pro-max` for palette, type and layout data, and `meta-skills:modern-web-design` for current patterns. Take the results as inputs, then apply the rules below, which win on conflict.
+1. **Gather direction.** Use `design-studio:choosing-type-and-color` for the palette, fonts and tokens file, and `design-studio:adding-motion-and-3d` only if motion is requested. Take the results as inputs, then apply the rules below, which win on conflict. Before any markup, write a compact plan: four to six named colour values, the type roles, a layout idea in one sentence with an ASCII wireframe, and two or three principles. Then test the plan: if you would arrive at the same plan for any similar product, change the part that is generic and say what you changed. Spend boldness in one place: one memorable element, everything around it quiet.
    **Done when:** you can name one palette, one type pair and one layout idea, and why they suit this product.
 2. **Set tokens.** One tokens file: colour, type scale, spacing, radius, shadow. Components never contain hex. Use the client's colours and logo when there is a client; default to light mode for client and enterprise work.
 3. **Apply the taste rules.**
@@ -33,6 +33,8 @@ The owner wants modern, minimal, intentional UI. Slop is what appears when defau
    - Every list and form has explicit loading, empty and error states.
    - Text is never truncated without a "show more".
    - Responsive on phone, iPad and desktop by design, not by shrinking.
+   - Copy names things by what users understand, not by how the system is built. An action keeps one name through the flow (the button "Publish" yields the toast "Published"). Errors say what happened and how to fix it, and do not apologise. Empty screens invite the next action.
+   - Charts follow `design-studio:styling-charts-and-data-displays`.
 4. **Sweep for slop tells** (list below), then run the full checklist in `references/checklist.md`.
 5. **Get a second read.** Dispatch the `design-studio:design-critic` agent on the file or screenshots; fix every high finding.
    **Done when:** the critic returns no high findings and the checklist has no unchecked items.
@@ -49,6 +51,16 @@ The owner wants modern, minimal, intentional UI. Slop is what appears when defau
 - Default font stacks and default Tailwind palette untouched.
 - Native `<select>`, browser-default focus and scrollbars next to a styled UI.
 - Dark mode with neon accents by default for a business tool.
+
+Also read as generated: the defaults below are legitimate only when the brief asks for them. If the brief leaves the axis free, do not spend it on a default.
+
+- A warm cream page with a high-contrast serif headline and a terracotta accent.
+- Near-black page with one acid-green or vermilion accent.
+- Newspaper layout (hairline rules, zero radius, dense columns) used regardless of subject.
+- The same border radius and the same soft grey shadow on every card, whatever its importance.
+- Tracked-out uppercase labels above every heading; meta strings joined with middle dots; labels shaped like "WORD - fragment"; arrows appended to link text.
+- Numbered markers (01, 02, 03) on content that is not a sequence.
+- One word of a headline picked out in italic or colour.
 
 ## Quick reference
 

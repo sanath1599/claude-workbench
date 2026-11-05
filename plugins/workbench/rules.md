@@ -18,7 +18,7 @@ These come from the owner's past sessions. Follow them unless the project's CLAU
 - LLMs: {{wb.llm_default}}. Never call real LLM, voice or email providers from tests.
 - Package manager: {{wb.package_manager}} (keep whatever lockfile a repo already has). Use the latest packages and read the current docs.
 - At session start, review dependency updates with stack:reviewing-dependency-updates. Record every adopt or decline, with the reason, in docs/dependency-decisions.md.
-- Design: modern and minimal, never "AI slop". Before any UI build, get a single-file HTML mockup with dummy data approved, and use the installed design skills.
+- Design: modern and minimal, never "AI slop". Before any UI build, get a single-file HTML mockup with dummy data approved, and use design-studio:designing-without-ai-slop, choosing-type-and-color, adding-motion-and-3d (only when motion is requested) and styling-charts-and-data-displays.
 
 **Safety**
 - Secrets: never print, log, paste or commit them. Keep `.env*` git-ignored (except .env.example), never overwrite an existing .env, and keep the owner's personal data out of seed scripts. The hooks secret-scan every commit and push.
@@ -34,4 +34,4 @@ These come from the owner's past sessions. Follow them unless the project's CLAU
 
 **Projects**
 - Start a new project with kickoff:starting-a-project. It asks first whether the work may ever be handed to a cloud session.
-- After the base setup is done, run `/graphify`. After big changes, run `graphify . --update`.
+- After the base setup is committed, run `graphify update .` (code-only, no tokens), then `graphify claude install` and `graphify hook install`. Use `/graphify .` for the semantic pass only on repos with substantial docs or images, and when the owner wants it.

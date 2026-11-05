@@ -53,7 +53,7 @@ Three to five cases per skill:
 1. **Positive:** a realistic prompt in the owner's voice that should trigger the skill. Graders: an `llm` grader describing the behaviour you expect in plain terms, and a `tool_used` grader on `Skill` with `input_match` for the skill name.
 2. **Positive, indirect:** the same need without the skill's keywords.
 3. **Near-miss:** a prompt in the same domain that must not trigger it. Grader: `tool_used`, `tool: Skill`, `input_match` on the skill name, `min: 0`, `max: 0`, `arm: both`.
-4. **Pressure case** (discipline skills): a prompt that tempts the excuse in the Rationalizations table.
+4. **Pressure case** (discipline skills): a prompt that tempts the excuse in the Rationalizations table. Before trusting a new discipline skill, run that prompt with the skill absent and note the exact shortcut Claude takes and the excuse it gives. Write the Rationalizations table from those real excuses, then run the same prompt with the skill present and confirm the behaviour changed. A skill whose absence changes nothing should not be added.
 
 Prompt frontmatter keys: `runs`, `max_turns`, `allowed_tools`, `tags` (and the other documented keys in the test). Keep `max_turns` low (4 to 8) and `allowed_tools` read-only plus `Skill` unless the case needs more. Graders: `type: llm | regex | tool_used`, `weight`, optional `arm` (`with-only` or `both`). Make `llm` criteria observable ("the reply proposes X before building Y"), never taste.
 

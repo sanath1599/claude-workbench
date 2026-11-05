@@ -26,7 +26,7 @@ Unattended runs fail quietly: a disabled routine, a cron that expired with its s
 
    A cloud routine has no local services, CLI logins or GPU, so the prompt says so ("no local Postgres, no Vercel login; do not try to set them up"). Let the cloud draft, check and open a PR. Do the privileged release (a production push, a migration, a newsletter send) from a machine or CI job that holds the credentials, and name that step in the prompt.
 
-2. **Check for what already exists:** `RemoteTrigger list` (or `/schedule list`), `CronList`, `ListAgents` (peer sessions in this repo), and `crontab -l` / `launchctl list | grep <label>`. Extend an existing routine rather than adding a second one.
+2. **Check for what already exists:** `RemoteTrigger list` (or `/schedule list`), `CronList`, `ListAgents` (peer sessions in this repo), and `crontab -l` / `launchctl list | grep <label>`. Extend an existing routine rather than adding a second one, and make the job's first step check whether the work was already done. After a one-time routine starts, disable it and confirm a single run in the run list. See `workflow:working-in-parallel-sessions` for the resumed-conversation duplicate case.
 
 3. **Write the routine prompt:**
    - The runbook path to read first, then the task.

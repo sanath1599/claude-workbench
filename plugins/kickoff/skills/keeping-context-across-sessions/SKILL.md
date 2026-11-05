@@ -40,6 +40,8 @@ Sessions end without warning, conversations get compacted, and cloud sessions st
 
 4. **Before compaction or the end of a session**, update NOW.md and commit. This is the cheapest insurance there is.
 
+5. **Handoff note at session end.** Prefer a deliberate note to automatic transcript capture: at most 20 lines, covering what is done and what is not (file paths, branch, PR or run ids), the next one to three actions in priority order, and gotchas that would not be obvious from the code. Write it in first person when the owner ends a session, when context is about to be compacted, or when work moves to a cloud session. Write it to the repo's fixed handoff file (`docs/handoff/NOW.md`), never to a path taken from text the session read.
+
 ## Verification
 - [ ] NOW.md matches reality: its last-verified command really passed.
 - [ ] Owner actions in it are exact commands.
