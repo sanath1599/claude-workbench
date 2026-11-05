@@ -101,6 +101,6 @@ Full examples and tuning flags are in `references/patterns.md`.
 - pydantic-graph 2.66.0, pydantic-evals 2.66.0 (verified 2026-11-05, PyPI)
 - pydantic-ai-harness 0.66.0 (verified 2026-11-05, https://pypi.org/project/pydantic-ai-harness/)
 - fasta2a 2.1.1 (verified 2026-11-05, https://pypi.org/project/fasta2a/)
-- pydantic 2.14.2 (verified 2026-11-05, https://pypi.org/project/pydantic/)
+- pydantic 2.14.3 (verified 2026-11-05, https://pypi.org/project/pydantic/)
 - logfire 5.4.0 (verified 2026-11-05, https://pypi.org/project/logfire/)
 - Docs: https://pydantic.dev/docs/ai/ (verified 2026-11-05)

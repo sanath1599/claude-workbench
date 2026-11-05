@@ -1,6 +1,6 @@
 {
   "name": "stack-web",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript web stack defaults: Vite + TanStack frontends, Vercel deploys, owner-domain subdomains with DNS-only records, Resend email, lightweight auth, and Next.js 16 for existing apps.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"
