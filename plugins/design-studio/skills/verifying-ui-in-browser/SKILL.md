@@ -21,6 +21,7 @@ UI is not done until it has been seen in a browser at four widths with a clean c
 
 ## Procedure
 
+0. **Infer the user story.** When the owner says "it almost works" or "verify the flow", state in one sentence what is being built (UI action to route to data to rendered result). Check each boundary in order with evidence (console, network, server log, env) and stop at the first broken boundary with a specific fix. Do not verify unrelated features.
 1. **Serve it.** Use the project's dev server, a local production build, or open the HTML file directly. Seed fictional data so lists are not empty, and also load the empty state.
 2. **Pick the tool.** If the project has Playwright (`playwright` in package.json or importable), run `node scripts/shoot.mjs <url-or-file> --out ui-shots`. Otherwise use the chrome-devtools MCP tools: `resize_page`, `take_screenshot`, `list_console_messages`, `evaluate_script`.
    **Done when:** you have one screenshot each at 375, 768, 1280 and 1536 px wide.
@@ -32,6 +33,7 @@ UI is not done until it has been seen in a browser at four widths with a clean c
 4. **Check the console.** Zero errors and zero failed network requests. Warnings about missing keys or hydration count as errors.
 5. **Check contrast and focus.** Body text needs 4.5:1 contrast against its background, large text 3:1, in light mode first and dark mode if offered. Tab through the page: focus is visible and moves in reading order; dialogs trap and restore focus; combobox opens with the keyboard.
 6. **Interact once.** Click the main flow, open a dropdown and a toast. A toast appears bottom-right with a sentence-case title.
+   For a generated page (an offline deck or artifact rather than your own dev server), also follow `references/offline-artifacts.md`.
 7. **Fix and repeat** from step 2 until clean. Report the screenshot paths and the summary line.
    **Done when:** `summary.json` reports `ok: true` (or you list each remaining problem), and you have viewed the images.
 
@@ -68,6 +70,7 @@ UI is not done until it has been seen in a browser at four widths with a clean c
 
 | File | Load when |
 | --- | --- |
+| references/offline-artifacts.md | verifying a generated offline page: blocked network, reduced motion, per-view checks |
 | scripts/shoot.mjs | running the screenshot sweep (`node scripts/shoot.mjs --help` style usage is in its header) |
 
 ## Versions

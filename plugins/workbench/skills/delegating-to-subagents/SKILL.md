@@ -36,6 +36,8 @@ Delegate when the work is independent and parallel, or needs a lot of reading wh
    - the verification command that must pass;
    - the output format and size cap.
 
+   For parallel UI work, build and freeze the foundation first (types, store, primitives, layout, utils, permissions). Write a `CONTRIBUTING.md` listing what to read, the visual rules by token name, the verification steps and what to report. Each agent owns one feature folder and may not edit shared files; it reports the shared change it wished for and the lead makes it once. Require typecheck plus screenshots at desktop and phone width, with console errors and horizontal overflow reported. Convention docs are copied literally by every agent, so check them for wrong libraries first (a `sonner` mention spreads to every file).
+
 3. **Run.** Send independent agents in one message so they run in parallel. Give background agents a scratchpad path to write their full reports to.
 
 4. **Review in batches.** For subagent-driven builds, run the reviews per batch of tasks, not after every single task (the owner asked for this). After a substantial build, dispatch one critique agent to review the result, then fix what it found.

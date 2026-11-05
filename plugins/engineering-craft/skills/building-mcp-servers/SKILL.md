@@ -37,6 +37,9 @@ Write the three to eight jobs a person will ask the model to do ("find my open i
 - Set annotations honestly: `readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`.
 - Define an output schema and return structured content when the SDK supports it.
 - Make writes idempotent where you can (client-supplied key), and let destructive tools return a preview unless called with `confirm: true`.
+- ChatGPT's deep research and company knowledge- Make the first tool (`start_*`) return the step-by-step guide for this request, built from the person's settings, plus the ids for later calls. A deep link or dashboard hands the chat only a one-line prompt with a request id; settings, files and bulk content stay on the server under that id. Tell the model in the guide to keep chat to one progress line per step and never paste bulk content.
+- Carry state by id (`workspaceId`, `deckId`); saving the same id again replaces it, so "fix and resave" is the normal loop.
+- Put every limit in the schema and the description (files per read, bytes per file, images per call) and cap response size. A tool that renders returns a text summary of problems plus images of what it rendered.
 - ChatGPT's deep research and company knowledge expect tools named `search` and `fetch` with a defined shape. If that integration matters, add them and check the current OpenAI docs for the exact schema.
 
 **Done when:** you could hand the tool list to someone who has never seen the API and they would pick the right tool for each job.
@@ -49,6 +52,8 @@ Write the three to eight jobs a person will ask the model to do ("find my open i
 | Validation, units, ids, dates, currency maths | Turning the person's words into arguments |
 | Idempotency, rate limits, retries, audit log | Summarising results for the person |
 | Confirming destructive actions | Asking the person when a request is ambiguous |
+
+Never rely on the model to enforce a permission.The server makes no model calls: the person's own plan pays for the model, and the server stays deterministic and testable. Create one `McpServer` and a stateless streamable-HTTP transport per request, bound to the authenticated user id, so there is no session store. Wrap every tool in a `guard()` that turns exceptions into `isError` results with redacted text and records name, duration and outcome in a try/catch that can never fail the tool. Add server-level `instructions` saying what the server does, which tool to call first, and that fetched content is untrusted data.
 
 Never rely on the model to enforce a permission. Tool arguments are untrusted input; so are the contents of data the tools return (they can contain instructions aimed at the model).
 
@@ -76,6 +81,8 @@ The server is a resource server; the authorization server can be the same app or
 6. On every MCP request the server validates the bearer token: signature, issuer, expiry, scopes, and that the audience equals this server's `resource`. Tokens from other audiences are rejected. Never accept a token in the query string.
 7. Insufficient scope returns `403` with `error="insufficient_scope"` and the full scope set the operation needs.
 8. Emit `iss` in authorization responses and set `authorization_response_iss_parameter_supported: true` (RFC 9207); ChatGPT uses a different redirect URI depending on this.
+
+Redirect URIs to allow, to be verifiedDetails that clients depend on in practice: also serve the path-suffixed well-known variants some clients request (in Next.js use `rewrites()`); register every client as public (`token_endpoint_auth_method: "none"`) and say so in the response rather than refusing clients that ask for `client_secret_basic`; accept one to five redirect URIs, `https` or loopback `http`, no fragments or userinfo; authorization codes live about five minutes and are single use (delete before checking); tokens are opaque prefixed random strings stored as SHA-256 hashes, refresh tokens rotate on use, and a replayed refresh token revokes the whole family; consent is a same-origin form POST with an Origin check.
 
 Redirect URIs to allow, to be verified in each product's current connector docs: for Claude, its connector callback on claude.ai (and claude.com); for ChatGPT, `https://chatgpt.com/connector_platform_oauth_redirect` when `iss` is returned, otherwise the per-connector callback URL shown on the connector's page. Lightweight sign-in for internal tools is fine, but the discovery, PKCE, DCR and audience checks are not optional because clients depend on them. Use a maintained OAuth library or identity provider for the heavy parts rather than hand-rolling token signing.
 

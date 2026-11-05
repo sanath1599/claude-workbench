@@ -72,6 +72,9 @@ Use the test environment with time skipping so a 7-day timer runs instantly. Tes
 - Never call a real LLM, voice or email provider from the default test run, CI or E2E. Use recorded responses, a fake server or an injected stub that implements the same interface.
 - Mock at the boundary you own (an `LlmClient` protocol, an `EmailSender` protocol), not deep inside a library.
 - Do not mock the database for integration tests. Do not mock the code under test.
+- Provide one in-memory fake per external store or API (`fakes.py`) that implements the same interface and run the real code against it; reserve mocks for failure injection.
+- Any generated artifact checked into the repo (dashboard JSON, package file list, OpenAPI) gets a test that regenerates it and fails when the committed copy is stale.
+- Payloads the remote end validates strictly (chat cards, webhooks) get an offline validator in CI built from an allow-list of elements and properties plus a size cap.
 - A fake must be able to fail: give it modes for timeout, 500, malformed output and duplicate delivery.
 - Opt-in live checks: put them in a separate marker or folder, skip unless the env var is set (for example `RUN_LIVE_LLM=1` plus the provider key), keep them to one cheap call, and never run them in CI by default.
 
@@ -98,6 +101,7 @@ For critical logic, remove or break the code under test and confirm a test fails
 | Flaky E2E | Replace waits with assertions on visible state; stub time and network |
 | Slow integration suite | Reuse one database, truncate per test; run migrations once |
 | Test needs a real key | It belongs in the opt-in tier |
+| Integration suite could reset a real database | Guard the config: throw unless the database host is local (`references/recipes.md`) |
 | Mocks everywhere, bugs in production | Move the test down to a real database or up to E2E |
 
 ## Rationalizations

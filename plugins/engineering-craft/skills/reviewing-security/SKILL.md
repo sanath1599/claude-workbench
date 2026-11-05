@@ -34,7 +34,7 @@ Loading this skill authorizes nothing heavy. Apply the checklist below to the co
 4. **Draft findings.** One per issue, following `references/findings.schema.json`: id, title, severity, category, location (file and line), description, exploit scenario, evidence, recommendation, confidence. Severity uses likelihood and impact, not scanner scores.
 5. **Verify each finding independently.** Spawn `finding-verifier` for every finding, one agent per finding, giving it the finding and the code but not your reasoning. It tries to refute it: is the code reachable, is input attacker-controlled, is there a guard elsewhere, is the exploit real. Keep only CONFIRMED findings. Record the verifier's evidence in the finding.
 6. **Filter false positives.** Drop: pre-existing issues outside the audit scope (list separately), purely theoretical issues with no reachable path, linter-only style items, test or example code not shipped, findings the code explicitly suppresses with a justification you checked, and issues requiring an attacker who already has the access the issue would grant.
-7. **Report.** Write findings JSON (validate it against the schema) and a short human summary ordered by severity. Say what was out of scope and what was not examined.
+7. **Report.** Write findings JSON (validate it against the schema) and a short human summary ordered by severity. Say what was out of scope and what was not examined. Add a "Checked and fine" list (what was examined and found sound) so the next reviewer does not repeat it, and list generated artefacts that embed real data (demo decks, exports, screenshots) as "do not publish".
 
 **Done when:** the findings file validates against the schema, every entry has `verification.verdict: "CONFIRMED"` with evidence, and rejected candidates are listed with the reason in a separate section.
 
@@ -54,6 +54,12 @@ Loading this skill authorizes nothing heavy. Apply the checklist below to the co
 | Dependencies | Advisory scan clean or triaged; lockfile committed; no unpinned install scripts from unknown packages |
 | Data | Parameterised queries only; least-privilege database role; PII minimised and not in logs; backups access-controlled |
 | Errors | No stack traces or internals to clients; consistent responses that do not reveal whether an account exists |
+| Query-string lookups | `Object.hasOwn(MAP, v)`; `v in MAP` is true for `toString` and crashes the page |
+| Upstream errors | Never return upstream bodies or `error.message` to the client; log server-side, return a fixed message |
+| Boolean flags from clients | Unknown values fail closed (`false`); only a missing value takes the documented default |
+| Uploads (limits) | Enforce max size and check magic bytes before storing or analysing; JSON 413 and 415 |
+| Proxy routes | No token, no upstream call (401); never echo service-account tokens in a body |
+| Generated HTML, cloned repos, job containers | See `references/checks.md` |
 
 ## Rationalizations
 

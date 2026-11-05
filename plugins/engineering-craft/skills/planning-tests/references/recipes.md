@@ -57,3 +57,13 @@ Serve the app with env that points the LLM and voice clients at local fakes (or 
 ## Webhook tests
 
 Build a signed request in the test with the same helper the provider documents, then assert: valid signature accepted, tampered body rejected, old timestamp rejected, replayed event id a no-op.
+
+## Vitest with real Postgres, and E2E harness guards
+
+Integration tests hit a real local Postgres on its own port. A global setup runs `migrate deploy` once, a helper truncates every public table except the migrations table with `RESTART IDENTITY CASCADE`, and files run serially. The config throws if the database host is not local, so a copied production URL can never be reset.
+
+E2E runs a production build (`build` then `start`) with mocks, one worker, a separate E2E database, and a global setup that applies migrations, truncates and inserts the staff user with raw SQL, behind the same local-host guard. Use Chromium fake-media flags (`--use-fake-ui-for-media-stream --use-fake-device-for-media-stream`) for anything needing a microphone. The server script reads only the one variable it needs from the env file with `grep`, never `source`, since values can contain spaces.
+
+## OAuth server and MCP tools
+
+Test through the real route handlers with a fake client: register, authorize with PKCE, exchange the code, replay the code (must fail), rotate the refresh token, replay the old one (family revoked), call each tool with another user's id (must 404). Skip browser-dependent tests when no Chrome is installed. Keep any mock runner inside `tests/`; production code must not be able to select it.

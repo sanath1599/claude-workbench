@@ -51,6 +51,7 @@ Secrets never pass through Claude's output. They live in git-ignored env files o
 | "I'll just echo it to check it's set." | `grep -c` the name instead. |
 | "It's only a test key." | Treat it as real; tests use mocks anyway. |
 | "Put it in .mcp.json or CLAUDE.md for convenience." | Use `${ENV_VAR}` references only. |
+| "It is only a seed password, put it in AGENTS.md" | Seed scripts read the password from env or generate one and print it once. Instruction files name the variable, never the value. |
 
 ## Verification
 - [ ] No secret value appeared in any output, file or commit.

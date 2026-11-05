@@ -86,6 +86,10 @@ If the design adds failure-prone paths (queues, retries, webhooks, multi-step wr
 | Cache | None until a measured read problem. Then cache with a TTL and a stampede plan. |
 | Queue | Postgres `SKIP LOCKED` below roughly 100 jobs/s. A broker above that or across services. |
 | Realtime | Server-sent events before websockets. LiveKit for voice and video. |
+| Entity with stages | One `Record<Status, Status[]>` table in a pure module plus a history row per change. See `references/patterns.md` |
+| "Module A may not import B" | An AST test with a shrink-only allowlist, not a convention. See `references/patterns.md` |
+| Browser "what if" plus a server decision | One pure rules module imported by both; the server recomputes. See `references/patterns.md` |
+| Paid lookups (routing, geocoding) | JSON cache keyed by input, committed; fetch only missing keys behind `--refresh` |
 
 ## Rationalizations
 
@@ -111,3 +115,4 @@ If the design adds failure-prone paths (queues, retries, webhooks, multi-step wr
 | references/numbers.md | sizing, choosing prices, sanity-checking an estimate |
 | assets/adr-template.md | writing the ADR |
 | assets/glossary-template.md | creating or extending the glossary |
+| references/patterns.md | modelling status flows, enforcing boundaries, sharing rules between browser and server |

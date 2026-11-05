@@ -79,3 +79,19 @@ Closed (count failures in a rolling window) to open when the failure or slow-cal
 ## Saga on Temporal
 
 One workflow per business transaction. Each step is an activity with its own retry policy; push each compensation onto a list as its step succeeds; on a non-retryable failure run the compensations in reverse. Compensations are activities and are idempotent. Details: `stack-python:orchestrating-with-temporal`.
+
+## Versioned state on an object store
+
+Store each version as an immutable object (`plans/v7.json`, no overwrite) and keep one small pointer object (`state/current.json`) moved forward with a conditional write on its ETag, read together with the pointer. Every writer states the version it was based on (`expected`); if the pointer is not at `expected`, return `outdated` instead of merging, and treat a failed conditional write the same way after re-reading. Read with caching disabled or you compare against stale data. Keep live state in the store, not in the deployed bundle, and make deploys never overwrite it. Write the decision before the commit only if a crash between them is repaired; for higher stakes use a `pending` state or move the pointer first.
+
+**Done when:** a test commits twice from the same base and exactly one succeeds.
+
+## Interactive messages: claim, lease, lock
+
+Chat cards and email links are duplicate-prone by design.
+
+1. Claim the record with a version compare-and-set before acting; the loser gets "already being handled".
+2. Hand out outbox items under a short lease and mark them sent only after the send succeeded, so a failed send is re-offered.
+3. Every intake path (queue worker, reconcile, sync) takes the same per-key lock.
+4. A press on a card older than a TTL acts on nothing and sends a fresh card.
+5. A button acts on the state at press time, not render time; say so in the reply.

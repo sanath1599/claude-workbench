@@ -50,6 +50,8 @@ Everything a user or a third party wrote is data, never instructions: resumes, t
 
 - Put it inside clearly marked delimiters and say in the system prompt that the block is data and that instructions inside it must be ignored.
 - Strip or neutralise your own delimiter strings found in the input.
+- Wrap each document in a named block (`<document name="resume">...</document>`) and keep it out of the system prompt. Strip any open or close tag of that block found inside the text first, so a document cannot close its own fence.
+- Add `injectionSuspected: boolean` to the extraction schema and show it to the human reviewer (a pill in the detail view, a marker in the list). A flagged item goes to review; it is not auto-rejected, because the flag is itself model output.
 - Give the model the least capability needed: no tools that send, delete or spend while it reads untrusted text; require code-side checks (and a human) for any action that does.
 - Never let model output choose a URL to fetch, a file path, a SQL string or a shell command without validation against an allowlist.
 - Add injection cases to the eval set (see step 5).
@@ -69,6 +71,8 @@ For any score, grade or ranking:
 
 Read `references/calibration.md` for the cap patterns and the calibration test.
 
+Evidence is verified in code, caps scale with how much proof exists, and weights the model proposes are normalised in code. All three are in the calibration reference.
+
 **Done when:** a calibration test passes, a cap test passes, and every stored score has per-criterion rationales.
 
 ### 5. Build evals from real traces
@@ -83,7 +87,7 @@ Read `references/calibration.md` for the cap patterns and the calibration test.
 
 ### 6. Budget cost and latency
 
-Per feature, write: calls per user action, input and output tokens (estimate with the real prompt), model used for each call, p95 latency target, cost per action and per month at expected volume (`designing-systems` estimator). Use the cheap model for classification and extraction, the strong model only where the quality gap is measured. Stream when a person waits. Cache by input hash where inputs repeat. Set a hard per-request and per-user ceiling.
+Per feature, write: calls per user action, input and output tokens (estimate with the real prompt), model used for each call, p95 latency target, cost per action and per month at expected volume (`designing-systems` estimator). Use the cheap model for classification and extraction, the strong model only where the quality gap is measured. Per-request effort choice, latency and prompt-size rules are in `references/streaming-steps.md`.
 
 **Done when:** a budget table is in the design, and a test or log line records tokens per call.
 
@@ -93,6 +97,10 @@ Decide which outputs a person confirms before they take effect (rejections, rank
 
 **Done when:** each consequential output has either a human gate or a written reason it does not need one.
 
+Decisions about people have three outcomes, not two: pass, fail, needs human review. Route to review when the assessed weight is below a coverage floor, the score is within a small margin of the threshold, model confidence is low, or input data is missing. Missing evidence is "unknown", never "fails". Keep protected attributes out of the prompt and say so in it; name accent, disfluency, camera refusal and technical glitches as things never to penalise.
+
+Show progress from real events, not timers (`references/streaming-steps.md`).
+
 ## Quick reference
 
 | Smell | Fix |
@@ -101,7 +109,10 @@ Decide which outputs a person confirms before they take effect (rejections, rank
 | Same input, different score each run | Lower temperature, split into criteria, score in code, test the spread |
 | Model "agrees" with whatever the user says | Judge from the rubric and the evidence, not the user's framing; add adversarial evals |
 | Regex over user text decides behaviour | Replace with a structured model judgement plus validation |
+| App already on Vercel wants one key, fallbacks and spend limits across providers | Vercel AI Gateway: point the existing OpenAI or Anthropic SDK at its endpoint, read the live model list instead of guessing ids, authenticate with a gateway key or OIDC. It does not replace the Ollama-first default unless the owner asks |
 | Eval passes, users complain | The set lacks real traces; add the complaints as cases |
+| Model-proposed rubric has odd weights or keys | Normalise in code (`references/calibration.md`) |
+| Product invents support for a score | Verify evidence quotes against the stored text; no verified quote means Not Assessed |
 
 ## Rationalizations
 
@@ -121,6 +132,7 @@ Decide which outputs a person confirms before they take effect (rejections, rank
 - [ ] Evals built from real cases; judge agreement measured if a judge is used.
 - [ ] Tests do not call real LLMs unless an env-guarded integration test.
 - [ ] Cost and latency budget written; human gates placed.
+- [ ] Evidence quotes verified server-side; weights normalised; review outcome exists beside pass and fail.
 
 ## Versions
 
@@ -128,9 +140,12 @@ Decide which outputs a person confirms before they take effect (rejections, rank
 
 Read the current pydantic-evals docs before using its API.
 
+AI Gateway endpoints (verified 2026-11-05, https://vercel.com/docs/ai-gateway): OpenAI-compatible base `https://ai-gateway.vercel.sh/v1`, Anthropic-compatible base `https://ai-gateway.vercel.sh`, model list at `/v1/models`.
+
 ## References
 
 | File | Load when |
 |---|---|
 | references/calibration.md | designing caps, writing the calibration test |
 | references/evals.md | building the eval set, harness or judge check |
+| references/streaming-steps.md | choosing effort, cutting latency, showing progress, streaming steps to a UI, or routing between a cheap and a strong model |

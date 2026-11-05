@@ -82,6 +82,8 @@ For each mitigation write the test from the last column of the reference table, 
 | "A lock makes it safe" | A paused holder wakes up after its lease expired. Only a fencing token checked by the resource is safe. |
 | "Timestamps order events" | Clocks drift. Use sequence numbers, versions or a single writer. |
 | "The queue is durable so we are fine" | Durable is not deduplicated, not ordered, and not bounded. |
+| "The platform retries for us" | Retry policies apply to every call, including create and send. Turn them off there or add a dedupe key the receiver honours. |
+| "Fire and forget in the handler" | Unawaited work is dropped when a serverless function freezes. Enqueue it. |
 | "Eventually consistent is fine" | Name what the reader sees in the gap and whether the product tolerates it. |
 
 ## Rationalizations

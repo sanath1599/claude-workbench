@@ -39,6 +39,8 @@ Start from what the person on call needs to know, turn it into a measured indica
 | ticket-day | 3x | 1 d / 2 h | 10% | ticket |
 | ticket-slow | 1x | 3 d / 6 h | 10% | ticket |
 
+Pollers: every scheduled poller posts a heartbeat with its loop status. A monitor alerts when the last heartbeat is older than N minutes (stale) or failures persist for N minutes (degraded), runs a reconcile pass, and audits recovery once. Test the alert by disabling the poller in dev. Keep the poller as the safety net even after adding webhooks, covering the same mailboxes or users as the webhook subscription list.
+
 | SLO | Allowed full outage per 30 days |
 |---|---|
 | 99% | 7.2 hours |

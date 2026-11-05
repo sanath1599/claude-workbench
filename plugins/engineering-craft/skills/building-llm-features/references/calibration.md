@@ -67,3 +67,20 @@ Repeat each fixture 3 to 5 times in the opt-in test; assert the spread per input
 ## Drift
 
 Re-run the calibration set when the prompt, the rubric, or the model changes. Treat a shift in the mean score of more than a few points as a regression until a human confirms otherwise.
+
+## Verify evidence quotes in code
+
+Ask for evidence as verbatim quotes with a pointer to the source answer. In code, normalise whitespace and case and confirm each quote is a substring of the stored transcript (try the pointed answer first, then search all). Drop quotes that fail. A criterion left with zero verified quotes becomes Not Assessed (`None`), not a low score, and is excluded from the weighted total rather than counted as zero. This is the check that stops the model inventing support.
+
+## Caps that scale with proof (1 to 5 scale)
+
+- A 4 needs at least two verified quotes, else 3.
+- A 5 needs quotes from at least two different answers, else 4.
+- If live per-answer analysis rated every answer on the criterion shallow or none, cap at 3.
+- Store an `adjustment` text beside the final score ("Model scored 5; capped at 4: one verified quote") and show it to the reviewer.
+
+Tell the model to pick the lower level when torn between two, and to treat a criterion nobody asked about as Not Assessed.
+
+## Normalise rubric weights
+
+When the model proposes the rubric, do not trust its keys or weights. In code: slugify names into unique `[a-z][a-z0-9_]` keys (suffix `_2` on collision), cap the count (for example 10), scale weights to integers that sum to exactly 100 with largest-remainder rounding, and give every criterion at least 1. Unit-test odd inputs: all zero, NaN, one item.

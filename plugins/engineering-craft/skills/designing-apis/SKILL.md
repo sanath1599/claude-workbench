@@ -18,6 +18,7 @@ The contract comes first and is the source of truth. FastAPI and Pydantic models
 - Making handlers safe against duplicates and partial failure: `hardening-distributed-systems` (this skill defines the client-visible contract only).
 - Auth and authorization review: `reviewing-security`.
 - Release and rollback: `ops-and-sre:releasing-safely`.
+- Tools exposed to a model over the Model Context Protocol: `building-mcp-servers`.
 
 ## Procedure
 
@@ -47,9 +48,12 @@ Generate the TypeScript client from `openapi.json` with the current generator (c
 | Pagination | Cursor-based with an opaque cursor, a `limit` cap, a stable sort with a unique tiebreaker. Offset only for small admin tables. See `references/pagination.md` |
 | Idempotency | Every non-idempotent POST that creates something or sends something accepts `Idempotency-Key`; same key and body returns the first result; same key and a different body returns 422 or 409 |
 | Versioning | Additive changes need no version. Breaking changes: new version in the path (`/v2`) or a dated header; support both until usage of the old one is zero; mark deprecated in OpenAPI and send `Deprecation` and `Sunset` headers |
-| Rate limits | Return 429 with `Retry-After` and the `RateLimit` headers; limits per API key or user, stricter on auth and expensive routes |
+| Rate limits | Return 429 with `Retry-After` and the `RateLimit` headers; limits per API key or user, stricter on auth and expensive routes. Stateless host with Postgres: one upsert per check, see `references/rate-limit-postgres.md` |
 | Webhooks sent | Sign the raw body with HMAC-SHA256 and a timestamp; include a unique event id; retry with backoff; document the replay window. See `references/webhooks.md` |
 | Webhooks received | Verify signature over the raw bytes before parsing, check timestamp tolerance, dedupe on event id, respond 2xx fast and process async |
+| Machine callers | Worker, webhook and cron routes authenticate with a bearer secret or provider signature and opt out of the cookie Origin check explicitly. Compare secrets by hashing both sides, then `timingSafeEqual`. See `references/webhooks.md` |
+| Docs for agents | Every operation has a request and a response example, documented error codes, and parameter descriptions with units and allowed values; an agent cannot guess them. FastAPI: `examples` on Pydantic models, `responses=` on routes |
+| Approval by emailed link | See `references/approvals.md` |
 | Naming | Plural nouns, snake_case JSON, ISO 8601 UTC timestamps, string ids, enums as lowercase strings, money as integer minor units plus currency |
 | Partial update | PATCH with explicit semantics (merge patch); document how to clear a field |
 | Long operations | Return 202 with a status resource, or start a Temporal workflow and return its id |
@@ -126,3 +130,5 @@ Read the current docs of each tool before using flags not shown above.
 | references/error-model.md | defining or reviewing error responses and the FastAPI problem handler |
 | references/pagination.md | adding a list endpoint or changing a cursor |
 | references/webhooks.md | sending or receiving signed webhooks |
+| references/rate-limit-postgres.md | rate limiting on a stateless host that already has Postgres |
+| references/approvals.md | approving or rejecting by a link in an email |

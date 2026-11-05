@@ -44,3 +44,7 @@ Providers differ in header format and scheme. Follow the provider's own document
 - Event id deduped, because delivery is at-least-once.
 - Handler returns 2xx fast; slow work goes to a queue or workflow.
 - Secrets come from the environment and are never logged.
+
+## Route wrapper and machine endpoints
+
+One wrapper does the common work: catches errors into the JSON error shape (never leaking internals) and runs an Origin or Referer check on every non-GET request that carries a cookie. Machine callers (worker, webhook, cron) authenticate with a bearer secret or a provider signature and opt out of the Origin check explicitly. Read the raw body with `req.text()` before verifying a signature. Record processed event ids in a table, and keep a cron sweeper as the backstop for events that never arrive.

@@ -52,3 +52,4 @@ The owner has defaults for every layer. Use them unless a requirement, a client 
 - Using Temporal for a 5-second job, or a cron plus a status column for a 3-day approval flow. Match the tool to the duration and the failure modes.
 - Adding Qdrant for a few thousand rows that pgvector would handle.
 - Introducing pnpm or a second package manager into an npm repo.
+- Hosting a long-lived worker (a voice agent, anything holding a socket open) on a serverless host. Give it its own deployable (own lockfile and Dockerfile) and keep the web app the single source of truth for state. The worker gets a narrow bearer-authenticated HTTPS contract (context, start, events, complete, fail) and no database credentials.

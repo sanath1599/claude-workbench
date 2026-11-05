@@ -17,6 +17,7 @@ A guided demo is one standalone HTML deck that walks an audience through the rea
 - Building a demo straight from a code repository with the claude.ai connector: `interactive-demos:building-interactive-demos`.
 - Static screenshots for a README: `design-studio:writing-showcase-readmes`.
 - Pre-build approval of screens: `design-studio:previewing-ui-before-building`.
+- Charts inside a report or demo: follow the account's dataviz skill for colour and layout and `docs-and-data:analysing-tabular-data` for choosing the chart.
 
 ## Format
 

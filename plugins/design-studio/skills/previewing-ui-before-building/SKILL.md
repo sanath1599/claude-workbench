@@ -33,7 +33,8 @@ For new product UI, the owner reviews one HTML file with every screen and fictio
 7. **Verify.** Run `design-studio:verifying-ui-in-browser` against the built file at all four widths. Then run the `design-studio:design-critic` agent on it and fix high-severity findings.
    **Done when:** zero console errors, no horizontal overflow, critic has no high findings.
 8. **Present and wait.** Give the owner the file path and a numbered list of screens. Do not start the real build. After "approved" (or equivalent), record it in the spec or CLAUDE.md as the visual reference.
-9. **Port tokens.** In the real app, copy the `:root` token block into one tokens file (`src/styles/tokens.css`, or the Tailwind theme if the project uses it). Map each token name one to one so the preview stays the reference. Rebuild components from the partials; do not paste preview markup wholesale. If the preview changes later, update tokens first.
+9. **Optional: runnable prototype.** When the approved mockup must become a multi-screen prototype with fake data before any backend exists, follow `references/clickable-prototype.md`. For one self-contained file that must survive email and `file://`, see `design-studio:building-single-file-html`.
+10. **Port tokens.** In the real app, copy the `:root` token block into one tokens file (`src/styles/tokens.css`, or the Tailwind theme if the project uses it). Map each token name one to one so the preview stays the reference. Rebuild components from the partials; do not paste preview markup wholesale. If the preview changes later, update tokens first.
    **Done when:** `grep -rE "#[0-9a-fA-F]{3,8}" src --include=*.tsx --include=*.css` finds hex only in the tokens file.
 
 ## Quick reference
@@ -45,6 +46,7 @@ For new product UI, the owner reviews one HTML file with every screen and fictio
 | States | loading, empty, error, success for every list and form |
 | Widths | phone, iPad, desktop all designed, not only shrunk |
 | Dependencies | none in the template; esbuild only for the sileo bundle |
+| Libraries | The mockup and the app use the same toast, icon and component libraries; grep the conventions doc before parallel builds |
 
 ## Rationalizations
 
@@ -74,3 +76,4 @@ For new product UI, the owner reviews one HTML file with every screen and fictio
 - esbuild 0.28.2 (verified 2026-11-05, https://www.npmjs.com/package/esbuild)
 - sileo 0.1.6 (verified 2026-11-05, https://www.npmjs.com/package/sileo)
 - lucide-react 1.69.0 (verified 2026-11-05, https://www.npmjs.com/package/lucide-react)
+| references/clickable-prototype.md | turning the approved mockup into a runnable multi-screen prototype with fake data |

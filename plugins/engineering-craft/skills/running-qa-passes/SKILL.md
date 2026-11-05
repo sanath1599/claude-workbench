@@ -82,6 +82,7 @@ Copy `assets/smoke-test-report.html` and fill it: scope, environment, personas, 
 | Layout | 375, 768 and 1280 px; no horizontal scroll; no clipped text |
 | Console and network | zero errors, no 4xx/5xx you did not expect |
 | Access | each route as the wrong role and logged out |
+| Recurring misses | branded 404 with a way forward; `aria-label` on icon-only or responsively hidden labels; list columns put status and score right after the name; filters parse one parameter at a time so one bad value does not discard the others (page, API and export alike); unsent-email states read as plain sentences, not env var names; audit rows show a person's name, not an id; deactivating a user asks for confirmation; a downloaded transcript or report is readable text, not raw JSON |
 
 ## Rationalizations
 

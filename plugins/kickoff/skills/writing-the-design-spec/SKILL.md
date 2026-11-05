@@ -32,7 +32,7 @@ The spec is how decisions survive between sessions, local or cloud. A fresh buil
    11. **Testing**: what is unit, integration (real local database) and E2E (mocks).
    12. **Work that must happen on the owner's machine**: numbered.
    13. **Decisions made on the owner's behalf**: one line each, marked as Claude's call.
-   14. **Open questions**: only the ones whose answer changes what gets built.
+   14. **Open questions**: only the ones whose answer changes what gets built, each with an owner. Close the spec with success measures that carry a number and a date. An update for stakeholders states the decision needed, if any, in its first line.
 
 3. **Builder check.** Dispatch a fresh subagent (sonnet) with only the spec and the brief: "List what you would need to ask before planning." Sort what comes back:
    - already answered: fix the spec;

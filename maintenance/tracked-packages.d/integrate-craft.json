@@ -1,0 +1,4 @@
+[
+  {"name": "@azure/identity", "ecosystem": "npm", "documented": "4.14.1", "changelog": "https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/CHANGELOG.md", "skills": ["deploying-to-azure"]},
+  {"name": "azure-identity", "ecosystem": "PyPI", "documented": "1.27.0", "changelog": "https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/CHANGELOG.md", "skills": ["deploying-to-azure"]}
+]

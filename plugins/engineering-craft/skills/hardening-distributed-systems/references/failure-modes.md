@@ -32,3 +32,11 @@ Columns: failure, what you see, mitigation, how to test it. Find the row, apply 
 | Long transaction or lock wait | Deploys and queries block each other | Short transactions, lock timeouts, migrations that avoid table rewrites | Run migration against a busy table in staging; check lock waits |
 | Retry after non-retryable error | Retries on 400 or validation failure | Classify errors: retry only on timeouts, 429, 5xx and connection errors; honour Retry-After | Return 400; assert no retry |
 | Silent backlog | Nothing alerts while work piles up | Alert on queue age and DLQ depth, not only on errors | Stop the consumer; assert the alert fires |
+
+## Retry policy on a non-idempotent call
+
+Platform retry policies (workflow actions, HTTP clients, queue redelivery) apply to every call unless turned off. Set the policy to none on create, send, forward and respond actions, or add a dedupe key the receiver honours. A lost response after a successful send otherwise delivers twice.
+
+## Work started in a request and not awaited
+
+Work started in a request handler without being awaited is dropped when the serverless function freezes. Enqueue it to a worker. Cache negative results (a geocode miss) so a missing value does not re-call a rate-limited provider on every request, and ship static data (city centroids) for the instant path.

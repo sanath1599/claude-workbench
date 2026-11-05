@@ -23,6 +23,7 @@ The owner reads fast and acts on what they read. Lead with the outcome. Give evi
    | The owner asks for a TLDR | 3 bullets |
    | A report, handoff, explainer or demo to share | one self-contained HTML file (or a claude.ai Artifact), printable, rather than Markdown or PDF |
    | An executive or other non-technical reader | plain words, acronyms spelled out, outcomes and numbers first, no implementation detail |
+   | A Word, Excel, PowerPoint or PDF file | `docs-and-data:producing-word-documents`, `producing-spreadsheets`, `producing-slide-decks` or `working-with-pdfs`; the final PDF of a Word document is exported from Word |
    | A client-facing document | confident and positive, with no hedging or self-doubt; every claim still true and checkable |
 
 2. **Order the content:** outcome, then evidence (the command and its result, a URL, a run id), then decisions you made on the owner's behalf (one line each, so they can veto), then pending items, with exact commands.
@@ -39,3 +40,4 @@ The owner reads fast and acts on what they read. Lead with the outcome. Give evi
 - [ ] Every "done" has evidence attached.
 - [ ] Owner actions are copy-pasteable commands.
 - [ ] Shared documents are self-contained HTML.
+- [ ] Any document over one page that someone will read without you passed a reader test: write the five questions the reader will most likely ask, give a fresh subagent only the document, ask it those questions, and fix every wrong or missing answer.

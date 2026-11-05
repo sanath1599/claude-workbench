@@ -71,7 +71,14 @@ The owner's apps use the `sileo` package for every toast: physics-based pills th
 Titles are short and in sentence case ("Invite sent", not "Invite Sent!"). The description says what happens next, in one line. No emojis. Errors say what to do ("Couldn't save. Check your connection and try again."). Use mid-tone state colours from the design tokens, not neon.
 
 ## Verification
-- [ ] No `sonner`, `react-hot-toast` or `react-toastify` in package.json or imports.
+- [ ] No `sonner`, `react-hot-toast` or `react-toastify` in package.json or imports.## Rationalizations
+
+| Excuse | Instead |
+|---|---|
+| "The conventions doc for the build says sonner" | Agents copy convention docs literally. Before handing a prototype or app to parallel agents, grep the conventions doc and `package.json` for `sonner`, `react-hot-toast` and `react-toastify` and fix the doc first. |
+
+## Verification
+- [ ] No `sonner`, `react-hot-toast` or `react-toastify` in package.json or imports (`grep -rn "from 'sonner'" src` returns nothing).
 - [ ] `<Toaster>` is mounted exactly once.
 - [ ] The title override and z-index CSS are present.
 

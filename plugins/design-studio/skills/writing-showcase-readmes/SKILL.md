@@ -33,7 +33,8 @@ A showcase README lets a stranger understand the product in a minute: the proble
    6. End-to-end flow: numbered steps from first visit to outcome, per role if there are several.
    7. Tech stack in one short list.
    8. Commands: install, env setup (point at `.env.example`, never real values), dev, build, test, seed.
-   9. Licence.
+   9. "What is real and what is simplified", taken from the spec's out-of-scope list; and "Data provenance", pointing to a catalog (source, collection date, licence and attribution, known limitations). Say plainly that a missing value means "not matched", not "confirmed none". For AI features, state which numbers are computed by code and that the model only explains them.
+   10. Licence.
 6. **Check for leaks.** Grep the README and images folder for emails, tokens, real names. Open every screenshot and read it.
    **Done when:** links resolve, images render, commands were run from a clean checkout where possible.
 

@@ -39,8 +39,8 @@ Every review comment gets a fix or a justification, nothing is posted unverified
    - Correct but already handled elsewhere: point to where, with the line.
    - Unclear: verify what the reviewer means from the code before acting; ask in the reply only if still ambiguous.
    - Wrong, or trading something worse: defend it with evidence (test, benchmark, doc link, constraint) in a polite, specific reply. Defend where needed; do not accept a suggestion that breaks behaviour just to close a thread.
-3. Make the fixes with tests where behaviour changes; run the full checks.
-4. Record each comment in `pr_N_review.md`: comment id, summary, decision (fixed, justified, deferred with issue), commit hash or reasoning.
+3. Make the fixes with tests where behaviour changes; run the full checks. For a large review, state the round's constraint up front ("no breaking changes"), and put anything that would change business behaviour under "decision needed" with a proposal. Call out any change to an endpoint's contract explicitly.
+4. Record each comment in `pr_N_review.md`: comment id, summary, decision (fixed, justified, deferred with issue), commit hash or reasoning. For a large review make it an audit table, one row per thread: final status (fixed, removed, justified, decision needed, n/a), the change, and why it is non-breaking. Verify each row against the current code, not against the earlier reply.
 5. Run a code review of the final diff (the `code-review` skill, on sonnet) before asking for merge or deploy. Fix what it validates.
 6. Reply on GitHub only when asked, one reply per comment: what changed and where, or why not.
 
@@ -71,6 +71,7 @@ Every review comment gets a fix or a justification, nothing is posted unverified
 - [ ] Fixes have tests where behaviour changed; checks green with output shown.
 - [ ] Final code review run; validated findings addressed.
 - [ ] Nothing posted to GitHub unless asked.
+- [ ] After merging two branches that touched the same area: the app boots (import every module once), CI paths still resolve, and any changed test expectation is explained. A module deleted on one branch can come back from the other.
 
 ## References
 

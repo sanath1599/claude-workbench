@@ -43,6 +43,12 @@ The VPS hosts what Vercel cannot: always-on processes such as Temporal workers. 
 | Value cut at `#` | double-quote it for the Next.js loader |
 | `docker compose build` hangs | build locally, load or `docker cp`, restart |
 | Cert fails | DNS record missing or not propagated; nginx vhost has the right `server_name` |
+| SSE or NDJSON arrives all at once | Caddy: `reverse_proxy app:3000 { flush_interval -1 }`. nginx: `proxy_buffering off; proxy_read_timeout 3600;` on that location, plus `X-Accel-Buffering: no` from the app |
+| Client reconnects and loses events | Number events monotonically; on connect read `Last-Event-ID` (or `?after=`) and send missed events first |
+| Uploads fail, app logs clean, 413 | nginx default `client_max_body_size` is 1 MB and answers before the app sees it. Set it (and `proxy_read_timeout`) in every upload vhost; the error log says `client intended to send too large body`. Show the reason in the UI |
+| Large upload dies at a round number of seconds (408/499) | With `proxy_request_buffering off` the body is chunked and Node's `headersTimeout`/`requestTimeout` (60 s default) can still fire. Raise them or buffer in nginx; for big files, pre-signed object-storage upload or rsync, with only metadata through the app |
+| 404/405 on POST after a frontend deploy | `VITE_*` and `NEXT_PUBLIC_*` are baked in at build: set them when building the image, with the scheme (`https://api...`), validate at startup; a change needs a rebuild, not a restart |
+| Page loads, data empty, `/api/...` returns 200 HTML | A static SPA server with a fallback rule answers 200 `index.html` for unknown paths. Put the API proxy in the same nginx and check `curl -i /api/health` returns JSON |
 
 ## Rationalizations
 
