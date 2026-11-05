@@ -10,14 +10,14 @@ These come from the owner's past sessions. Follow them unless the project's CLAU
 - When blocked on the owner's auth or permissions, give the exact command to run as `! <command>`. Write owner-machine steps as scripts that never print secrets.
 - Reports: crisp status first, then a TLDR on request. For shareable deliverables (reports, handoffs, demos), write HTML rather than MD or PDF. For executives, avoid jargon and spell out acronyms. Client documents are confident.
 
-**Stack defaults** (deviate only when a requirement says so; see stack:choosing-the-stack)
+**Stack defaults** (deviate only when a requirement says so; see kickoff:choosing-the-stack)
 - Frontend: TypeScript + Vite + TanStack (Router, Query, Form, Table). Toasts: `sileo`. Icons: Lucide; no emojis in UI. Responsive on phone, iPad and desktop, with loading and empty states. No truncated text without "show more".
 - Agents: Python + Pydantic AI. Long-running, multi-step or human-in-the-loop work runs on Temporal.
 - Data: Postgres by default; add Qdrant when vector search is a real requirement.
 - Hosting: {{wb.hosting}} first. Subdomains: `*.{{wb.domain}}` on {{wb.dns_provider}}. Email: {{wb.email_provider}}.
 - LLMs: {{wb.llm_default}}. Never call real LLM, voice or email providers from tests.
 - Package manager: {{wb.package_manager}} (keep whatever lockfile a repo already has). Use the latest packages and read the current docs.
-- At session start, review dependency updates with stack:reviewing-dependency-updates. Record every adopt or decline, with the reason, in docs/dependency-decisions.md.
+- At session start, review dependency updates with workbench:reviewing-dependency-updates. Record every adopt or decline, with the reason, in docs/dependency-decisions.md.
 - Design: modern and minimal, never "AI slop". Before any UI build, get a single-file HTML mockup with dummy data approved, and use design-studio:designing-without-ai-slop, choosing-type-and-color, adding-motion-and-3d (only when motion is requested) and styling-charts-and-data-displays.
 
 **Safety**

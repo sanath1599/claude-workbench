@@ -1,6 +1,6 @@
 ---
 name: designing-systems
-description: Use when asked to design a system, service, feature architecture or data flow, choose between architectures, size capacity or cost, or write an ADR. Not for choosing the base stack (stack:choosing-the-stack), hardening an existing design against failures (hardening-distributed-systems) or API contracts (designing-apis).
+description: Use when asked to design a system, service, feature architecture or data flow, choose between architectures, size capacity or cost, or write an ADR. Not for choosing the base stack (kickoff:choosing-the-stack), hardening an existing design against failures (hardening-distributed-systems) or API contracts (designing-apis).
 ---
 
 # Designing systems
@@ -15,7 +15,7 @@ A design is finished when someone else can see what was chosen, what was rejecte
 
 ## When not to use
 
-- Picking the language, framework or host for a new project: `stack:choosing-the-stack`.
+- Picking the language, framework or host for a new project: `kickoff:choosing-the-stack`.
 - Making an existing design survive retries, partial failure and duplicates: `hardening-distributed-systems`.
 - Long-running workflow mechanics: `stack-python:orchestrating-with-temporal`. Schema design: `stack-python:modeling-data-in-postgres`.
 - Rolling it out: `ops-and-sre:releasing-safely`. Targets and alerts: `ops-and-sre:defining-slos-and-alerts`.
