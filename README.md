@@ -5,9 +5,15 @@ An opinionated starter pack of skills, guard hooks, project kickoff with cloud h
 - house rules distilled from about 2,800 prompts and 56 answered decisions across 60 projects;
 - guard hooks that enforce the mechanical rules;
 - a project kickoff that prepares cloud handoffs;
-- 84 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
+- 86 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
 
 Everything is written in our own words. Ideas came from studying the well-known marketplaces and from real projects; no text was copied. See `docs/research/marketplace-notes.md` and `docs/installed-audit.md`.
+
+## Made by
+
+Built and maintained by [@sanath1599](https://github.com/sanath1599) · [LinkedIn](https://www.linkedin.com/in/sanathswaroop/) · [antm.ai](https://antm.ai)
+
+**Animated Technical Interactive:** turn any repository into a verified, click-through product demo, built by Claude or ChatGPT on your own plan. Try it at [app.antm.ai](https://app.antm.ai). The `interactive-demos` plugin in this pack connects to it.
 
 ## Setup
 
@@ -38,7 +44,7 @@ bash scripts/migrate-from-third-party.sh --apply
 
 ### Codex
 
-1. Clone the repo: `git clone https://github.com/sanath1599/claude-workbench && cd claude-codex-starter-pack`.
+1. Clone the repo: `git clone https://github.com/sanath1599/claude-workbench && cd claude-workbench`.
 2. Create your profile: run `/workbench:setup` in Claude Code once, or copy `plugins/workbench/profile.defaults.json` to `~/.claude/workbench/profile.json` and fill it in.
 3. Install: `node scripts/install-codex.mjs` (try `--dry-run` first). It copies the skills into `~/.codex/skills/` (or `$CODEX_HOME`), renders your profile into them, and writes the house rules into `~/.codex/AGENTS.md` between `starter-pack` markers. Options: `--plugins a,b`, `--codex-home <dir>`, `--profile <file>`, `--uninstall`. It never overwrites a skill directory it did not create.
 4. Add the MCP servers: the installer prints a TOML snippet for `~/.codex/config.toml` (verify it against the Codex docs).
@@ -88,6 +94,7 @@ What does not carry over to Codex:
 
 - **Guided new project:** `/workbench:new <brief>`. A local browser studio shows a pre-filled intake page, then design directions and a one-page sample, and talks back to the Claude Code session. After you approve the sample it creates the repo, writes the spec and a plan you approve, then builds here or hands off to the cloud. Reference products you name are studied with reverse-engineer-anything for patterns only.
 - **New project:** "start a new project from this brief". kickoff:starting-a-project asks about cloud handoff, repo, commits and deploys in one batch. It then sets up the repo, CLAUDE.md, env template, local database, tests and remote, and runs graphify once the base is in. It also writes a CLAUDE.md rule to update the graph after every release, starting with the first.
+- **Deployment tiers and IaC sync:** `/workbench:new` asks whether the project is dev (all local), internal (Vercel) or enterprise (Azure, AWS or Google Cloud), whether a CI/CD pipeline exists, and how to orchestrate infrastructure. With "CLI first, then Terraform or Bicep" chosen, `ops-and-sre:provisioning-on-hyperscalers` builds on the cloud CLI, a hook logs each infrastructure-changing `az`, `aws` or `gcloud` call, and the session cannot finish until `infra/` is updated and `iac-sync.mjs done` is run.
 - **Hand off to the cloud:** `node <kickoff>/skills/handing-off-to-cloud/scripts/vendor-cloud-kit.mjs --repo .` copies the rules, the matching skills and the guard hooks into the repo, because cloud sessions don't load plugins. Then come the environment doc, `cloud-ready-check.mjs`, a brief in `docs/handoff/`, and `claude --cloud "Read docs/handoff/<file> and carry it out"`, with proof that it started.
 - **Teach it something:** say "from now on…" or "this is useful: …". workbench:update-skill finds the closest skill (`node scripts/find-skill.mjs`), integrates the learning, validates, bumps the version and pushes.
 - **Ask on the owner's behalf:** `/workbench:ask-the-owner <question>` answers from the rules, `docs/preferences.md` and the persona, with a source and a confidence level.

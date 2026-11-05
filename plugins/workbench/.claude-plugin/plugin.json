@@ -1,6 +1,6 @@
 {
   "name": "workbench",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "House rules, guard hooks and guided setup: secret scans on every commit and push, sileo toasts, no emojis in UI, a confirm step before production or infrastructure changes, and the owner profile every other workbench plugin reads.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"

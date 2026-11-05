@@ -41,6 +41,10 @@ test('mergeSettings is idempotent and keeps unrelated hooks', () => {
   assert.equal(twice.permissions.allow[0], 'Bash(npm test)');
   assert.ok(JSON.stringify(twice).includes('echo mine'));
   assert.equal(twice.hooks.SessionStart.length, 1);
+  assert.equal(twice.hooks.PostToolUse.length, 1);
+  assert.equal(twice.hooks.Stop.length, 1);
+  assert.match(twice.hooks.PostToolUse[0].hooks[0].command, /CLAUDE_CODE_REMOTE.*iac-sync\.mjs" post-tool-use/);
+  assert.match(twice.hooks.Stop[0].hooks[0].command, /CLAUDE_CODE_REMOTE.*iac-sync\.mjs" stop/);
   assert.ok(JSON.stringify(twice).includes('CLAUDE_CODE_REMOTE'));
 });
 
@@ -51,7 +55,7 @@ test('planKit renders rules without personal emails and vendors guard scripts', 
   const kickoffSkillDir = join(process.cwd(), 'plugins', 'kickoff', 'skills', 'handing-off-to-cloud');
   const { writes } = planKit({ repo, skills: ['workbench:using-sileo-toasts'], workbenchDir, kickoffSkillDir });
   const paths = writes.map(([p]) => p.slice(repo.length + 1));
-  for (const p of ['.claude/rules/workbench.md', '.claude/skills/using-sileo-toasts/SKILL.md', '.claude/hooks/workbench/scripts/guard-bash.mjs', '.claude/hooks/cloud-setup.sh', 'docs/cloud/ENVIRONMENT.md', '.claude/settings.json']) {
+  for (const p of ['.claude/rules/workbench.md', '.claude/skills/using-sileo-toasts/SKILL.md', '.claude/hooks/workbench/scripts/guard-bash.mjs', '.claude/hooks/workbench/scripts/iac-sync.mjs', '.claude/hooks/cloud-setup.sh', 'docs/cloud/ENVIRONMENT.md', '.claude/settings.json']) {
     assert.ok(paths.includes(p), `missing ${p}`);
   }
   const profile = JSON.parse(writes.find(([p]) => p.endsWith('profile.defaults.json'))[1]);

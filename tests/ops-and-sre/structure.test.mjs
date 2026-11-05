@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = new URL('../../plugins/ops-and-sre/', import.meta.url).pathname;
-const SKILLS = ['setting-up-ci', 'releasing-safely', 'handling-incidents', 'defining-slos-and-alerts', 'instrumenting-services', 'writing-runbooks', 'deploying-to-a-vps', 'deploying-to-azure'];
+const SKILLS = ['setting-up-ci', 'releasing-safely', 'handling-incidents', 'defining-slos-and-alerts', 'instrumenting-services', 'writing-runbooks', 'deploying-to-a-vps', 'deploying-to-azure', 'provisioning-on-hyperscalers'];
 const front = (t) => {
   const m = t.match(/^---\n([\s\S]*?)\n---\n/);
   assert.ok(m, 'frontmatter');
@@ -64,7 +64,7 @@ test('agent frontmatter', () => {
 
 test('evals include a near miss and every case has graders', () => {
   const dirs = readdirSync(join(root, 'evals'));
-  assert.ok(dirs.length >= 3 && dirs.length <= 5);
+  assert.ok(dirs.length >= 3 && dirs.length <= 6);
   assert.ok(dirs.some((d) => /nearmiss/.test(d)));
   for (const d of dirs) {
     assert.ok(existsSync(join(root, 'evals', d, 'prompt.md')), d);

@@ -38,10 +38,24 @@ The owner has defaults for every layer. Use them unless a requirement, a client 
 | UI details | sileo toasts, Lucide icons, a design tokens file | workbench:using-sileo-toasts, design-studio:designing-without-ai-slop |
 | Tooling | {{wb.package_manager}} for JS, `uv` for Python; Vitest, pytest, Playwright | engineering-craft:planning-tests |
 
+## Deployment tiers
+
+The intake (or the first question) sets `deploymentTier` in `.claude/workbench.json`. It changes the Hosting, Data, Workflow and Secrets rows above.
+
+| Layer | dev | internal (default) | enterprise |
+|---|---|---|---|
+| Web and API | local dev server | Vercel | Azure: Container Apps or App Service. AWS: ECS Fargate (App Runner no longer takes new customers). GCP: Cloud Run |
+| Postgres | Docker, unique local port | Neon | Azure Database for PostgreSQL flexible server. AWS: RDS for PostgreSQL. GCP: Cloud SQL for PostgreSQL |
+| Temporal | local dev server | Temporal Cloud | Temporal Cloud, or self-hosted in the cloud |
+| Secrets | git-ignored `.env` | Vercel env vars | Azure Key Vault, AWS Secrets Manager, GCP Secret Manager |
+| Deploy | none | Vercel CLI | the cloud CLI from `scripts/deploy-<env>.sh`, or the existing pipeline |
+
+For enterprise, follow ops-and-sre:provisioning-on-hyperscalers (CLI first, then infrastructure as code) and ops-and-sre:deploying-to-azure for Azure mechanics. Mention in the cost line that dev costs nothing and enterprise needs the cost statement approved before anything paid exists.
+
 ## Procedure
 
 1. **Extract the requirements** from the brief: users and scale, data, real-time or long-running work, AI, compliance, hosting constraints, budget.
-2. **Map each one** with the table. Note every place the brief or a constraint overrides a default.
+2. **Map each one** with the table, using the tier column that matches `deploymentTier`. Note every place the brief or a constraint overrides a default.
 3. **Check costs.** Name the free tier or monthly cost of anything new (Neon, Temporal Cloud, Qdrant Cloud, LiveKit, Vercel plan). Prefer free tiers. Say so before provisioning.
 4. **Read current docs** for each chosen library before writing code. Versions move fast; the Versions blocks in the linked skills say when they were last checked.
 5. **Record** the choices in the design spec's "Stack" section as a table: layer, choice, reason. Deviations go in one line each.

@@ -33,6 +33,7 @@ A cloud session gets only what is pushed to GitHub. It has no `~/.claude`, so no
    - `.claude/rules/workbench.md`: the house rules, rendered with the profile.
    - `.claude/skills/<name>/`: the matching workbench skills, rendered.
    - `.claude/hooks/workbench/`: the secret-scan and guard hooks, active only when `CLAUDE_CODE_REMOTE=true`.
+   - The same folder holds `iac-sync.mjs`: when `.claude/workbench.json` has `iacSync: true`, cloud sessions log cloud CLI changes and are stopped once until `infra/` is updated. Cloud sessions still do not provision paid resources.
    - `.claude/hooks/cloud-setup.sh`: dependency install and Postgres start on SessionStart.
    - `docs/cloud/ENVIRONMENT.md`: the environment to create.
    Review `cloud-setup.sh` for this project's needs (database name, extra services), then commit.

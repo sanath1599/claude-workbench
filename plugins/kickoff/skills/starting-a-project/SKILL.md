@@ -25,6 +25,7 @@ A new project gets the same base every time: decisions recorded, a private GitHu
    2. *Repo:* the owner `{{wb.github_owner}}` or an org (`{{wb.github_orgs}}`), {{wb.default_repo_visibility}}.
    3. *Commits:* per verified increment on a feature branch, with the co-author trailer (recommended); on request only; or a branch per commit. Recommend no trailer when Vercel Hobby will deploy the repo.
    4. *Production deploys:* only on an explicit yes (recommended), or auto-deploy from main.
+   5. *Deployment tier:* dev (all local), internal (Vercel and managed services, the default) or enterprise (Azure, AWS or Google Cloud). For enterprise also ask: which cloud; whether a CI/CD pipeline already exists (default no, deploy with the cloud CLI from scripts); and the infrastructure approach (CLI first, then Terraform or Bicep generated from what exists, recommended; Terraform; Bicep; CLI only). Tiers are defined in kickoff:choosing-the-stack; the provisioning procedure is ops-and-sre:provisioning-on-hyperscalers.
    **Done when:** the answers are written to `.claude/workbench.json` (template: `assets/workbench.json`).
 
 2. **Keep the brief.** Save the pasted brief verbatim to `docs/requirements/original-brief.md`. Later amendments go in the design spec, and the spec wins.
@@ -34,7 +35,7 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 4. **Scaffold:**
    - `git init -b main`. Copy `assets/gitignore` to `.gitignore` (env files, caches, build output, graphify working files) and merge it with any framework default.
    - `.env.example` with every variable name and a placeholder. The owner fills `.env`; never write their values.
-   - `CLAUDE.md` from `assets/CLAUDE.md`: Start here, Rules, Commands, Local services. Keep it short and specific.
+   - `CLAUDE.md` from `assets/CLAUDE.md`: Start here, Rules, Commands, Local services. Keep it short and specific. Include the "Infrastructure" section only when `iacSync` is true, and create `infra/CHANGES.md`.
    - Local Postgres when needed: a Docker container bound to `127.0.0.1` on a free port. Check `docker ps --format '{{.Ports}}'` and `lsof -iTCP -sTCP:LISTEN` first; never reuse another project's port. Record the port in CLAUDE.md.
    - Package manager init ({{wb.package_manager}}; `uv init` for Python), the test runners, and one passing smoke test per runner.
    - Mock switches for every external service (for example `LLM_PROVIDER=mock`, `EMAIL_MODE=mock`, `VOICE_MODE=mock`), refused when `NODE_ENV=production`. Tests and cloud sessions without keys run on these.
@@ -61,7 +62,7 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 10. **Report** in at most 8 lines: repo URL, stack, what was verified, the cloud kit status, and the owner's next steps as `! commands`.
 
 ## Verification
-- [ ] `.claude/workbench.json` records the four answers.
+- [ ] `.claude/workbench.json` records the answers, including `deploymentTier` and, when `iac` is `cli-then-iac`, `iacSync: true`.
 - [ ] The repo is pushed; `git status` is clean; no secrets were committed.
 - [ ] Every bootstrap command ran green, with output shown.
 - [ ] `graphify-out/GRAPH_REPORT.md` and `graph.json` exist and the hooks are installed (or `graphify` is false in `.claude/workbench.json`, or the owner chose to skip it).
@@ -71,4 +72,4 @@ A new project gets the same base every time: decisions recorded, a private GitHu
 |---|---|
 | `assets/CLAUDE.md` | writing the project CLAUDE.md |
 | `assets/gitignore` | creating .gitignore |
-| `assets/workbench.json` | recording the policy answers |
+| `assets/workbench.json` | recording the policy answers (`deploymentTier`, `cloud`, `cicd`, `iac`, `iacTool`, `iacSync` too) |

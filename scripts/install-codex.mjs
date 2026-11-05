@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // Installs the Starter Pack skills and house rules for the Codex CLI. Node 20+, no dependencies.
+// Codex does not run Claude Code hooks, so the IaC sync hooks (ops-and-sre) do not apply there. Codex follows the
+// rule through the CLAUDE.md or AGENTS.md "Infrastructure" section that kickoff writes into a project.
 // Usage: node scripts/install-codex.mjs [--plugins a,b] [--codex-home <dir>] [--profile <file>] [--dry-run] [--uninstall]
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -175,6 +177,7 @@ function main() {
     }
   }
 
+  console.log('\nNote: hooks (secret guards, IaC sync) are Claude Code only. In Codex, the IaC sync rule applies through the "Infrastructure" section of a project\'s CLAUDE.md or AGENTS.md; copy it into AGENTS.md for projects with iacSync on.');
   console.log(`\n${installed} skill(s) ${o.dryRun ? 'would be ' : ''}installed, ${skipped.length} skipped${skipped.length ? ` (${skipped.join(', ')})` : ''}.`);
   const snippet = mcpSnippet();
   if (snippet) console.log(`\nMCP servers (not written automatically):\n\n${snippet}\n`);

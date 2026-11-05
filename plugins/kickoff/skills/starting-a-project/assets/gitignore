@@ -25,3 +25,7 @@ graphify-out/memory/
 playwright-report/
 test-results/
 .DS_Store
+
+# workbench runtime state (IaC sync log)
+.workbench/
+.workbench-studio/

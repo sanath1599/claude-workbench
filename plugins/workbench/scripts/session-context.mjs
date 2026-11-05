@@ -33,7 +33,8 @@ export function buildContext({ cwd, profileInfo, projectInfo, env = process.env,
 
   if (projectInfo.path) {
     const c = projectInfo.config;
-    parts.push(`**This project** (${projectInfo.path}): commits=${c.commits}, co-author trailer=${c.coAuthorTrailer}, branches=${c.branchPolicy}, cloud handoff=${c.cloudHandoff}, production deploys=${c.productionDeploys}.`);
+    parts.push(`**This project** (${projectInfo.path}): commits=${c.commits}, co-author trailer=${c.coAuthorTrailer}, branches=${c.branchPolicy}, cloud handoff=${c.cloudHandoff}, production deploys=${c.productionDeploys}${c.deploymentTier ? `, tier=${c.deploymentTier}` : ''}${c.cloud ? `, cloud=${c.cloud}` : ''}${c.iac ? `, iac=${c.iac}` : ''}.`);
+    if (c.iacSync === true) parts.push('IaC sync is on: after each round of cloud CLI changes, update infra/ (the Stop hook enforces this).');
     if (c.graphify !== false && !existsSync(join(projectInfo.root, 'graphify-out'))) {
       parts.push('This project has no graphify graph yet. Once the base setup is done, run `graphify update .` (then `graphify claude install`).');
     }

@@ -172,6 +172,30 @@ test('intake.json parses and covers every section and field', () => {
   assert.equal(d.sections.find((s) => s.id === 'design').fields[0].options.length, 3);
 });
 
+test('intake has the deployment section with conditional fields, and studio implements showIf for fields', () => {
+  const d = JSON.parse(readFileSync(`${SKILL}/assets/intake.json`, 'utf8'));
+  const sec = d.sections.find((s) => s.id === 'deployment');
+  assert.ok(sec, 'deployment section');
+  assert.ok(d.sections.findIndex((s) => s.id === 'deployment') < d.sections.findIndex((s) => s.id === 'delivery'));
+  const f = (id) => sec.fields.find((x) => x.id === id);
+  const values = (id) => f(id).options.map((o) => o.value);
+  assert.deepEqual(values('deployment_tier'), ['dev', 'internal', 'enterprise']);
+  assert.equal(f('deployment_tier').value, 'internal');
+  assert.ok(f('deployment_tier').options.find((o) => o.value === 'internal').recommended);
+  assert.deepEqual(values('cloud'), ['azure', 'aws', 'gcp']);
+  assert.deepEqual(values('cicd'), ['none', 'existing']);
+  assert.equal(f('cicd').value, 'none');
+  assert.deepEqual(values('iac'), ['cli-then-iac', 'terraform', 'bicep', 'cli-only']);
+  assert.deepEqual(values('iac_tool'), ['terraform', 'bicep']);
+  assert.equal(f('cicd_system').type, 'text');
+  for (const id of ['cloud', 'cicd', 'iac']) assert.deepEqual(f(id).showIf, { field: 'deployment_tier', value: 'enterprise' });
+  assert.deepEqual(f('iac_tool').showIf, { field: 'iac', value: 'cli-then-iac' });
+  const html = readFileSync(`${SKILL}/assets/studio.html`, 'utf8');
+  assert.match(html, /function matches\(/);
+  assert.match(html, /function fieldVisible\(/);
+  assert.match(readFileSync(`${SKILL}/references/intake-schema.md`, 'utf8'), /iacSync/);
+});
+
 test('SKILL.md follows the authoring contract', () => {
   const t = readFileSync(`${SKILL}/SKILL.md`, 'utf8');
   assert.match(t, /^name: new$/m);

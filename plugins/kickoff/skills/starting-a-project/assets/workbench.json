@@ -6,5 +6,11 @@
   "productionDeploys": "ask",
   "graphify": true,
   "watchPackages": [],
+  "deploymentTier": "internal",
+  "cloud": "",
+  "cicd": "none",
+  "iac": "",
+  "iacTool": "",
+  "iacSync": false,
   "notes": "Answers from kickoff:starting-a-project on <date>."
 }

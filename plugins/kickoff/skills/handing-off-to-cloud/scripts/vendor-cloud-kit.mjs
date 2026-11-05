@@ -84,15 +84,15 @@ function copyRendered(src, dest, profile, writes) {
   }
 }
 
-function guarded(script) {
-  return `[ "$CLAUDE_CODE_REMOTE" = "true" ] && node "$CLAUDE_PROJECT_DIR/${MARK}scripts/${script}" || true`;
+function guarded(script, arg = '') {
+  return `[ "$CLAUDE_CODE_REMOTE" = "true" ] && node "$CLAUDE_PROJECT_DIR/${MARK}scripts/${script}"${arg ? ` ${arg}` : ''} || true`;
 }
 
 export function mergeSettings(existing) {
   const settings = existing ? structuredClone(existing) : {};
   settings.hooks ||= {};
   const strip = (arr) => (arr || []).map((g) => ({ ...g, hooks: (g.hooks || []).filter((h) => !String(h.command || '').includes(MARK) && !String(h.command || '').includes('cloud-setup.sh')) })).filter((g) => g.hooks.length);
-  for (const ev of ['SessionStart', 'PreToolUse']) settings.hooks[ev] = strip(settings.hooks[ev]);
+  for (const ev of ['SessionStart', 'PreToolUse', 'PostToolUse', 'Stop']) settings.hooks[ev] = strip(settings.hooks[ev]);
   settings.hooks.SessionStart.push({
     hooks: [
       { type: 'command', command: 'bash "$CLAUDE_PROJECT_DIR/.claude/hooks/cloud-setup.sh"', timeout: 600 },
@@ -103,10 +103,13 @@ export function mergeSettings(existing) {
     { matcher: 'Bash', hooks: [{ type: 'command', command: guarded('guard-bash.mjs'), timeout: 30 }] },
     { matcher: 'Write|Edit|MultiEdit', hooks: [{ type: 'command', command: guarded('guard-write.mjs'), timeout: 10 }] },
   );
+  // IaC sync: logs cloud CLI changes and blocks the Stop once. The script does nothing unless .claude/workbench.json has "iacSync": true.
+  settings.hooks.PostToolUse.push({ matcher: 'Bash', hooks: [{ type: 'command', command: guarded('iac-sync.mjs', 'post-tool-use'), timeout: 10 }] });
+  settings.hooks.Stop.push({ hooks: [{ type: 'command', command: guarded('iac-sync.mjs', 'stop'), timeout: 10 }] });
   return settings;
 }
 
-export function planKit({ repo, skills, workbenchDir, kickoffSkillDir }) {
+export function planKit({ repo, skills, workbenchDir, kickoffSkillDir, opsDir }) {
   const profile = loadProfile(workbenchDir);
   const writes = [];
   const missing = [];
@@ -128,6 +131,10 @@ export function planKit({ repo, skills, workbenchDir, kickoffSkillDir }) {
   for (const f of ['lib.mjs', 'secret-scan.mjs', 'guard-bash.mjs', 'guard-write.mjs', 'session-context.mjs']) {
     writes.push([join(hookRoot, 'scripts', f), readFileSync(join(workbenchDir, 'scripts', f))]);
   }
+  const ops = opsDir || locatePlugin('ops-and-sre', kickoffSkillDir);
+  const iacScript = ops && join(ops, 'scripts', 'iac-sync.mjs');
+  if (iacScript && existsSync(iacScript)) writes.push([join(hookRoot, 'scripts', 'iac-sync.mjs'), readFileSync(iacScript)]);
+  else missing.push('ops-and-sre:iac-sync hook');
   writes.push([join(hookRoot, 'rules.md'), readFileSync(join(workbenchDir, 'rules.md'), 'utf8')]);
   writes.push([join(hookRoot, 'profile.defaults.json'), `${JSON.stringify({ ...profile, personalised: true }, null, 2)}\n`]);
   // 4. Cloud setup script and environment doc (never overwrite project edits).

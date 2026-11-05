@@ -155,7 +155,7 @@ main.stage{padding-bottom:120px}
 
   /* ---------- questions ---------- */
   function renderQuestions(step) {
-    var data = step.data || {}, state = {}, errors = {}, secEls = [], form = h('form', { novalidate: true });
+    var data = step.data || {}, state = {}, errors = {}, secEls = [], fieldEls = [], defs = {}, form = h('form', { novalidate: true });
     form.addEventListener('submit', function (e) { e.preventDefault(); });
     function labelFor(f, id) { return h('label', { for: id, class: f.required ? 'req' : '', text: f.label }); }
     function help(f) { return f.help ? h('p', { class: 'help', id: 'h-' + f.id, text: f.help }) : null; }
@@ -211,12 +211,15 @@ main.stage{padding-bottom:120px}
       }
     };
     R['stack-table'] = R.table;
-    function visible(sec) { return !sec.showIf || (sec.showIf.in || []).indexOf(state[sec.showIf.field]) !== -1; }
-    function vis() { secEls.forEach(function (s) { s.el.hidden = !visible(s.def); }); }
+    function matches(c) { return !c || (c.in ? c.in.indexOf(state[c.field]) !== -1 : state[c.field] === c.value); }
+    function visible(sec) { return matches(sec.showIf); }
+    // A field is shown when its section is, its own showIf matches, and the field it depends on is shown too.
+    function fieldVisible(f, sec) { var dep = f.showIf && defs[f.showIf.field]; return visible(sec) && matches(f.showIf) && (!dep || fieldVisible(dep.def, dep.sec)); }
+    function vis() { secEls.forEach(function (s) { s.el.hidden = !visible(s.def); }); fieldEls.forEach(function (x) { x.el.hidden = !fieldVisible(x.def, x.sec); }); }
     (data.sections || []).forEach(function (sec) { (sec.fields || []).forEach(function (f) { state[f.id] = clone(f.value === undefined ? (f.type === 'list' || f.type === 'table' || f.type === 'stack-table' ? [] : f.type === 'toggle' ? false : '') : f.value); }); });
     (data.sections || []).forEach(function (sec) {
       var el = h('section', { class: 'card', 'aria-labelledby': 'sh-' + step.id + sec.id }, h('h2', { id: 'sh-' + step.id + sec.id, text: sec.title }), sec.description ? h('p', { class: 'desc', text: sec.description }) : null);
-      (sec.fields || []).forEach(function (f) { if (R[f.type]) el.appendChild(R[f.type](f)); });
+      (sec.fields || []).forEach(function (f) { if (R[f.type]) { var fe = R[f.type](f); el.appendChild(fe); defs[f.id] = { def: f, sec: sec }; if (f.showIf) fieldEls.push({ def: f, sec: sec, el: fe }); } });
       form.appendChild(el); secEls.push({ def: sec, el: el });
     });
     vis();
@@ -224,6 +227,7 @@ main.stage{padding-bottom:120px}
     function collect() {
       var a = {};
       secEls.forEach(function (s) { if (!visible(s.def)) return; (s.def.fields || []).forEach(function (f) {
+        if (!fieldVisible(f, s.def)) return;
         var v = clone(state[f.id]);
         if (f.type === 'list') v = v.map(function (x) { return String(x).trim(); }).filter(Boolean);
         if (f.type === 'table' || f.type === 'stack-table') v = v.filter(function (r) { return Object.keys(r).some(function (k) { return k !== 'kind' && String(r[k] || '').trim(); }); });
@@ -235,7 +239,7 @@ main.stage{padding-bottom:120px}
     function validate() {
       var first = null;
       Object.keys(errors).forEach(function (k) { errors[k].textContent = ''; });
-      secEls.forEach(function (s) { if (!visible(s.def)) return; (s.def.fields || []).forEach(function (f) { if (f.required && !String(state[f.id] || '').trim()) { errors[f.id].textContent = f.label + ' is required.'; if (!first) first = document.getElementById('f-' + f.id); } }); });
+      secEls.forEach(function (s) { if (!visible(s.def)) return; (s.def.fields || []).forEach(function (f) { if (f.required && fieldVisible(f, s.def) && !String(state[f.id] || '').trim()) { errors[f.id].textContent = f.label + ' is required.'; if (!first) first = document.getElementById('f-' + f.id); } }); });
       if (first) first.focus(); return !first;
     }
     var submit = h('button', { type: 'button', class: 'btn primary', onclick: function () { if (!validate()) { status.textContent = 'Fill the required fields first.'; return; } status.textContent = 'Sending...'; reply(step, 'answers', collect()); } }, icon(I_SEND), 'Submit');

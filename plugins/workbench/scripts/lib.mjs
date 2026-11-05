@@ -48,6 +48,12 @@ export const PROJECT_DEFAULTS = Object.freeze({
   productionDeploys: 'ask', // 'ask' | 'auto-on-main'
   graphify: true,
   watchPackages: [],
+  deploymentTier: 'internal', // 'dev' | 'internal' | 'enterprise'
+  cloud: '', // 'azure' | 'aws' | 'gcp' (enterprise only)
+  cicd: 'none', // 'none' | name of an existing pipeline
+  iac: '', // 'cli-then-iac' | 'terraform' | 'bicep' | 'cli-only'
+  iacTool: '', // 'terraform' | 'bicep' when iac is cli-then-iac
+  iacSync: false, // true: update infra/ after every round of cloud CLI changes
 });
 
 /** Project settings written by kickoff:starting-a-project into .claude/workbench.json. */

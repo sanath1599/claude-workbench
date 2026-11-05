@@ -171,6 +171,151 @@
       ]
     },
     {
+      "id": "deployment",
+      "title": "Deployment",
+      "description": "Where this runs. The answers decide the hosting row of the stack and whether cloud infrastructure is tracked as code.",
+      "fields": [
+        {
+          "id": "deployment_tier",
+          "type": "radio",
+          "label": "Who is this for?",
+          "value": "internal",
+          "options": [
+            {
+              "value": "dev",
+              "label": "Dev",
+              "detail": "Everything runs locally: Docker Postgres, local workers, no cloud accounts."
+            },
+            {
+              "value": "internal",
+              "label": "Internal",
+              "detail": "Vercel and managed services (Neon, Temporal Cloud, Resend). The current default.",
+              "recommended": true
+            },
+            {
+              "value": "enterprise",
+              "label": "Enterprise",
+              "detail": "A hyperscaler: Azure, AWS or Google Cloud, with the cloud CLI and (optionally) infrastructure as code."
+            }
+          ]
+        },
+        {
+          "id": "cloud",
+          "type": "radio",
+          "label": "Which cloud?",
+          "value": "azure",
+          "showIf": {
+            "field": "deployment_tier",
+            "value": "enterprise"
+          },
+          "options": [
+            {
+              "value": "azure",
+              "label": "Azure"
+            },
+            {
+              "value": "aws",
+              "label": "AWS"
+            },
+            {
+              "value": "gcp",
+              "label": "Google Cloud"
+            }
+          ]
+        },
+        {
+          "id": "cicd",
+          "type": "radio",
+          "label": "Do you already have a CI/CD pipeline?",
+          "value": "none",
+          "showIf": {
+            "field": "deployment_tier",
+            "value": "enterprise"
+          },
+          "options": [
+            {
+              "value": "none",
+              "label": "No",
+              "detail": "Deploy with the cloud CLI from scripts/deploy-<env>.sh. Nothing to wire up.",
+              "recommended": true
+            },
+            {
+              "value": "existing",
+              "label": "Yes",
+              "detail": "Name it below. Claude will add the deploy job to it instead of writing scripts."
+            }
+          ]
+        },
+        {
+          "id": "cicd_system",
+          "type": "text",
+          "label": "Which system?",
+          "placeholder": "GitHub Actions, Azure DevOps, GitLab CI or other",
+          "value": "",
+          "showIf": {
+            "field": "cicd",
+            "value": "existing"
+          }
+        },
+        {
+          "id": "iac",
+          "type": "radio",
+          "label": "Infrastructure orchestration",
+          "value": "cli-then-iac",
+          "showIf": {
+            "field": "deployment_tier",
+            "value": "enterprise"
+          },
+          "options": [
+            {
+              "value": "cli-then-iac",
+              "label": "CLI first, then infrastructure as code",
+              "detail": "Build with the cloud CLI, then generate Terraform (or Bicep on Azure) from what exists, to validate it and to create the next environment. After every round of CLI changes the code is updated.",
+              "recommended": true
+            },
+            {
+              "value": "terraform",
+              "label": "Terraform from the start",
+              "detail": "Write Terraform first and apply it."
+            },
+            {
+              "value": "bicep",
+              "label": "Bicep from the start",
+              "detail": "Azure only."
+            },
+            {
+              "value": "cli-only",
+              "label": "CLI only",
+              "detail": "No infrastructure code is kept."
+            }
+          ]
+        },
+        {
+          "id": "iac_tool",
+          "type": "radio",
+          "label": "Generate which?",
+          "value": "terraform",
+          "showIf": {
+            "field": "iac",
+            "value": "cli-then-iac"
+          },
+          "options": [
+            {
+              "value": "terraform",
+              "label": "Terraform",
+              "detail": "Works on all three clouds.",
+              "recommended": true
+            },
+            {
+              "value": "bicep",
+              "label": "Bicep",
+              "detail": "Azure only."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "delivery",
       "title": "Delivery",
       "fields": [

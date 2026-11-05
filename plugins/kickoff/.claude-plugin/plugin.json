@@ -1,6 +1,6 @@
 {
   "name": "kickoff",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Start projects the owner's way and hand them to Claude Code cloud sessions: kickoff interview (cloud question first), private repo, cloud kit, handoff brief, verified launch and landing.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"

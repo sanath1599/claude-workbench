@@ -1,0 +1,4 @@
+[
+  {"name": "hashicorp/terraform", "ecosystem": "github", "repo": "hashicorp/terraform", "documented": "1.17.1", "changelog": "https://github.com/hashicorp/terraform/releases", "skills": ["provisioning-on-hyperscalers"]},
+  {"name": "Azure/aztfexport", "ecosystem": "github", "repo": "Azure/aztfexport", "documented": "0.20.0", "changelog": "https://github.com/Azure/aztfexport/releases", "skills": ["provisioning-on-hyperscalers"]}
+]

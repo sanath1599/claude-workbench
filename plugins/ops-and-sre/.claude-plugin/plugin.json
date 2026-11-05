@@ -1,7 +1,7 @@
 {
   "name": "ops-and-sre",
-  "version": "0.1.0",
-  "description": "DevOps and SRE procedures: CI with pinned actions, safe releases and migrations, incidents with a live timeline, SLOs and burn-rate alerts, instrumentation, runbooks and VPS deploys.",
+  "version": "0.2.0",
+  "description": "DevOps and SRE procedures: CI with pinned actions, safe releases and migrations, incidents with a live timeline, SLOs and burn-rate alerts, instrumentation, runbooks, VPS deploys, and hyperscaler provisioning with enforced infrastructure-as-code sync.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"
   },
@@ -20,6 +20,9 @@
     "logfire",
     "runbook",
     "vps",
-    "temporal"
+    "temporal",
+    "terraform",
+    "bicep",
+    "iac"
   ]
 }

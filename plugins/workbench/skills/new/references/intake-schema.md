@@ -23,6 +23,8 @@ The studio renders a `questions` step from this JSON (template: `assets/intake.j
 
 `showIf` hides a section unless the named field currently holds one of the listed values. Hidden sections are left out of the answers.
 
+A field can carry `showIf` too, as `{ "field": "deployment_tier", "value": "enterprise" }` (one value) or `{ "field": "kind", "in": ["ui", "both"] }`. The field is shown only when its section is shown, the condition holds, and the field it depends on is itself shown. Hidden fields are left out of the answers and are never required.
+
 ## Field types
 
 Every field has `id` (unique), `type`, `label`, `value` (the pre-filled answer), and optionally `help`, `placeholder`, `required`.
@@ -49,6 +51,7 @@ Every field has `id` (unique), `type`, `label`, `value` (the pre-filled answer),
 | `shape` | `kind` (`ui`, `api`, `both`), `scale` |
 | `references` | `references` (rows `{kind, target, like}`; may be empty) |
 | `stack` | `stack` |
+| `deployment` | `deployment_tier` (`dev`, `internal`, `enterprise`); enterprise only: `cloud` (`azure`, `aws`, `gcp`), `cicd` (`none`, `existing`), `iac` (`cli-then-iac`, `terraform`, `bicep`, `cli-only`); `cicd_system` when `cicd` is `existing`; `iac_tool` (`terraform`, `bicep`) when `iac` is `cli-then-iac` |
 | `delivery` | `cloud_handoff` (`yes`, `maybe`, `no`), `repo_owner`, `repo_visibility`, `commit_policy`, `coauthor`, `deploy_policy` |
 | `design` (UI only) | `direction`, `theme`, `density` |
 | `extra` | `notes` |
@@ -80,6 +83,12 @@ Answers are a flat map from field id to value. Lists are trimmed and empty rows 
 | `repo_owner`, `repo_visibility` | `repo_owner`, `repo_visibility` |
 | `commit_policy`, `coauthor` | `commit_policy`, `coauthor_trailer` |
 | `deploy_policy` | `production_deploys` |
+| `deployment_tier` | `deploymentTier` |
+| `cloud` | `cloud` (absent unless enterprise) |
+| `cicd` (and `cicd_system` when `existing`) | `cicd` (`none`, or the system's name) |
+| `iac` | `iac` |
+| `iac_tool` | `iacTool` (absent unless `iac` is `cli-then-iac`) |
+| `iac` is `cli-then-iac` | `iacSync: true`, otherwise `false` |
 
 Check `kickoff/skills/starting-a-project/assets/workbench.json` for the exact key names before writing, and use its spelling if it differs.
 
