@@ -16,6 +16,8 @@ Nothing was copied. Ideas were rewritten, and the proprietary Office skills were
 | KEEP-THIRD-PARTY | 30 |
 
 
+> **Update 2026-11-05:** at the owner's request, `graphify`, the 14 `mulmoterminal-*` skills and `reverse-engineer-anything` (with the REA MCP server) are now bundled in the `toolbelt` plugin. They are MIT-licensed, vendored from upstream with their licences, and refreshed by `scripts/sync-vendored.mjs` and the daily job. The migration applied the same day: the 22 third-party plugins and 6 unused marketplaces were removed, and the old personal-skill copies were moved to `~/.claude/skills-backup/2026-11-05/`. teamclaude was deliberately not included.
+
 ## Process, review and memory (superpowers, turingmind, code-simplifier, remember, playground, imessage, woz, engineering, productivity, cowork)
 
 | source | name | verdict | one-line reason |
