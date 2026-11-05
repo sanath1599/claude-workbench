@@ -57,6 +57,7 @@ Then start a new session and run `/workbench:setup`. It asks for your email, dom
 
 ## Common flows
 
+- **Guided new project:** `/workbench:new <brief>`. A local browser studio shows a pre-filled intake page, then design directions and a one-page sample, and talks back to the Claude Code session. After you approve the sample it creates the repo, writes the spec and a plan you approve, then builds here or hands off to the cloud. Reference products you name are studied with reverse-engineer-anything for patterns only.
 - **New project:** "start a new project from this brief". kickoff:starting-a-project asks about cloud handoff, repo, commits and deploys in one batch. It then sets up the repo, CLAUDE.md, env template, local database, tests and remote, and runs graphify once the base is in. It also writes a CLAUDE.md rule to update the graph after every release, starting with the first.
 - **Hand off to the cloud:** `node <kickoff>/skills/handing-off-to-cloud/scripts/vendor-cloud-kit.mjs --repo .` copies the rules, the matching skills and the guard hooks into the repo, because cloud sessions don't load plugins. Then come the environment doc, `cloud-ready-check.mjs`, a brief in `docs/handoff/`, and `claude --cloud "Read docs/handoff/<file> and carry it out"`, with proof that it started.
 - **Teach it something:** say "from now on…" or "this is useful: …". workbench:update-skill finds the closest skill (`node scripts/find-skill.mjs`), integrates the learning, validates, bumps the version and pushes.

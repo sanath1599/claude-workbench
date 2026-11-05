@@ -5,6 +5,8 @@ description: Use when the owner starts a new project or repo, pastes a large bri
 
 # Starting a project
 
+For the guided flow with an intake page and a UI sample, use `/workbench:new`; this skill is the underlying setup procedure.
+
 A new project gets the same base every time: decisions recorded, a private GitHub repo, a CLAUDE.md that a fresh session (local or cloud) can work from, secrets kept out, a local database, test runners that pass, and, once the base is in, a graphify map. The first question is always whether the project may ever be handed to a cloud session, because the answer changes what gets prepared.
 
 ## When to use

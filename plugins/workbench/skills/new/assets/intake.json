@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "title": "Project intake",
+  "subtitle": "Drafted from your brief. Correct anything that is wrong and press Submit.",
+  "sections": [
+    {
+      "id": "project",
+      "title": "Project",
+      "description": "What this is and who it is for.",
+      "fields": [
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Project name",
+          "required": true,
+          "value": "field-notes"
+        },
+        {
+          "id": "purpose",
+          "type": "text",
+          "label": "One-line purpose",
+          "required": true,
+          "value": "A small team tool for logging site visits and sharing them as a weekly digest."
+        },
+        {
+          "id": "users",
+          "type": "textarea",
+          "label": "Users",
+          "value": "Field engineers (log visits on a phone). Team leads (review and send the digest)."
+        },
+        {
+          "id": "features",
+          "type": "list",
+          "label": "Core features",
+          "help": "One per line. Order is rough priority.",
+          "value": [
+            "Log a visit with photos and notes",
+            "Weekly digest per team lead",
+            "Search past visits"
+          ]
+        },
+        {
+          "id": "non_goals",
+          "type": "list",
+          "label": "Non-goals",
+          "value": [
+            "Billing",
+            "Offline sync in the first version"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shape",
+      "title": "Product shape",
+      "fields": [
+        {
+          "id": "kind",
+          "type": "radio",
+          "label": "What are we building?",
+          "value": "ui",
+          "options": [
+            {
+              "value": "ui",
+              "label": "UI app",
+              "detail": "Screens people use. You approve a one-page UI sample before planning."
+            },
+            {
+              "value": "api",
+              "label": "API or agent only",
+              "detail": "No screens. You approve a one-page system sketch instead."
+            },
+            {
+              "value": "both",
+              "label": "Both",
+              "detail": "A UI plus an API or agent behind it. The sample covers the UI."
+            }
+          ]
+        },
+        {
+          "id": "scale",
+          "type": "select",
+          "label": "Scale",
+          "value": "team",
+          "options": [
+            {
+              "value": "personal",
+              "label": "Just me"
+            },
+            {
+              "value": "team",
+              "label": "A team (up to about 50 people)"
+            },
+            {
+              "value": "org",
+              "label": "A whole organisation"
+            },
+            {
+              "value": "public",
+              "label": "Public users"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "title": "Reference products",
+      "description": "Optional. Existing products to learn from. Claude studies them for patterns only and never copies brand, copy, assets or code.",
+      "fields": [
+        {
+          "id": "references",
+          "type": "table",
+          "label": "References",
+          "value": [],
+          "columns": [
+            {
+              "key": "kind",
+              "label": "Type",
+              "options": [
+                "url",
+                "app",
+                "package",
+                "binary"
+              ]
+            },
+            {
+              "key": "target",
+              "label": "Link or name"
+            },
+            {
+              "key": "like",
+              "label": "What you like about it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stack",
+      "title": "Stack",
+      "description": "Defaults from the workbench, adjusted to the brief. Edit any cell, add or remove rows.",
+      "fields": [
+        {
+          "id": "stack",
+          "type": "stack-table",
+          "label": "Stack",
+          "value": [
+            {
+              "layer": "Frontend",
+              "choice": "TypeScript, Vite, TanStack",
+              "reason": "Auth-gated app, no SEO need."
+            },
+            {
+              "layer": "API",
+              "choice": "Python FastAPI",
+              "reason": "Pydantic models shared with any agent code."
+            },
+            {
+              "layer": "Data",
+              "choice": "Postgres",
+              "reason": "Relational visits and users."
+            },
+            {
+              "layer": "Hosting",
+              "choice": "Vercel",
+              "reason": "Owner default."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Delivery",
+      "fields": [
+        {
+          "id": "cloud_handoff",
+          "type": "radio",
+          "label": "Might you hand this to a Claude Code cloud session?",
+          "value": "maybe",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes",
+              "detail": "Prepare the cloud kit now. The build can run while your laptop is off. Costs extra setup time and needs mock switches for every service.",
+              "recommended": false
+            },
+            {
+              "value": "maybe",
+              "label": "Maybe",
+              "detail": "Create the repo now and add the kit only if you decide to. Cheap and reversible.",
+              "recommended": true
+            },
+            {
+              "value": "no",
+              "label": "No",
+              "detail": "Local only. Nothing extra to prepare."
+            }
+          ]
+        },
+        {
+          "id": "repo_owner",
+          "type": "select",
+          "label": "Repo owner",
+          "value": "{{wb.github_owner}}",
+          "options": [
+            {
+              "value": "{{wb.github_owner}}",
+              "label": "{{wb.github_owner}}"
+            }
+          ]
+        },
+        {
+          "id": "repo_visibility",
+          "type": "radio",
+          "label": "Visibility",
+          "value": "private",
+          "options": [
+            {
+              "value": "private",
+              "label": "Private",
+              "detail": "Recommended."
+            },
+            {
+              "value": "public",
+              "label": "Public"
+            }
+          ]
+        },
+        {
+          "id": "commit_policy",
+          "type": "radio",
+          "label": "Commits",
+          "value": "per-increment",
+          "options": [
+            {
+              "value": "per-increment",
+              "label": "Per verified increment on a feature branch",
+              "recommended": true
+            },
+            {
+              "value": "on-request",
+              "label": "Only when I ask"
+            },
+            {
+              "value": "branch-per-commit",
+              "label": "A branch per commit"
+            }
+          ]
+        },
+        {
+          "id": "coauthor",
+          "type": "toggle",
+          "label": "Add the Claude co-author trailer to commits",
+          "help": "Turn off if Vercel Hobby will deploy this repo.",
+          "value": true
+        },
+        {
+          "id": "deploy_policy",
+          "type": "radio",
+          "label": "Production deploys",
+          "value": "explicit",
+          "options": [
+            {
+              "value": "explicit",
+              "label": "Only on my explicit yes",
+              "recommended": true
+            },
+            {
+              "value": "auto",
+              "label": "Auto-deploy from main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "title": "Design direction",
+      "description": "UI projects only. Pick one; the sample page is built in it.",
+      "showIf": {
+        "field": "kind",
+        "in": [
+          "ui",
+          "both"
+        ]
+      },
+      "fields": [
+        {
+          "id": "direction",
+          "type": "direction-picker",
+          "label": "Direction",
+          "value": "slate-calm",
+          "options": [
+            {
+              "id": "slate-calm",
+              "name": "Slate calm",
+              "reason": "Quiet and precise, suits dense work screens.",
+              "palette": {
+                "bg": "#F8FAFC",
+                "surface": "#FFFFFF",
+                "fg": "#0F172A",
+                "primary": "#1D4ED8",
+                "onPrimary": "#FFFFFF",
+                "accent": "#0E7490"
+              },
+              "font": {
+                "label": "Inter alone",
+                "display": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+                "body": "\"Inter\", ui-sans-serif, system-ui, sans-serif"
+              },
+              "paletteId": "cobalt-ledger",
+              "fontId": "inter-solo"
+            },
+            {
+              "id": "warm-paper",
+              "name": "Warm paper",
+              "reason": "Friendly and editorial, good for reading-heavy tools.",
+              "palette": {
+                "bg": "#FAF7F2",
+                "surface": "#FFFFFF",
+                "fg": "#2B2118",
+                "primary": "#9A3412",
+                "onPrimary": "#FFFFFF",
+                "accent": "#4D7C0F"
+              },
+              "font": {
+                "label": "Serif display, sans body",
+                "display": "Georgia, \"Times New Roman\", serif",
+                "body": "ui-sans-serif, system-ui, sans-serif"
+              },
+              "paletteId": "",
+              "fontId": ""
+            },
+            {
+              "id": "forest-night",
+              "name": "Forest night",
+              "reason": "Focused and low glare, suits long sessions.",
+              "palette": {
+                "bg": "#0F1A17",
+                "surface": "#16251F",
+                "fg": "#E6F0EB",
+                "primary": "#4ADE80",
+                "onPrimary": "#06210F",
+                "accent": "#5EEAD4"
+              },
+              "font": {
+                "label": "Mono accents",
+                "display": "ui-sans-serif, system-ui, sans-serif",
+                "body": "ui-sans-serif, system-ui, sans-serif"
+              },
+              "paletteId": "",
+              "fontId": ""
+            }
+          ]
+        },
+        {
+          "id": "theme",
+          "type": "radio",
+          "label": "Theme",
+          "value": "light",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light",
+              "recommended": true
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ]
+        },
+        {
+          "id": "density",
+          "type": "radio",
+          "label": "Density",
+          "value": "comfortable",
+          "options": [
+            {
+              "value": "comfortable",
+              "label": "Comfortable"
+            },
+            {
+              "value": "compact",
+              "label": "Compact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extra",
+      "title": "Anything else",
+      "fields": [
+        {
+          "id": "notes",
+          "type": "textarea",
+          "label": "Notes",
+          "help": "Constraints, deadlines, things to avoid.",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

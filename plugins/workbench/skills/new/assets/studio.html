@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workbench studio</title>
+<style>
+
+:root{--bg:#f7f7f5;--surface:#fff;--fg:#14171f;--muted:#5b6270;--border:#e4e4e0;--primary:#1f3a5f;--on-primary:#fff;--focus:#2563eb;--danger:#b42318;--ok:#15803d;--r:12px;--font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--font)}
+section.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-top:20px}
+section.card[hidden]{display:none}
+section.card>h2{font-size:18px;margin:0;letter-spacing:-.005em}
+section.card>p.desc{margin:4px 0 0;color:var(--muted);font-size:14px}
+.field{margin-top:18px}
+.field>label,.field>.lbl{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.help{color:var(--muted);font-size:13px;margin:0 0 6px}
+input[type=text],textarea,select{width:100%;font:inherit;color:var(--fg);background:var(--surface);border:1px solid #cfd2d8;border-radius:8px;padding:9px 11px}
+textarea{min-height:88px;resize:vertical}
+:is(input,textarea,select,button,summary,a):focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.req::after{content:" required";font-weight:400;color:var(--muted);font-size:12px}
+.err{color:var(--danger);font-size:13px;margin-top:4px}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer;background:var(--surface)}
+.opt:has(input:checked){border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}
+.opt input{margin-top:4px;accent-color:var(--primary)}
+.opt b{font-weight:600}
+.opt small{display:block;color:var(--muted);font-size:13px}
+.rec{font-size:12px;color:var(--ok);margin-left:6px;font-weight:600}
+.row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.row input,.row select{flex:1;min-width:0}
+.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;border:1px solid #cfd2d8;background:var(--surface);color:var(--fg);border-radius:8px;padding:8px 12px;cursor:pointer}
+.btn:hover{background:#f3f3f1}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.icon{padding:8px}
+.btn svg{width:16px;height:16px;flex:none}
+.toggle{display:flex;align-items:center;gap:10px;cursor:pointer}
+.toggle input{position:absolute;opacity:0}
+.toggle .track{width:38px;height:22px;border-radius:999px;background:#cfd2d8;position:relative;transition:background .15s;flex:none}
+.toggle .track::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .15s}
+.toggle input:checked+.track{background:var(--primary)}
+.toggle input:checked+.track::after{transform:translateX(16px)}
+.toggle input:focus-visible+.track{outline:2px solid var(--focus);outline-offset:2px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-size:12px;color:var(--muted);font-weight:600;padding:0 6px 6px}
+.tbl td{padding:4px 6px;vertical-align:top}
+.tbl td:first-child{width:24%}.tbl td:nth-child(2){width:30%}
+.tbl-wrap{overflow-x:auto}
+.dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.dir{border:1px solid var(--border);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;background:var(--surface);display:block}
+.dir:has(input:checked){border-color:var(--primary);box-shadow:0 0 0 2px var(--primary)}
+.dir:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.dir input{position:absolute;opacity:0}
+.dir .sample{padding:14px}
+.dir .sample h3{margin:0 0 4px;font-size:20px;line-height:1.2}
+.dir .sample p{margin:0 0 10px;font-size:14px}
+.dir .sample .pill{display:inline-block;font-size:13px;padding:5px 12px;border-radius:8px}
+.dir .sw{display:flex;height:10px}
+.dir .sw i{flex:1}
+.dir .meta{padding:10px 14px 12px;font-size:13px;color:var(--muted)}
+.dir .meta b{display:block;color:var(--fg);font-size:14px}
+@media (max-width:560px){.wrap{padding-top:20px}section.card{padding:16px}.tbl td:first-child,.tbl td:nth-child(2){width:auto}.tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}.tbl thead{display:none}.tbl tr{border-bottom:1px solid var(--border);padding:8px 0}.btn{flex:1;justify-content:center}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+aside.tl{border-right:1px solid var(--border);background:var(--surface);padding:20px 14px;position:sticky;top:0;height:100vh;overflow:auto}
+aside.tl h1{font-size:15px;margin:0 0 14px;letter-spacing:-.005em}
+aside.tl ol{list-style:none;margin:0;padding:0}
+aside.tl li button{width:100%;text-align:left;font:inherit;font-size:13px;border:0;background:none;padding:7px 8px;border-radius:8px;cursor:pointer;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+aside.tl li button:hover{background:#f3f3f1}
+aside.tl li button[aria-current=step]{background:#eef1f6;color:var(--fg);font-weight:600}
+aside.tl .kind{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);min-width:56px}
+main.stage{padding:28px 20px 60px;max-width:900px;width:100%;margin:0 auto}
+.conn{font-size:12px;color:var(--muted);margin-top:14px}
+.conn[data-ok=true]::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:6px}
+.conn[data-ok=false]::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--danger);margin-right:6px}
+.step-h:focus{outline:none}
+.step-h{margin:0 0 4px;font-size:24px;letter-spacing:-.01em;line-height:1.2}
+.step-p{margin:0 0 16px;color:var(--muted)}
+.actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:16px}
+.sent{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--surface);font-size:14px;color:var(--muted)}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid #cfd2d8;border-top-color:var(--primary);animation:sp 1s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.frame{width:100%;height:68vh;min-height:420px;border:1px solid var(--border);border-radius:12px;background:#fff;display:block}
+.pick{border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden;cursor:pointer;display:block}
+.pick:has(input:checked){border-color:var(--primary);box-shadow:0 0 0 2px var(--primary)}
+.pick:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+.pick input{position:absolute;opacity:0}
+.pick img{width:100%;display:block;border-bottom:1px solid var(--border);background:#f3f3f1}
+.md h1,.md h2,.md h3{letter-spacing:-.005em;line-height:1.25}
+.md h1{font-size:22px}.md h2{font-size:18px;margin-top:22px}.md h3{font-size:15px;margin-top:16px}
+.md pre{background:#f3f3f1;border-radius:8px;padding:10px 12px;overflow:auto;font-size:13px}
+.md code{background:#f3f3f1;border-radius:4px;padding:1px 4px;font-size:.92em}.md pre code{background:none;padding:0}
+.md ul,.md ol{padding-left:22px}
+.sec-note{margin:6px 0 14px}
+.sec-note input{font-size:13px}
+.empty{color:var(--muted);padding:40px 0}
+@media (max-width:760px){.shell{grid-template-columns:1fr}aside.tl{position:static;height:auto;border-right:0;border-bottom:1px solid var(--border)}aside.tl ol{display:flex;gap:4px;overflow-x:auto}}
+.q-bar{position:fixed;left:230px;right:0;bottom:0;z-index:20;background:rgba(247,247,245,.96);border-top:1px solid var(--border);padding:12px max(20px,calc((100% - 860px)/2));display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap}
+main.stage{padding-bottom:120px}
+@media (max-width:760px){.q-bar{left:0}}
+.q-bar .st{flex:1 1 200px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="tl" aria-label="Progress">
+    <h1>Workbench studio</h1>
+    <ol id="tl"></ol>
+    <div class="conn" id="conn" role="status" data-ok="false">Connecting</div>
+  </aside>
+  <main class="stage" id="stage" aria-live="polite"></main>
+</div>
+<script>
+(function () {
+  'use strict';
+  var NS = 'http://www.w3.org/2000/svg';
+  var token = new URLSearchParams(location.search).get('t') || '';
+  var steps = [], replied = {}, viewing = null;
+  var stage = document.getElementById('stage'), tl = document.getElementById('tl'), conn = document.getElementById('conn');
+
+  function h(tag, attrs) {
+    var el = document.createElement(tag); attrs = attrs || {};
+    Object.keys(attrs).forEach(function (k) {
+      if (k === 'text') el.textContent = attrs[k];
+      else if (k === 'class') el.className = attrs[k];
+      else if (k.slice(0, 2) === 'on') el.addEventListener(k.slice(2), attrs[k]);
+      else if (attrs[k] === true) el.setAttribute(k, '');
+      else if (attrs[k] !== false && attrs[k] != null) el.setAttribute(k, attrs[k]);
+    });
+    for (var i = 2; i < arguments.length; i++) { var c = arguments[i]; if (c) el.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); }
+    return el;
+  }
+  function icon(paths) {
+    var s = document.createElementNS(NS, 'svg');
+    s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor');
+    s.setAttribute('stroke-width', '2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round'); s.setAttribute('aria-hidden', 'true');
+    paths.forEach(function (d) { var p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); s.appendChild(p); });
+    return s;
+  }
+  var I_PLUS = ['M5 12h14', 'M12 5v14'], I_X = ['M18 6 6 18', 'm6 6 12 12'], I_SEND = ['m22 2-7 20-4-9-9-4Z', 'M22 2 11 13'], I_CHECK = ['M20 6 9 17l-5-5'];
+  function clone(v) { return JSON.parse(JSON.stringify(v)); }
+  function art(name) { return '/artifacts/' + encodeURIComponent(name) + '?t=' + encodeURIComponent(token); }
+
+  function reply(step, kind, data, onDone) {
+    return fetch('/api/reply', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Studio-Token': token }, body: JSON.stringify({ stepId: step.id, kind: kind, data: data }) })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); replied[step.id] = kind; render(); if (onDone) onDone(); })
+      .catch(function () { alert('Could not send to Claude. Check that the studio process is still running.'); });
+  }
+  function sentBox() {
+    return h('div', { class: 'sent', role: 'status' }, h('span', { class: 'spin', 'aria-hidden': 'true' }), 'Sent to Claude. Waiting for the next step.');
+  }
+
+  /* ---------- questions ---------- */
+  function renderQuestions(step) {
+    var data = step.data || {}, state = {}, errors = {}, secEls = [], form = h('form', { novalidate: true });
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    function labelFor(f, id) { return h('label', { for: id, class: f.required ? 'req' : '', text: f.label }); }
+    function help(f) { return f.help ? h('p', { class: 'help', id: 'h-' + f.id, text: f.help }) : null; }
+    function wrap(f, lab, body) { var err = h('div', { class: 'err', role: 'alert' }); errors[f.id] = err; return h('div', { class: 'field' }, lab, help(f), body, err); }
+    function legend(f) { return h('div', { class: 'lbl', id: 'l-' + f.id, text: f.label }); }
+    var R = {
+      text: function (f) { var id = 'f-' + f.id, i = h('input', { type: 'text', id: id, value: state[f.id] || '', placeholder: f.placeholder, 'aria-required': f.required ? 'true' : null, oninput: function () { state[f.id] = i.value; } }); return wrap(f, labelFor(f, id), i); },
+      textarea: function (f) { var id = 'f-' + f.id, t = h('textarea', { id: id, placeholder: f.placeholder, oninput: function () { state[f.id] = t.value; } }); t.value = state[f.id] || ''; return wrap(f, labelFor(f, id), t); },
+      select: function (f) { var id = 'f-' + f.id, s = h('select', { id: id, onchange: function () { state[f.id] = s.value; } }); (f.options || []).forEach(function (o) { var op = h('option', { value: o.value, text: o.label }); if (o.value === state[f.id]) op.selected = true; s.appendChild(op); }); return wrap(f, labelFor(f, id), s); },
+      radio: function (f) {
+        var box = h('div', { class: 'opts', role: 'radiogroup', 'aria-labelledby': 'l-' + f.id });
+        (f.options || []).forEach(function (o, n) {
+          var id = 'f-' + f.id + '-' + n, i = h('input', { type: 'radio', name: 'r-' + step.id + f.id, id: id, onchange: function () { state[f.id] = o.value; vis(); } });
+          if (o.value === state[f.id]) i.checked = true;
+          var b = h('b', { text: o.label }); if (o.recommended) b.appendChild(h('span', { class: 'rec', text: 'Recommended' }));
+          box.appendChild(h('label', { class: 'opt', for: id }, i, h('span', {}, b, o.detail ? h('small', { text: o.detail }) : null)));
+        });
+        return wrap(f, legend(f), box);
+      },
+      toggle: function (f) { var id = 'f-' + f.id, i = h('input', { type: 'checkbox', id: id, role: 'switch', onchange: function () { state[f.id] = i.checked; } }); i.checked = !!state[f.id]; errors[f.id] = h('div'); return h('div', { class: 'field' }, h('label', { class: 'toggle', for: id }, i, h('span', { class: 'track' }), h('span', { text: f.label })), help(f)); },
+      list: function (f) {
+        var rows = h('div');
+        function draw() { rows.textContent = ''; state[f.id].forEach(function (v, n) { var i = h('input', { type: 'text', value: v, 'aria-label': f.label + ' ' + (n + 1), oninput: function () { state[f.id][n] = i.value; } }); rows.appendChild(h('div', { class: 'row' }, i, h('button', { type: 'button', class: 'btn icon', 'aria-label': 'Remove ' + f.label + ' ' + (n + 1), onclick: function () { state[f.id].splice(n, 1); draw(); } }, icon(I_X)))); }); }
+        draw();
+        return wrap(f, legend(f), h('div', {}, rows, h('button', { type: 'button', class: 'btn', onclick: function () { state[f.id].push(''); draw(); var x = rows.querySelectorAll('input'); x[x.length - 1].focus(); } }, icon(I_PLUS), 'Add')));
+      },
+      table: function (f) {
+        var cols = f.columns || [{ key: 'layer', label: 'Layer' }, { key: 'choice', label: 'Choice' }, { key: 'reason', label: 'Why' }];
+        var body = h('tbody');
+        function draw() {
+          body.textContent = '';
+          state[f.id].forEach(function (r, n) {
+            var tr = h('tr');
+            cols.forEach(function (c) {
+              var el;
+              if (c.options) { el = h('select', { 'aria-label': c.label + ', row ' + (n + 1), onchange: function () { r[c.key] = el.value; } }); c.options.forEach(function (o) { var op = h('option', { value: o, text: o }); if (o === r[c.key]) op.selected = true; el.appendChild(op); }); if (!r[c.key]) r[c.key] = c.options[0]; }
+              else el = h('input', { type: 'text', value: r[c.key] || '', 'aria-label': c.label + ', row ' + (n + 1), oninput: function () { r[c.key] = el.value; } });
+              tr.appendChild(h('td', {}, el));
+            });
+            tr.appendChild(h('td', {}, h('button', { type: 'button', class: 'btn icon', 'aria-label': 'Remove row ' + (n + 1), onclick: function () { state[f.id].splice(n, 1); draw(); } }, icon(I_X))));
+            body.appendChild(tr);
+          });
+        }
+        draw();
+        var head = h('tr'); cols.forEach(function (c) { head.appendChild(h('th', { text: c.label })); }); head.appendChild(h('th'));
+        var add = h('button', { type: 'button', class: 'btn', onclick: function () { var r = {}; cols.forEach(function (c) { r[c.key] = c.options ? c.options[0] : ''; }); state[f.id].push(r); draw(); } }, icon(I_PLUS), 'Add row');
+        return wrap(f, legend(f), h('div', {}, h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' }, h('thead', {}, head), body)), add));
+      },
+      'direction-picker': function (f) {
+        var box = h('div', { class: 'dirs', role: 'radiogroup', 'aria-labelledby': 'l-' + f.id });
+        (f.options || []).forEach(function (o, n) { box.appendChild(directionCard(o, 'r-' + step.id + f.id, 'f-' + f.id + '-' + n, state[f.id] === o.id, function () { state[f.id] = o.id; })); });
+        return wrap(f, legend(f), box);
+      }
+    };
+    R['stack-table'] = R.table;
+    function visible(sec) { return !sec.showIf || (sec.showIf.in || []).indexOf(state[sec.showIf.field]) !== -1; }
+    function vis() { secEls.forEach(function (s) { s.el.hidden = !visible(s.def); }); }
+    (data.sections || []).forEach(function (sec) { (sec.fields || []).forEach(function (f) { state[f.id] = clone(f.value === undefined ? (f.type === 'list' || f.type === 'table' || f.type === 'stack-table' ? [] : f.type === 'toggle' ? false : '') : f.value); }); });
+    (data.sections || []).forEach(function (sec) {
+      var el = h('section', { class: 'card', 'aria-labelledby': 'sh-' + step.id + sec.id }, h('h2', { id: 'sh-' + step.id + sec.id, text: sec.title }), sec.description ? h('p', { class: 'desc', text: sec.description }) : null);
+      (sec.fields || []).forEach(function (f) { if (R[f.type]) el.appendChild(R[f.type](f)); });
+      form.appendChild(el); secEls.push({ def: sec, el: el });
+    });
+    vis();
+    var status = h('div', { class: 'st', role: 'status', text: 'Pre-filled from your brief. Change what is wrong, then submit.' });
+    function collect() {
+      var a = {};
+      secEls.forEach(function (s) { if (!visible(s.def)) return; (s.def.fields || []).forEach(function (f) {
+        var v = clone(state[f.id]);
+        if (f.type === 'list') v = v.map(function (x) { return String(x).trim(); }).filter(Boolean);
+        if (f.type === 'table' || f.type === 'stack-table') v = v.filter(function (r) { return Object.keys(r).some(function (k) { return k !== 'kind' && String(r[k] || '').trim(); }); });
+        if (typeof v === 'string') v = v.trim();
+        a[f.id] = v;
+      }); });
+      return { schema_version: data.schema_version || 1, submitted_at: new Date().toISOString(), answers: a };
+    }
+    function validate() {
+      var first = null;
+      Object.keys(errors).forEach(function (k) { errors[k].textContent = ''; });
+      secEls.forEach(function (s) { if (!visible(s.def)) return; (s.def.fields || []).forEach(function (f) { if (f.required && !String(state[f.id] || '').trim()) { errors[f.id].textContent = f.label + ' is required.'; if (!first) first = document.getElementById('f-' + f.id); } }); });
+      if (first) first.focus(); return !first;
+    }
+    var submit = h('button', { type: 'button', class: 'btn primary', onclick: function () { if (!validate()) { status.textContent = 'Fill the required fields first.'; return; } status.textContent = 'Sending...'; reply(step, 'answers', collect()); } }, icon(I_SEND), 'Submit');
+    var wrapEl = h('div', {}, h('h2', { class: 'step-h', text: step.title || data.title || 'Project intake' }), h('p', { class: 'step-p', text: data.subtitle || '' }), form, h('div', { class: 'q-bar' }, status, submit));
+    return wrapEl;
+  }
+
+  /* ---------- choices ---------- */
+  // Accept a palette as {bg, fg, primary...}, as a choosing-type-and-color entry ({light:{...}}), or as a list of hex values.
+  function normPalette(pal) {
+    if (!pal) return {};
+    if (Array.isArray(pal)) return { bg: pal[0], fg: pal[1], primary: pal[2], surface: pal[3], accent: pal[4] };
+    if (pal.light && typeof pal.light === 'object') return pal.light;
+    return { bg: pal.bg || pal.background, surface: pal.surface, fg: pal.fg || pal.text, primary: pal.primary, onPrimary: pal.onPrimary, accent: pal.accent };
+  }
+  function normFont(f) {
+    if (!f) return {};
+    if (typeof f === 'string') { var parts = f.split('/').map(function (x) { return x.trim(); }); return { label: f, display: '"' + parts[0] + '", system-ui, sans-serif', body: '"' + (parts[1] || parts[0]) + '", system-ui, sans-serif' }; }
+    if (f.display && typeof f.display === 'object') return { label: f.name || f.label, display: f.display.stack, body: f.body && f.body.stack };
+    return f;
+  }
+  function directionCard(o, name, id, checked, onpick) {
+    o = Object.assign({}, o, { palette: normPalette(o.palette), font: normFont(o.font) });
+    var p = o.palette;
+    var i = h('input', { type: 'radio', name: name, id: id, onchange: onpick }); i.checked = !!checked;
+    var sample = h('div', { class: 'sample' }, h('h3', { text: 'Quarterly summary' }), h('p', { text: 'Twelve visits logged this week across four sites.' }), h('span', { class: 'pill', text: 'Send digest' }));
+    sample.style.background = p.bg || '#fff'; sample.style.color = p.fg || '#111';
+    sample.querySelector('h3').style.fontFamily = (o.font && o.font.display) || 'inherit';
+    sample.querySelector('p').style.fontFamily = (o.font && o.font.body) || 'inherit';
+    var pill = sample.querySelector('.pill'); pill.style.background = p.primary || '#111'; pill.style.color = p.onPrimary || '#fff';
+    var sw = h('div', { class: 'sw', 'aria-hidden': 'true' });
+    ['bg', 'surface', 'fg', 'primary', 'accent'].forEach(function (k) { if (p[k]) { var s = h('i'); s.style.background = p[k]; sw.appendChild(s); } });
+    return h('label', { class: 'dir', for: id }, i, sample, sw, h('div', { class: 'meta' }, h('b', { text: o.name }), o.reason || '', o.font && o.font.label ? h('div', { text: 'Type: ' + o.font.label }) : null));
+  }
+  function renderChoices(step) {
+    var d = step.data || {}, multi = !!d.multi, chosen = {}, box = h('div', { class: 'dirs', role: multi ? 'group' : 'radiogroup', 'aria-label': d.prompt || step.title });
+    (d.options || []).forEach(function (o, n) {
+      var id = 'c-' + step.id + '-' + n;
+      function pick() { if (multi) chosen[o.id] = document.getElementById(id).checked; else chosen = {}, chosen[o.id] = true; }
+      if (o.palette) { var card = directionCard(o, 'ch-' + step.id, id, false, pick); if (multi) card.querySelector('input').type = 'checkbox'; box.appendChild(card); return; }
+      var i = h('input', { type: multi ? 'checkbox' : 'radio', name: 'ch-' + step.id, id: id, onchange: pick });
+      box.appendChild(h('label', { class: 'pick', for: id }, i, o.image ? h('img', { src: art(o.image), alt: o.name + ' preview' }) : null, h('div', { class: 'meta' }, h('b', { text: o.name }), o.reason || '')));
+    });
+    var comment = h('textarea', { id: 'cc-' + step.id, 'aria-label': 'Comment', placeholder: d.commentHint || 'Optional comment' });
+    var send = h('button', { type: 'button', class: 'btn primary', onclick: function () {
+      var ids = Object.keys(chosen).filter(function (k) { return chosen[k]; });
+      if (!ids.length) { alert('Pick an option first.'); return; }
+      reply(step, 'choice', { choice: multi ? ids : ids[0], comment: comment.value.trim() });
+    } }, icon(I_SEND), 'Send');
+    return h('div', {}, h('h2', { class: 'step-h', text: step.title || 'Choose' }), h('p', { class: 'step-p', text: d.prompt || '' }), box, h('div', { class: 'field' }, h('label', { for: 'cc-' + step.id, text: 'Comment' }), comment), h('div', { class: 'actions' }, send));
+  }
+
+  /* ---------- mock ---------- */
+  function renderMock(step) {
+    var notes = [], comments = h('textarea', { id: 'mc-' + step.id, placeholder: 'What should change? Leave empty to approve as is.' });
+    var sel = h('select', { id: 'ms-' + step.id, 'aria-label': 'Screen or area' }, h('option', { value: '', text: 'Whole page' }));
+    (step.screens || []).forEach(function (s) { sel.appendChild(h('option', { value: s, text: s })); });
+    var note = h('input', { type: 'text', 'aria-label': 'Note for that screen or area', placeholder: 'Optional note for the selected screen or area' });
+    var list = h('ul', { class: 'help' });
+    function addNote() { var t = note.value.trim(); if (!t) return; notes.push({ screen: sel.value, note: t }); note.value = ''; list.textContent = ''; notes.forEach(function (n) { list.appendChild(h('li', { text: (n.screen || 'Whole page') + ': ' + n.note })); }); }
+    function send(kind) { addNote(); reply(step, kind, { comments: comments.value.trim(), screenNotes: notes }); }
+    var frame = h('iframe', { class: 'frame', title: step.title || 'Sample', sandbox: 'allow-scripts', src: art(step.artifact || ''), referrerpolicy: 'no-referrer' });
+    return h('div', {}, h('h2', { class: 'step-h', text: step.title || 'Sample' }), h('p', { class: 'step-p', text: (step.data && step.data.note) || 'Fictional data. Review it, then approve or ask for changes.' }), frame,
+      h('div', { class: 'field' }, h('label', { for: 'mc-' + step.id, text: 'Comments' }), comments),
+      h('div', { class: 'row' }, sel, note, h('button', { type: 'button', class: 'btn', onclick: addNote }, icon(I_PLUS), 'Add note')), list,
+      h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn', onclick: function () { send('changes'); } }, 'Request changes'), h('button', { type: 'button', class: 'btn primary', onclick: function () { send('approve'); } }, icon(I_CHECK), 'Approve')));
+  }
+
+  /* ---------- markdown (headings, lists, code, bold, inline code, paragraphs) ---------- */
+  function inline(el, text) {
+    text.split(/(`[^`]+`|\*\*[^*]+\*\*)/).forEach(function (part) {
+      if (!part) return;
+      if (part[0] === '`' && part.length > 1) el.appendChild(h('code', { text: part.slice(1, -1) }));
+      else if (part.slice(0, 2) === '**' && part.length > 4) el.appendChild(h('strong', { text: part.slice(2, -2) }));
+      else el.appendChild(document.createTextNode(part));
+    });
+    return el;
+  }
+  function markdown(src, onHeading) {
+    var root = h('div', { class: 'md' }), lines = String(src).replace(/\r/g, '').split('\n'), i = 0, list = null, para = [], pending = null;
+    function flush() { if (para.length) { root.appendChild(inline(h('p'), para.join(' '))); para = []; } }
+    // A section's comment box goes after the section's content, not straight under its heading.
+    function closeSection() { flush(); if (pending) { root.appendChild(pending); pending = null; } }
+    while (i < lines.length) {
+      var l = lines[i], m;
+      if (/^```/.test(l)) { flush(); list = null; var buf = []; i++; while (i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]); root.appendChild(h('pre', {}, h('code', { text: buf.join('\n') }))); i++; continue; }
+      if ((m = /^(#{1,4})\s+(.*)$/.exec(l))) { closeSection(); list = null; var hd = inline(h('h' + Math.min(m[1].length, 3)), m[2]); root.appendChild(hd); if (onHeading && m[1].length >= 2) pending = onHeading(root, m[2]) || null; i++; continue; }
+      if ((m = /^\s*(?:[-*]|\d+\.)\s+(.*)$/.exec(l))) { flush(); if (!list) { list = h(/^\s*\d/.test(l) ? 'ol' : 'ul'); root.appendChild(list); } list.appendChild(inline(h('li'), m[1])); i++; continue; }
+      if (!l.trim()) { flush(); list = null; i++; continue; }
+      list = null; para.push(l.trim()); i++;
+    }
+    closeSection(); return root;
+  }
+
+  /* ---------- plan ---------- */
+  function renderPlan(step) {
+    var notes = {}, comments = h('textarea', { id: 'pc-' + step.id, placeholder: 'Overall comments. Leave empty to approve as is.' });
+    var body = markdown((step.data && step.data.markdown) || '', function (root, title) {
+      var inp = h('input', { type: 'text', 'aria-label': 'Comment on ' + title, placeholder: 'Comment on this section', oninput: function () { notes[title] = inp.value; } });
+      return h('div', { class: 'sec-note' }, inp);
+    });
+    function send(kind) { var sn = Object.keys(notes).filter(function (k) { return notes[k].trim(); }).map(function (k) { return { section: k, note: notes[k].trim() }; }); reply(step, kind, { comments: comments.value.trim(), sectionNotes: sn }); }
+    return h('div', {}, h('h2', { class: 'step-h', text: step.title || 'Plan' }), h('p', { class: 'step-p', text: 'Approve to start building, or comment on any section and request changes.' }),
+      h('section', { class: 'card' }, body),
+      h('div', { class: 'field' }, h('label', { for: 'pc-' + step.id, text: 'Comments' }), comments),
+      h('div', { class: 'actions' }, h('button', { type: 'button', class: 'btn', onclick: function () { send('changes'); } }, 'Request changes'), h('button', { type: 'button', class: 'btn primary', onclick: function () { send('approve'); } }, icon(I_CHECK), 'Approve')));
+  }
+
+  function renderMessage(step) {
+    var d = step.data || {};
+    return h('div', {}, h('h2', { class: 'step-h', text: step.title || 'Working' }), h('div', { class: 'sent', role: 'status' }, d.progress === false ? null : h('span', { class: 'spin', 'aria-hidden': 'true' }), d.text || ''));
+  }
+  function renderDone(step) {
+    var d = step.data || {};
+    return h('div', {}, h('h2', { class: 'step-h', text: step.title || 'Done' }), h('section', { class: 'card' }, markdown(d.markdown || d.text || 'Everything is confirmed.')));
+  }
+
+  var RENDER = { questions: renderQuestions, choices: renderChoices, mock: renderMock, plan: renderPlan, message: renderMessage, done: renderDone };
+  var INTERACTIVE = { questions: 1, choices: 1, mock: 1, plan: 1 };
+
+  function render() {
+    tl.textContent = '';
+    steps.forEach(function (s, n) {
+      var cur = (viewing === null ? n === steps.length - 1 : viewing === n);
+      tl.appendChild(h('li', {}, h('button', { type: 'button', 'aria-current': cur ? 'step' : null, onclick: function () { viewing = (n === steps.length - 1) ? null : n; render(); } }, h('span', { class: 'kind', text: s.kind }), h('span', { text: s.title || ('Step ' + s.id) }))));
+    });
+    stage.textContent = '';
+    if (!steps.length) { stage.appendChild(h('p', { class: 'empty', text: 'Waiting for Claude to send the first step.' })); return; }
+    var idx = viewing === null ? steps.length - 1 : viewing, s = steps[idx], isLatest = idx === steps.length - 1;
+    var el = RENDER[s.kind] ? RENDER[s.kind](s) : h('p', { text: 'Unknown step.' });
+    stage.appendChild(el);
+    // The open step is the newest interactive one; status messages pushed after it don't close it.
+    var openIdx = -1; for (var k = steps.length - 1; k >= 0; k--) { if (INTERACTIVE[steps[k].kind]) { openIdx = k; break; } }
+    var isOpen = idx === openIdx;
+    if (INTERACTIVE[s.kind] && replied[s.id]) { stage.appendChild(isOpen ? sentBox() : h('div', { class: 'sent', text: 'You already answered this step.' })); el.setAttribute('inert', ''); }
+    else if (INTERACTIVE[s.kind] && !isOpen) { stage.appendChild(h('div', { class: 'sent', text: 'Closed: a newer step replaced this one. Answer the latest step instead.' })); el.setAttribute('inert', ''); }
+    if (isLatest) { var hd = stage.querySelector('.step-h'); if (hd) { hd.setAttribute('tabindex', '-1'); } }
+  }
+
+  function connect() {
+    var es = new EventSource('/events?t=' + encodeURIComponent(token));
+    es.onopen = function () { conn.dataset.ok = 'true'; conn.textContent = 'Connected to Claude'; };
+    es.onerror = function () { conn.dataset.ok = 'false'; conn.textContent = 'Disconnected. Retrying'; };
+    es.addEventListener('step', function (e) {
+      var s = JSON.parse(e.data);
+      if (steps.some(function (x) { return x.id === s.id; })) return;
+      steps.push(s);
+      // A status message must not pull the owner away from a question they haven't answered yet.
+      var open = -1; for (var k = steps.length - 1; k >= 0; k--) { if (INTERACTIVE[steps[k].kind]) { open = k; break; } }
+      viewing = (!INTERACTIVE[s.kind] && open >= 0 && !replied[steps[open].id]) ? open : null;
+      render();
+      var hd = stage.querySelector('.step-h'); if (hd) hd.focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+    });
+  }
+  if (!token) { stage.textContent = 'Missing token. Open the URL that Claude printed.'; return; }
+  render(); connect();
+})();
+</script>
+</body>
+</html>

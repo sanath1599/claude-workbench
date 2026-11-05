@@ -1,0 +1,4 @@
+{"prompt":"Pick a design direction for the clinic follow-up app","multi":false,"commentHint":"Anything to adjust?","options":[
+{"id":"calm","name":"Calm clinical","reason":"Soft teal accent on warm white; reads trustworthy for receptionists","palette":["#F7F6F2","#1F2A30","#2F7D7A","#E3EFEE","#D9534F"],"font":"Inter / Inter"},
+{"id":"editorial","name":"Quiet editorial","reason":"Graphite and paper with one cobalt accent; dense tables stay readable","palette":["#FAFAF9","#171717","#2952CC","#EEF2FF","#B42318"],"font":"Schibsted Grotesk / Inter"},
+{"id":"warm","name":"Warm practical","reason":"Sand neutrals with a deep green action colour; friendly but serious","palette":["#FBF8F3","#2B2620","#2E6B4F","#EAF3EE","#C2410C"],"font":"Plus Jakarta Sans / Inter"}]}
