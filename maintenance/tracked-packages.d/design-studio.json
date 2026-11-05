@@ -1,0 +1,6 @@
+[
+  {"name":"playwright","ecosystem":"npm","documented":"1.64.1","changelog":"https://github.com/microsoft/playwright/releases","skills":["design-studio:verifying-ui-in-browser"]},
+  {"name":"sileo","ecosystem":"npm","documented":"0.1.6","changelog":"https://www.npmjs.com/package/sileo","skills":["design-studio:previewing-ui-before-building","design-studio:designing-without-ai-slop"]},
+  {"name":"lucide-react","ecosystem":"npm","documented":"1.69.0","changelog":"https://github.com/lucide-icons/lucide/releases","skills":["design-studio:previewing-ui-before-building"]},
+  {"name":"esbuild","ecosystem":"npm","documented":"0.28.2","changelog":"https://github.com/evanw/esbuild/blob/main/CHANGELOG.md","skills":["design-studio:previewing-ui-before-building"]}
+]

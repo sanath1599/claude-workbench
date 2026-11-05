@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guided demo</title>
+<style>
+/* Tokens: swap for the app's real tokens so the tour matches the app. */
+:root { --navy:#10214a; --gold:#e0a82e; --paper:#fff; --ink:#14181f; --muted:#5b6472; --bar:#e3e6ea; --font:system-ui,sans-serif; }
+* { box-sizing:border-box; }
+html,body { margin:0; height:100%; background:#0b1530; font-family:var(--font); overflow:hidden; }
+#viewport { position:fixed; inset:0 0 40px 0; display:grid; place-items:center; }
+#stage { width:1280px; height:720px; position:relative; transform-origin:center; background:var(--paper); overflow:hidden; flex:none; }
+.slide { position:absolute; inset:0; display:none; }
+.slide.active { display:block; }
+.title-slide { background:var(--navy); color:#fff; display:none; place-content:center; padding:96px; }
+.title-slide.active { display:grid; }
+.title-slide h1 { font-size:64px; margin:0 0 16px; }
+.title-slide p { font-size:24px; margin:0; opacity:.8; }
+#dim { position:absolute; inset:0; background:rgb(10 20 40 / .55); display:none; pointer-events:none; z-index:50; }
+#ring { position:absolute; border:3px solid var(--gold); border-radius:10px; box-shadow:0 0 0 9999px rgb(10 20 40 / .55); display:none; pointer-events:none; z-index:51; transition:all .2s; }
+#pop { position:absolute; width:320px; background:#fff; color:var(--ink); border-radius:12px; padding:16px; box-shadow:0 8px 30px rgb(0 0 0 / .3); display:none; z-index:52; }
+#pop .key { font-size:11px; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; }
+#pop h3 { margin:4px 0; font-size:18px; } #pop p { margin:0 0 12px; font-size:14px; line-height:1.5; }
+#pop .row { display:flex; justify-content:space-between; align-items:center; }
+#pop .dots span { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--bar); margin-right:4px; }
+#pop .dots span.on { background:var(--gold); }
+#pop button { border:1px solid var(--bar); background:#fff; border-radius:8px; padding:6px 12px; cursor:pointer; }
+#bar { position:fixed; left:0; right:0; bottom:0; height:40px; background:#0b1530; color:#cdd5e6; display:flex; align-items:center; gap:16px; padding:0 16px; font-size:13px; }
+#progress { flex:1; height:4px; background:#24345f; border-radius:2px; } #progress i { display:block; height:100%; width:0; background:var(--gold); border-radius:2px; }
+#overview { position:fixed; inset:0; background:#0b1530ee; display:none; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; padding:32px; z-index:100; overflow:auto; }
+#overview.on { display:grid; } #overview button { background:#fff; border:0; border-radius:8px; padding:24px 12px; cursor:pointer; }
+.reveal { opacity:0; transition:opacity .3s; } .reveal.on { opacity:1; }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+  <section class="slide title-slide"><div><h1>Product name</h1><p>What it does, in one plain sentence.</p></div></section>
+
+  <!-- Tour slide: paste the real app screen markup here. Mark steps with data-step. -->
+  <section class="slide" data-name="Tasks">
+    <div style="padding:48px">
+      <button data-step data-title="Start here" data-text="Say in plain words what this button does for the user.">Create request</button>
+      <div data-step data-title="Track progress" data-text="One sentence on what this panel saves the team.">Status panel</div>
+    </div>
+  </section>
+
+  <!-- Your turn: no data-step, the app stays clickable. -->
+  <section class="slide" data-name="Your turn" data-free><div style="padding:48px">Real app UI, fully clickable.</div></section>
+
+  <!-- Summary: each .reveal appears on its own step. -->
+  <section class="slide" data-name="Summary"><ul style="padding:48px;font-size:28px">
+    <li class="reveal">Point one</li><li class="reveal">Point two</li><li class="reveal">Point three</li></ul></section>
+
+  <div id="dim"></div><div id="ring"></div>
+  <div id="pop"><div class="key"></div><h3></h3><p></p><div class="row"><div class="dots"></div><div><button id="back">Back</button> <button id="next">Next</button></div></div></div>
+</div></div>
+<div id="bar"><div id="progress"><i></i></div><span id="where"></span></div>
+<div id="overview"></div>
+<script>
+const stage = document.getElementById('stage'), slides = [...stage.querySelectorAll('.slide')]
+const ring = document.getElementById('ring'), pop = document.getElementById('pop')
+let s = 0, k = 0
+const stepsOf = (i) => { const el = slides[i]; const t = [...el.querySelectorAll('[data-step]')]; return t.length ? t : [...el.querySelectorAll('.reveal')] }
+function fit() { const sc = Math.min(innerWidth / 1280, (innerHeight - 40) / 720); stage.style.transform = `scale(${sc})` }
+function render() {
+  slides.forEach((el, i) => el.classList.toggle('active', i === s))
+  const steps = stepsOf(s), el = slides[s]
+  const tour = el.querySelector('[data-step]')
+  ring.style.display = pop.style.display = 'none'
+  steps.forEach((t, i) => t.classList.contains('reveal') && t.classList.toggle('on', i <= k))
+  if (tour) {
+    const t = steps[k], a = stage.getBoundingClientRect(), b = t.getBoundingClientRect(), sc = a.width / 1280
+    const x = (b.left - a.left) / sc, y = (b.top - a.top) / sc, w = b.width / sc, h = b.height / sc
+    Object.assign(ring.style, { display: 'block', left: x - 6 + 'px', top: y - 6 + 'px', width: w + 12 + 'px', height: h + 12 + 'px' })
+    pop.querySelector('.key').textContent = `${(el.dataset.name || 'Tour')}, ${k + 1} of ${steps.length}`
+    pop.querySelector('h3').textContent = t.dataset.title; pop.querySelector('p').textContent = t.dataset.text
+    pop.querySelector('.dots').innerHTML = steps.map((_, i) => `<span class="${i === k ? 'on' : ''}"></span>`).join('')
+    const px = Math.min(x, 1280 - 340), py = y + h + 16 > 720 - 180 ? Math.max(8, y - 190) : y + h + 16
+    Object.assign(pop.style, { display: 'block', left: px + 'px', top: py + 'px' })
+  }
+  const total = Math.max(1, steps.length)
+  document.getElementById('where').textContent = `Slide ${s + 1}/${slides.length}, step ${k + 1}/${total}`
+  document.querySelector('#progress i').style.width = ((s + 1) / slides.length) * 100 + '%'
+  history.replaceState(null, '', `#${s + 1}.${k + 1}`)
+}
+const last = (i) => Math.max(stepsOf(i).length, 1) - 1
+function next() { if (k < last(s)) k++; else if (s < slides.length - 1) { s++; k = 0 } render() }
+function back() { if (k > 0) k--; else if (s > 0) { s--; k = last(s) } render() }
+document.getElementById('next').onclick = next; document.getElementById('back').onclick = back
+addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') next()
+  else if (e.key === 'ArrowLeft') back()
+  else if (e.key.toLowerCase() === 'o') document.getElementById('overview').classList.toggle('on')
+  else if (e.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()
+})
+const ov = document.getElementById('overview')
+slides.forEach((el, i) => { const b = document.createElement('button'); b.textContent = `${i + 1}. ${el.dataset.name || 'Title'}`; b.onclick = () => { s = i; k = 0; ov.classList.remove('on'); render() }; ov.appendChild(b) })
+const m = location.hash.match(/#(\d+)\.(\d+)/); if (m) { s = Math.min(slides.length, +m[1]) - 1; k = +m[2] - 1 }
+addEventListener('resize', () => { fit(); render() }); fit(); render()
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Design tokens. Components below use var(--*) only; no hex outside this block.
+   Replace values with the client's brand. Port this block to the real app as-is. */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f9;
+  --color-border: #e3e6ea;
+  --color-text: #14181f;
+  --color-muted: #5b6472;
+  --color-brand: #1f4fd8;
+  --color-brand-contrast: #ffffff;
+  --color-success: #1f8a5b;
+  --color-danger: #c4423a;
+  --radius: 10px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px;
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --shadow-1: 0 1px 2px rgb(20 24 31 / 0.06);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); color: var(--color-text); background: var(--color-bg); line-height: 1.5; }
+.nav { display: flex; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); overflow-x: auto; }
+.nav button { border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text); padding: var(--space-2) var(--space-3); border-radius: var(--radius); cursor: pointer; white-space: nowrap; }
+.nav button[aria-current="true"] { background: var(--color-brand); color: var(--color-brand-contrast); border-color: var(--color-brand); }
+.screen { display: none; padding: var(--space-6) var(--space-4); max-width: 1100px; margin: 0 auto; }
+.screen.active { display: block; }
+.card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-4); box-shadow: var(--shadow-1); }
+.empty { color: var(--color-muted); text-align: center; padding: var(--space-8); }
