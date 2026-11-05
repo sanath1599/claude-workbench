@@ -1,10 +1,12 @@
 {
   "personalised": false,
   "owner_name": "Starter Pack contributors",
-  "owner_email": "",
-  "git_author_email": "",
+  "owner_email": "owner@example.com",
+  "git_author_email": "owner@example.com",
   "github_owner": "sanath1599",
-  "github_orgs": ["my-org"],
+  "github_orgs": [
+    "my-org"
+  ],
   "default_repo_visibility": "private",
   "domain": "antm.ai",
   "dns_provider": "Cloudflare",
@@ -26,5 +28,6 @@
   "databases": "Postgres; Qdrant when vector search is required",
   "llm_default": "Claude Sonnet for quality-critical paths, Ollama Cloud (gpt-oss:120b) as the cheap default and fallback; schema in the prompt and validated output",
   "workbench_repo": "sanath1599/claude-workbench",
-  "workbench_local_path": "~/Desktop/projects/starter-pack"
+  "workbench_local_path": "~/Desktop/projects/starter-pack",
+  "alert_email": "owner@example.com"
 }

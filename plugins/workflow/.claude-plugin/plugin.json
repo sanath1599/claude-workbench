@@ -1,0 +1,12 @@
+{
+  "name": "workflow",
+  "version": "0.1.0",
+  "description": "The build loop: shape a request with one batch of questions, plan, execute with batched reviews and a critique pass, debug from a red loop, verify with evidence, review before merge, simplify, finish the branch, and coordinate parallel sessions.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": ["workflow", "planning", "debugging", "code-review", "tdd", "worktrees"]
+}
