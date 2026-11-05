@@ -1,0 +1,5 @@
+[
+  { "name": "graphifyy", "ecosystem": "PyPI", "documented": "0.9.102", "changelog": "https://github.com/safishamsi/graphify/releases", "skills": ["toolbelt:graphify"], "vendored": "node scripts/sync-vendored.mjs --only graphify" },
+  { "name": "mulmoterminal", "ecosystem": "npm", "documented": "12.0.1", "changelog": "https://github.com/receptron/mulmoterminal/releases", "skills": ["toolbelt:mulmoterminal-*"], "vendored": "node scripts/sync-vendored.mjs --only mulmoterminal" },
+  { "name": "rea-agents", "ecosystem": "npm", "documented": "6.8.0", "changelog": "https://github.com/morluto/rea/releases", "skills": ["toolbelt:reverse-engineer-anything"], "vendored": "node scripts/sync-vendored.mjs --only rea", "pinnedIn": ["plugins/toolbelt/.mcp.json"] }
+]

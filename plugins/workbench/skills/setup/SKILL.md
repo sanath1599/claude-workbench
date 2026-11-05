@@ -39,7 +39,7 @@ A short interview that writes the person's profile and renders a personalised co
    - Frontend: TypeScript + Vite + TanStack, or Next.js, or other.
    - Backend and agents: Python + Pydantic AI, with Temporal for long-running work. Data: Postgres, plus Qdrant for vectors.
    - Subagent default model (sonnet recommended; haiku for mechanical work; opus when warranted). Package manager (npm recommended).
-   - Plugins to install (multiSelect): workbench, kickoff, stack-web, stack-python, design-studio, engineering-craft, ops-and-sre, interactive-demos, stack-connectors. Also companion plugins from the official catalog, listed in `references/companions.md`.
+   - Plugins to install (multiSelect): workbench, workflow, kickoff, stack-web, stack-python, design-studio, engineering-craft, ops-and-sre, docs-and-data, interactive-demos, stack-connectors, toolbelt (graphify, MulmoTerminal, REA). Also companion plugins from the official catalog, listed in `references/companions.md`.
 
 5. **Write the profile.** Build the JSON (same keys as `../../profile.defaults.json`, with `"personalised": true`) and show it as a short table. If `~/.claude/workbench/profile.json` exists, show only what changes. Then write it to `~/.claude/workbench/profile.json`. Never put secrets in the profile.
    **Done when:** the file exists and parses.
@@ -60,7 +60,16 @@ A short interview that writes the person's profile and renders a personalised co
    ```
    If the same plugins are also installed from the GitHub marketplace, offer to disable those copies so skills don't appear twice. Tell them to run `/reload-plugins` or start a new session.
 
-8. **Finish.** List what was written and installed, in three lines. Then: "Re-run `/workbench:setup --refresh` after marketplace updates. Edit `~/.claude/workbench/profile.json` any time."
+8. **System tools.** Install graphify for the whole machine, so every project can build its knowledge graph:
+   ```bash
+   command -v pipx >/dev/null || brew install pipx        # or: python3 -m pip install --user pipx
+   pipx install graphifyy || pipx upgrade graphifyy        # the CLI (`graphify`); uv users: uv tool install graphifyy
+   graphify --help >/dev/null && echo "graphify ready"
+   ```
+   The graphify skill itself comes from the `toolbelt` plugin. Don't also run `graphify install --platform claude`: it would put a second copy in `~/.claude/skills/`. If an older copy is there, move it to `~/.claude/skills-backup/<date>/`.
+   **Done when:** `graphify --help` runs and `toolbelt` is installed.
+
+9. **Finish.** List what was written and installed, in three lines. Then: "Re-run `/workbench:setup --refresh` after marketplace updates. Edit `~/.claude/workbench/profile.json` any time."
 
 ## Quick reference
 

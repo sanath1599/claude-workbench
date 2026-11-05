@@ -9,7 +9,7 @@ run() { if [ $APPLY = 1 ]; then echo "+ $*"; "$@" || echo "  (failed or already 
 
 MARKETPLACE_REPO="sanath1599/claude-workbench"
 MARKETPLACE="starter-pack"
-OURS=(workbench workflow kickoff stack-web stack-python design-studio engineering-craft ops-and-sre docs-and-data interactive-demos stack-connectors)
+OURS=(workbench workflow kickoff stack-web stack-python design-studio engineering-craft ops-and-sre docs-and-data interactive-demos stack-connectors toolbelt)
 
 THIRD_PARTY=(
   superpowers@claude-plugins-official
@@ -54,14 +54,22 @@ echo "note: expo@expo-plugins is project-scoped and disabled; run 'claude plugin
 echo "3. Remove marketplaces that are no longer used"
 for m in "${OLD_MARKETPLACES[@]}"; do run claude plugin marketplace remove "$m"; done
 
+echo "4. Personal skills now bundled in the toolbelt plugin: move the old copies to a backup"
+BACKUP="$HOME/.claude/skills-backup/$(date +%Y-%m-%d)"
+for s in graphify reverse-engineer-anything; do
+  if [ -d "$HOME/.claude/skills/$s" ]; then run mkdir -p "$BACKUP"; run mv "$HOME/.claude/skills/$s" "$BACKUP/$s"; fi
+done
+if claude mcp get rea >/dev/null 2>&1; then run claude mcp remove rea -s user; fi   # toolbelt bundles the rea MCP server
+echo "5. graphify CLI, system-wide"
+if command -v pipx >/dev/null; then run sh -c "pipx upgrade graphifyy || pipx install graphifyy"; else echo "install pipx, then: pipx install graphifyy"; fi
+
 cat <<'EOF'
-4. Kept on purpose (see docs/installed-audit.md):
-   - ~/.claude/skills/graphify: the full graph pipeline (docs, papers, images) needs this skill; the workbench calls it.
-   - ~/.claude/skills/mulmoterminal-*: these ship with the MulmoTerminal app and are rewritten by it.
-   - ~/.claude/skills/reverse-engineer-anything: it pairs with the rea MCP server.
+6. Notes:
+   - ~/.claude/skills/mulmoterminal-*: the MulmoTerminal app rewrites these when it starts, so they come back even if
+     removed. toolbelt carries the same skills; if both show up, that is the app's copy and it is harmless.
    - Synced claude.ai account skills and plugins (engineering, product-management, data, productivity,
      cowork-plugin-management, desktop-commander, anthropic-skills:*). These come from the claude.ai account,
      not from Claude Code. Turn off the ones you no longer want in claude.ai > Settings > Capabilities (Skills).
-5. Then: start a new session, run /workbench:setup, and enable auto-update for starter-pack in /plugin > Marketplaces.
+7. Then: start a new session, run /workbench:setup, and enable auto-update for starter-pack in /plugin > Marketplaces.
 EOF
 [ $APPLY = 0 ] && echo "Dry run only. Re-run with --apply to make these changes."

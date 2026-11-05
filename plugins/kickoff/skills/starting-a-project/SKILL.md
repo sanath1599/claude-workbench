@@ -53,7 +53,8 @@ A new project gets the same base every time: decisions recorded, a private GitHu
    **Done when:** each command ran and its output was shown.
 
 9. **Graph it.** First check `.claude/workbench.json`: if `graphify` is false, skip this step. If the `graphify` command is missing, install it with `pipx install graphifyy`. After the base setup is committed, run `graphify update .` (code-only, no tokens), then `graphify claude install` and `graphify hook install`. These edit `CLAUDE.md` and `.claude/settings.json`, so review the diff and commit the changes. Commit `graphify-out/GRAPH_REPORT.md` and `graph.json`. If the repo has substantial docs, specs or images, ask the owner whether to also run `/graphify .` for the semantic pass. For a repo with more than about 200 code files, tell the owner which subfolder you chose.
-   **Done when:** `graphify-out/graph.json` exists and the hooks are committed, or the owner chose to skip it.
+   Then add the "Knowledge graph" section from `assets/CLAUDE.md` to the project CLAUDE.md, so every later session updates the graph after each release, starting from the first one.
+   **Done when:** `graphify-out/graph.json` exists, the hooks and the CLAUDE.md section are committed, or the owner chose to skip it.
 
 10. **Report** in at most 8 lines: repo URL, stack, what was verified, the cloud kit status, and the owner's next steps as `! commands`.
 

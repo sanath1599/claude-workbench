@@ -5,7 +5,7 @@ A personal Claude Code plugin marketplace that makes every session work the way 
 - house rules distilled from about 2,800 prompts and 56 answered decisions across 60 projects;
 - guard hooks that enforce the mechanical rules;
 - a project kickoff that prepares cloud handoffs;
-- 84 skills for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos.
+- 84 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
 
 Everything is written in our own words. Ideas came from studying the well-known marketplaces and from the owner's own projects; no text was copied. See `docs/research/marketplace-notes.md` and `docs/installed-audit.md`.
 
@@ -41,6 +41,7 @@ Then start a new session and run `/workbench:setup`. It asks for your email, dom
 | **docs-and-data** | Word, Excel (live formulas), PowerPoint, PDF, tabular analysis, in-depth research with citations | 6 |
 | **interactive-demos** | Repository to click-through demo through the antm connector (Animated Technical Interactive) | 1 |
 | **stack-connectors** | MCP servers: Vercel, Cloudflare API and docs, Resend, Logfire, Temporal docs, Context7, Prisma, Chrome DevTools | 0 |
+| **toolbelt** | Bundled from upstream (MIT, licences in `plugins/toolbelt/licenses/`), refreshed by `scripts/sync-vendored.mjs` and the daily job: graphify (knowledge graphs; the CLI is installed by setup), the 14 MulmoTerminal skills, reverse-engineer-anything with the REA MCP server | 16 |
 
 ## What runs automatically
 
@@ -56,7 +57,7 @@ Then start a new session and run `/workbench:setup`. It asks for your email, dom
 
 ## Common flows
 
-- **New project:** "start a new project from this brief". kickoff:starting-a-project asks about cloud handoff, repo, commits and deploys in one batch. It then sets up the repo, CLAUDE.md, env template, local database, tests and remote, and runs graphify once the base is in.
+- **New project:** "start a new project from this brief". kickoff:starting-a-project asks about cloud handoff, repo, commits and deploys in one batch. It then sets up the repo, CLAUDE.md, env template, local database, tests and remote, and runs graphify once the base is in. It also writes a CLAUDE.md rule to update the graph after every release, starting with the first.
 - **Hand off to the cloud:** `node <kickoff>/skills/handing-off-to-cloud/scripts/vendor-cloud-kit.mjs --repo .` copies the rules, the matching skills and the guard hooks into the repo, because cloud sessions don't load plugins. Then come the environment doc, `cloud-ready-check.mjs`, a brief in `docs/handoff/`, and `claude --cloud "Read docs/handoff/<file> and carry it out"`, with proof that it started.
 - **Teach it something:** say "from now on…" or "this is useful: …". workbench:update-skill finds the closest skill (`node scripts/find-skill.mjs`), integrates the learning, validates, bumps the version and pushes.
 - **Ask on the owner's behalf:** `/workbench:ask-the-owner <question>` answers from the rules, `docs/preferences.md` and the persona, with a source and a confidence level.

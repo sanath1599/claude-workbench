@@ -6,7 +6,7 @@ You are maintaining this Claude Code plugin marketplace. A deterministic script 
 
 1. **Vulnerabilities first.** For each item in `majorVulns`, confirm it on osv.dev or the GitHub advisory. Then do two things: in every skill that documents the affected version, add a line saying which version fixes it, and recommend the fixed version in that skill's Versions block. In the PR description, list each one at the top.
 
-2. **Package updates.** For each entry in `updates`:
+2. **Package updates.** For an entry whose tracked package has a `vendored` command (the toolbelt plugin), run that command instead of editing the skill by hand, then update `documented` and any pin. For every other entry in `updates`:
    - Read the changelog or release notes between `from` and `to` (use the `changelog` URL, GitHub releases, or WebSearch). Use primary sources.
    - Pick out what matters to the owner's stack: breaking changes, deprecations of APIs our skills mention, security fixes, and new features worth adopting.
    - Update the skills listed in `skills`: the Versions line (`name x.y.z (verified YYYY-MM-DD, <url>)`), any instruction an API change invalidates, and short notes on worthwhile new features where they belong.

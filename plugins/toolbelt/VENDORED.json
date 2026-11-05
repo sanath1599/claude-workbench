@@ -1,0 +1,40 @@
+{
+  "mulmoterminal": {
+    "package": "mulmoterminal",
+    "ecosystem": "npm",
+    "version": "12.0.1",
+    "skills": [
+      "mulmoterminal-bug-report",
+      "mulmoterminal-config",
+      "mulmoterminal-data-analysis",
+      "mulmoterminal-decisions",
+      "mulmoterminal-dirs",
+      "mulmoterminal-header",
+      "mulmoterminal-help",
+      "mulmoterminal-html-plan",
+      "mulmoterminal-keys",
+      "mulmoterminal-model",
+      "mulmoterminal-notify",
+      "mulmoterminal-shared-app",
+      "mulmoterminal-theme",
+      "mulmoterminal-video-edit"
+    ]
+  },
+  "rea": {
+    "package": "rea-agents",
+    "ecosystem": "npm",
+    "version": "6.8.0",
+    "skills": [
+      "reverse-engineer-anything"
+    ]
+  },
+  "graphify": {
+    "package": "graphifyy",
+    "ecosystem": "PyPI",
+    "version": "0.9.102",
+    "skills": [
+      "graphify"
+    ]
+  },
+  "synced": "2026-11-05"
+}

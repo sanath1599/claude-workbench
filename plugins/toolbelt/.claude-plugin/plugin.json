@@ -1,0 +1,9 @@
+{
+  "name": "toolbelt",
+  "version": "0.1.0",
+  "description": "Third-party tools the owner keeps, bundled with their MIT licences and synced from upstream: graphify (codebase knowledge graphs), the MulmoTerminal skills, and REA reverse engineering with its MCP server.",
+  "author": { "name": "Starter Pack contributors", "url": "https://github.com/sanath1599" },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "SEE LICENSE IN licenses/",
+  "keywords": ["graphify", "knowledge-graph", "mulmoterminal", "reverse-engineering", "rea", "mcp"]
+}

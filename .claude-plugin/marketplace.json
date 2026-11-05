@@ -72,6 +72,12 @@
       "source": "./plugins/docs-and-data",
       "description": "Word documents, spreadsheets with live formulas, slide decks, PDFs, tabular data analysis and in-depth research with citations.",
       "category": "productivity"
+    },
+    {
+      "name": "toolbelt",
+      "source": "./plugins/toolbelt",
+      "description": "Third-party tools kept and synced from upstream with their MIT licences: graphify, the MulmoTerminal skills, and REA reverse engineering with its MCP server.",
+      "category": "productivity"
     }
   ]
 }

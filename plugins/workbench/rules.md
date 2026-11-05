@@ -34,4 +34,4 @@ These come from the owner's past sessions. Follow them unless the project's CLAU
 
 **Projects**
 - Start a new project with kickoff:starting-a-project. It asks first whether the work may ever be handed to a cloud session.
-- After the base setup is committed, run `graphify update .` (code-only, no tokens), then `graphify claude install` and `graphify hook install`. Use `/graphify .` for the semantic pass only on repos with substantial docs or images, and when the owner wants it.
+- graphify is installed system-wide by `/workbench:setup`. In every new project, after the base setup is committed, run `graphify update .`, then `graphify claude install` and `graphify hook install`, and add the CLAUDE.md "Knowledge graph" rule: update the graph after every release, starting with the first. Use `/graphify .` (the toolbelt skill) for the semantic pass when docs or images matter.
