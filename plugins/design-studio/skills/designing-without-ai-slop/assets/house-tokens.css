@@ -1,0 +1,102 @@
+/* House tokens: the owner's two UI directions. Copy to src/styles/tokens.css (or design/preview/tokens.css).
+   Pick one on <html>: data-house="navy" (product, HR, B2B, candidate flows) or data-house="graphite" (landing, docs, tools).
+   Dark mode: data-theme="dark" on <html>, or the OS setting when no data-theme is set. Components use var(--color-*) only.
+   Fonts: npm i @fontsource-variable/plus-jakarta-sans (navy) | @fontsource-variable/schibsted-grotesk @fontsource-variable/geist (graphite)
+          @fontsource-variable/jetbrains-mono (both). Source: references/house-style.md. */
+
+/* ---------- Navy professional: light (default) ---------- */
+:root, :root[data-house="navy"] {
+  --color-bg: #F8F9FC;       --color-surface: #FFFFFF;   --color-well: #EEF1F8;
+  --color-fg: #101A29;       --color-muted: #5C6074;     --color-border: #DCE1EB;
+  --color-primary: #246BFD;  --color-on-primary: #FFFFFF; --color-accent: #155BAC;
+  --color-success: #0A7F58;  --color-warning: #9A5B00;   --color-danger: #C03535;
+  --color-focus-ring: #246BFD;
+  --chart-1: #246BFD; --chart-2: #155BAC; --chart-3: #0E7490; --chart-4: #0A7F58; --chart-5: #9A5B00;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --text-base: 15px; --leading-body: 1.55; --body-weight: 500; --heading-weight: 800;
+  --track-display: -0.035em; --track-h1: -0.028em; --track-h2: -0.02em; --track-h3: -0.012em;
+  --radius-panel: 26px; --radius-card: 18px; --radius-control: 12px; --radius-pill: 999px;
+  --control-h: 44px; --button-h: 42px;
+  --shadow-card: 0 0 0 1px rgb(16 26 41 / .045), 0 1px 2px rgb(16 26 41 / .04), 0 14px 34px -18px rgb(21 91 172 / .30);
+  --shadow-panel: 0 0 0 1px rgb(16 26 41 / .05), 0 2px 6px rgb(16 26 41 / .05), 0 30px 60px -26px rgb(21 91 172 / .42);
+  --focus-halo: 0 0 0 4px rgb(36 107 253 / .14);
+  --ease: cubic-bezier(.22, 1, .36, 1); --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --duration-fast: 160ms; --duration-base: 320ms;
+  --toast-fill: #101A29;
+}
+
+/* ---------- Graphite editorial: light ---------- */
+:root[data-house="graphite"] {
+  --color-bg: #FFFFFF;       --color-surface: #FFFFFF;   --color-well: #F3F4F6;
+  --color-fg: #16181D;       --color-muted: #5B606B;     --color-border: #E2E4E9;
+  --color-primary: #C4500F;  --color-on-primary: #FFFFFF; --color-accent: #C4500F;
+  --color-success: #13774E;  --color-warning: #9A5B00;   --color-danger: #C52020;
+  --color-focus-ring: #C4500F;
+  --chart-1: #16181D; --chart-2: #C4500F; --chart-3: #0F766E; --chart-4: #2563EB; --chart-5: #9A5B00;
+  --font-display: "Schibsted Grotesk", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-base: 16px; --leading-body: 1.55; --body-weight: 400; --heading-weight: 700;
+  --track-display: -0.045em; --track-h1: -0.04em; --track-h2: -0.025em; --track-h3: -0.01em;
+  --radius-panel: 12px; --radius-card: 12px; --radius-control: 8px; --radius-pill: 4px; /* chips are square-ish, buttons .55rem */
+  --control-h: 44px; --button-h: 42px;
+  --shadow-card: none;
+  --shadow-panel: 0 1px 2px rgb(22 24 29 / .06), 0 30px 60px -30px rgb(22 24 29 / .35); /* the product stage only */
+  --focus-halo: 0 0 0 4px rgb(196 80 15 / .15);
+  --ease: cubic-bezier(.2, .7, .2, 1); --ease-spring: var(--ease);
+  --duration-fast: 150ms; --duration-base: 200ms;
+  --toast-fill: #16181D;
+}
+
+/* ---------- Dark: navy ---------- */
+:root[data-theme="dark"], :root[data-theme="dark"][data-house="navy"] {
+  --color-bg: #101A29;       --color-surface: #182640;   --color-well: #22324F;
+  --color-fg: #EAF0FF;       --color-muted: #93A6CC;     --color-border: #2A3B5C;
+  --color-primary: #5B8EFF;  --color-on-primary: #101A29; --color-accent: #8FB2FF;
+  --color-success: #7BE3B6;  --color-warning: #E8A21A;   --color-danger: #F07878;
+  --color-focus-ring: #8FB2FF;
+  --chart-1: #8FB2FF; --chart-2: #5B8EFF; --chart-3: #2DD4BF; --chart-4: #7BE3B6; --chart-5: #E8A21A;
+  --shadow-card: 0 0 0 1px rgb(255 255 255 / .08), 0 14px 34px -18px rgb(0 0 0 / .6);
+  --toast-fill: #EAF0FF;
+}
+/* ---------- Dark: graphite ---------- */
+:root[data-theme="dark"][data-house="graphite"] {
+  --color-bg: #0F1114;       --color-surface: #16191D;   --color-well: #1B1E23;
+  --color-fg: #EEEFF1;       --color-muted: #A0A4AC;     --color-border: #282C33;
+  --color-primary: #FF7E33;  --color-on-primary: #111317; --color-accent: #FF7E33;
+  --color-success: #3DBD83;  --color-warning: #F5A524;   --color-danger: #EF5B49;
+  --color-focus-ring: #FF7E33;
+  --chart-1: #EEEFF1; --chart-2: #FF7E33; --chart-3: #2DD4BF; --chart-4: #60A5FA; --chart-5: #F5A524;
+  --shadow-card: none; --shadow-panel: 0 30px 60px -30px rgb(0 0 0 / .7);
+  --toast-fill: #EEEFF1;
+}
+/* OS dark mode when the page has not chosen a theme (navy values shown; graphite repeats the block above). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]):not([data-house="graphite"]) {
+    --color-bg: #101A29; --color-surface: #182640; --color-well: #22324F; --color-fg: #EAF0FF; --color-muted: #93A6CC;
+    --color-border: #2A3B5C; --color-primary: #5B8EFF; --color-on-primary: #101A29; --color-accent: #8FB2FF;
+    --color-success: #7BE3B6; --color-warning: #E8A21A; --color-danger: #F07878; --color-focus-ring: #8FB2FF; --toast-fill: #EAF0FF;
+  }
+  :root:not([data-theme])[data-house="graphite"] {
+    --color-bg: #0F1114; --color-surface: #16191D; --color-well: #1B1E23; --color-fg: #EEEFF1; --color-muted: #A0A4AC;
+    --color-border: #282C33; --color-primary: #FF7E33; --color-on-primary: #111317; --color-accent: #FF7E33;
+    --color-success: #3DBD83; --color-warning: #F5A524; --color-danger: #EF5B49; --color-focus-ring: #FF7E33; --toast-fill: #EEEFF1;
+  }
+}
+
+/* ---------- Base ---------- */
+body { background: var(--color-bg); color: var(--color-fg); font: var(--body-weight) var(--text-base)/var(--leading-body) var(--font-body); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--heading-weight); letter-spacing: var(--track-h2); line-height: 1.12; text-wrap: balance; }
+h1 { letter-spacing: var(--track-h1); }
+.num, td, th { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-primary) 28%, transparent); }
+@media (prefers-reduced-motion: reduce) { :root { --duration-fast: .01ms; --duration-base: .01ms; } *, *::before, *::after { animation: none !important; } }
+
+/* ---------- sileo toasts (bottom-right; pass options={{ fill: "var(--toast-fill)" }} or the hex of it) ----------
+   Mid-tone state hues read on both a dark pill and a light page. Titles are written in sentence case;
+   sileo capitalises every word by default. Toasts sit above dialogs (typically z-index 100) and mobile nav. */
+:root:root { --sileo-state-success: #178255; --sileo-state-error: #C52020; --sileo-state-action: #C4500F; }
+html [data-sileo-viewport] { z-index: 200; }
+html [data-sileo-title] { text-transform: none; }

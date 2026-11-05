@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "name": "Bad",
+    "slug": "bad",
+    "version": "1.0.0",
+    "ios": { "bundleIdentifier": "com.example.bad", "buildNumber": "7" },
+    "android": {}
+  }
+}

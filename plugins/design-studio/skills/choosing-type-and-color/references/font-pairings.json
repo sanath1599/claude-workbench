@@ -1145,5 +1145,102 @@
   "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap",
   "license": "OFL (Google Fonts / Fontsource)",
   "notes": "Crimson Pro runs small; set headings about 10% larger than other serif faces."
+ },
+ {
+  "id": "house-navy-jakarta",
+  "name": "Plus Jakarta Sans alone (house navy)",
+  "display": {
+   "family": "Plus Jakarta Sans",
+   "role": "display",
+   "stack": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, sans-serif"
+  },
+  "body": {
+   "family": "Plus Jakarta Sans",
+   "role": "body",
+   "stack": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "professional",
+   "friendly",
+   "confident",
+   "house"
+  ],
+  "industries": [
+   "saas",
+   "hr",
+   "enterprise"
+  ],
+  "use": [
+   "house",
+   "dashboard",
+   "forms",
+   "landing"
+  ],
+  "scale": {
+   "base": 15,
+   "lh": 1.55,
+   "track": "-0.035em display, -0.028em h1, -0.02em h2, -0.012em h3"
+  },
+  "fontsource": [
+   "@fontsource-variable/plus-jakarta-sans",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "One family. Body weight 500 at 15px, headings 800 with tight tracking, controls 600. Tabular numbers on every metric and table."
+ },
+ {
+  "id": "house-graphite-geist",
+  "name": "Schibsted Grotesk headings, Geist body (house graphite)",
+  "display": {
+   "family": "Schibsted Grotesk",
+   "role": "display",
+   "stack": "\"Schibsted Grotesk\", \"Geist\", ui-sans-serif, system-ui, sans-serif"
+  },
+  "body": {
+   "family": "Geist",
+   "role": "body",
+   "stack": "\"Geist\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "editorial",
+   "minimal",
+   "technical",
+   "house"
+  ],
+  "industries": [
+   "developer-tools",
+   "saas",
+   "agency"
+  ],
+  "use": [
+   "house",
+   "landing",
+   "docs",
+   "dashboard"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "-0.045em hero, -0.04em closing and page titles, -0.025em section headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/schibsted-grotesk",
+   "@fontsource-variable/geist",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700;800&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Display weights 700 to 800 on marketing pages. Mono for eyebrows, chips, URLs and logs. Product screens may swap the display face for a regular-weight serif such as Instrument Serif (npm: @fontsource/instrument-serif)."
  }
 ]

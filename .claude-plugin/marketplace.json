@@ -38,6 +38,12 @@
       "category": "development"
     },
     {
+      "name": "stack-mobile",
+      "source": "./plugins/stack-mobile",
+      "description": "Expo and React Native apps: Expo Router, native UI conventions, auth and secure storage, push notifications, Maestro testing, and EAS builds, submissions and OTA updates.",
+      "category": "development"
+    },
+    {
       "name": "design-studio",
       "source": "./plugins/design-studio",
       "description": "Approve an HTML preview before building, modern-minimal UI rules, browser verification at four widths, guided demo decks and showcase READMEs.",

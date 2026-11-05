@@ -24,6 +24,7 @@ For new product UI, the owner reviews one HTML file with every screen and fictio
 
 1. **Check the gate.** Look for an approved preview (`design/preview/` or a link in the spec). If one exists and the request is inside it, stop here and build. Otherwise propose the preview in one line and start; do not ask permission to make it, it is cheap and reversible.
 2. **Get direction.** Read `design-studio:designing-without-ai-slop`, then run `design-studio:choosing-type-and-color` to select the palette and type pairing and to write the tokens file the preview will use. Run `design-studio:adding-motion-and-3d` only if motion is requested, and follow `design-studio:styling-charts-and-data-displays` for any chart. If the client has brand colours and a logo, use them and default to light mode.
+   Unless a client brand says otherwise, point the preview's tokens at `design-studio:designing-without-ai-slop` `assets/house-tokens.css` (set `data-house="navy"` or `"graphite"`).
    **Done when:** you can state in three lines the palette, the type pair and the layout idea.
 3. **Scaffold.** Copy `assets/` to `design/preview/` in the project. Run `node design/preview/build.mjs` once to confirm the empty template builds.
    **Done when:** `design/preview/preview.html` exists and opens.

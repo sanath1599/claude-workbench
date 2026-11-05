@@ -5,7 +5,7 @@ description: Use when picking or changing a palette, font pairing or type scale,
 
 # Choosing type and color
 
-Pick one palette and one type pairing for a stated reason, prove the contrast, and write them into a single tokens file. The curated data here is small on purpose: 25 palettes and 26 font pairings, each checked, so the choice takes minutes instead of an afternoon.
+Pick one palette and one type pairing for a stated reason, prove the contrast, and write them into a single tokens file. The curated data here is small on purpose: 27 palettes and 28 font pairings, each checked, so the choice takes minutes instead of an afternoon.
 
 ## When to use
 
@@ -24,7 +24,7 @@ Pick one palette and one type pairing for a stated reason, prove the contrast, a
 
 1. **State the brief in four words.** Industry, audience, mood, and the main surface (dashboard, landing, forms, article). Light mode is the default for client work; ask for dark only if the owner did.
    **Done when:** you can say, for example, "hr, recruiters, warm, dashboard".
-2. **Search the palettes.** From this skill's directory run `node scripts/search.mjs palettes --industry hr --tags dashboard`. Add `--mood warm` to narrow. If a client brand colour exists, skip the search and go to step 4 with that colour as the primary.
+2. **Search the palettes.** From this skill's directory run `node scripts/search.mjs palettes --industry hr --tags dashboard`. Add `--mood warm` to narrow. The owner's house directions are tagged `house` (`node scripts/search.mjs palettes --tag house`, then `fonts --tag house`): use `house-navy` or `house-graphite` unless a client brand or the brief says otherwise. If a client brand colour exists, skip the search and go to step 4 with that colour as the primary.
    **Done when:** you have two or three candidates and have picked one, with a one-line reason that mentions the audience.
 3. **Search the fonts.** `node scripts/search.mjs fonts --industry hr --mood friendly`. Prefer one family. Choose two only when the heading face has a job (editorial, brand voice). Never pick a pairing whose display face is also its body face unless the entry says "alone".
    **Done when:** one pairing is chosen and its `npm` line is noted.
@@ -50,7 +50,7 @@ Pick one palette and one type pairing for a stated reason, prove the contrast, a
 
 | Command | Purpose |
 | --- | --- |
-| `node scripts/search.mjs palettes [--industry x] [--mood x] [--tags a,b] [--mode dark] [--json]` | list matching palettes with contrast figures |
+| `node scripts/search.mjs palettes [--industry x] [--mood x] [--tags a,b or --tag house] [--mode dark] [--json]` | list matching palettes with contrast figures |
 | `node scripts/search.mjs fonts [--industry x] [--mood x] [--tags a,b]` | list matching pairings with npm packages |
 | `node scripts/search.mjs export <id> [--font <id>] [--dark] [--out file]` | write the tokens CSS |
 | `node scripts/search.mjs contrast #RRGGBB #RRGGBB` | WCAG ratio and pass/fail |

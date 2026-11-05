@@ -7,6 +7,7 @@ const root = "plugins/engineering-craft";
 const SKILLS = [
   "designing-systems", "hardening-distributed-systems", "designing-apis", "building-llm-features",
   "running-qa-passes", "reviewing-security", "planning-tests", "answering-pr-reviews",
+  "solving-allocation-and-routing-problems",
 ];
 const AGENTS = ["qa-auditor", "security-reviewer", "finding-verifier"];
 const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
@@ -120,9 +121,9 @@ test("smoke test report template is HTML and complete", () => {
   for (const h of ["Verdict", "Scope", "Defects", "Automated verification"]) assert.ok(t.includes(h), h);
 });
 
-test("evals: four cases, one near-miss, graders have valid types", () => {
+test("evals: five cases, one near-miss, graders have valid types", () => {
   const dirs = readdirSync(join(root, "evals"));
-  assert.equal(dirs.length, 4);
+  assert.equal(dirs.length, 5);
   assert.ok(dirs.some((d) => d.startsWith("near-miss")));
   for (const d of dirs) {
     const { fm } = frontmatter(readFileSync(join(root, "evals", d, "prompt.md"), "utf8"));
@@ -153,5 +154,15 @@ test("documented versions in tracked list appear in the skills", () => {
   for (const p of list) {
     const text = p.skills.map((s) => readFileSync(join(root, "skills", s, "SKILL.md"), "utf8")).join("\n");
     assert.ok(text.includes(p.documented), `${p.name} ${p.documented} not in skill`);
+  }
+});
+
+test("optimisation tracked packages are in the Versions block", () => {
+  const list = JSON.parse(readFileSync("maintenance/tracked-packages.d/optimisation.json", "utf8"));
+  const text = readFileSync(join(root, "skills/solving-allocation-and-routing-problems/SKILL.md"), "utf8");
+  const versions = text.slice(text.indexOf("## Versions"));
+  for (const p of list) {
+    assert.ok(versions.includes(p.documented), `${p.name} ${p.documented} missing from Versions`);
+    assert.ok(versions.includes(p.name.replace("-backend", "")), `${p.name} not named`);
   }
 });

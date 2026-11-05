@@ -1,6 +1,6 @@
 {
   "name": "engineering-craft",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Engineering procedures: system design with ADRs, distributed-systems hardening, contract-first APIs, LLM feature design and evals, QA passes, security review, test planning and PR review replies.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"

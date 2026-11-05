@@ -104,3 +104,16 @@ test('CLI prints matches, JSON, contrast and usage', () => {
   assert.equal(none.status, 1)
   assert.match(none.stderr, /Usage/)
 })
+
+test('house directions exist in both datasets, are filterable with --tag house, and pass contrast', () => {
+  const hp = filterEntries(palettes, { tags: 'house' })
+  assert.deepEqual(hp.map((p) => p.id).sort(), ['house-graphite', 'house-navy'])
+  assert.deepEqual(filterEntries(fonts, { tags: 'house' }).map((f) => f.id).sort(), ['house-graphite-geist', 'house-navy-jakarta'])
+  for (const p of hp) for (const mode of ['light', 'dark']) {
+    const t = p[mode]
+    assert.ok(contrast(t.fg, t.bg) >= 7 && contrast(t.onPrimary, t.primary) >= 4.5, `${p.id} ${mode}`)
+  }
+  const out = []
+  assert.equal(run(['palettes', '--tag', 'house'], { out: (m) => out.push(m), err: () => {} }), 0)
+  assert.match(out.join('\n'), /house-navy[\s\S]*house-graphite|house-graphite[\s\S]*house-navy/)
+})

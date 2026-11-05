@@ -1,0 +1,65 @@
+[
+  {
+    "name": "pydantic-ai",
+    "ecosystem": "PyPI",
+    "documented": "2.66.0",
+    "changelog": "https://pydantic.dev/docs/ai/project/changelog/",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "pydantic-evals",
+    "ecosystem": "PyPI",
+    "documented": "2.66.0",
+    "changelog": "https://pydantic.dev/docs/ai/project/changelog/",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "qdrant-client",
+    "ecosystem": "PyPI",
+    "documented": "1.20.0",
+    "changelog": "https://github.com/qdrant/qdrant-client/releases",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "pgvector",
+    "ecosystem": "PyPI",
+    "documented": "0.5.1",
+    "changelog": "https://pypi.org/project/pgvector/#history",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "sentence-transformers",
+    "ecosystem": "PyPI",
+    "documented": "6.2.0",
+    "changelog": "https://github.com/huggingface/sentence-transformers/releases",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "fastembed",
+    "ecosystem": "PyPI",
+    "documented": "0.9.1",
+    "changelog": "https://github.com/qdrant/fastembed/releases",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  },
+  {
+    "name": "ragas",
+    "ecosystem": "PyPI",
+    "documented": "0.4.3",
+    "changelog": "https://github.com/explodinggradients/ragas/releases",
+    "skills": [
+      "stack-python:building-rag-pipelines"
+    ]
+  }
+]

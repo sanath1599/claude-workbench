@@ -44,6 +44,8 @@ Secrets never pass through Claude's output. They live in git-ignored env files o
    - systemd strips unquoted backslashes, so single-quote such values.
    - Multi-line PEM keys need quoting or a `\n` escape, depending on the consumer.
 
+For long-term storage, sync and rotation (encrypted files in git, or a self-hosted vault) use ops-and-sre:keeping-secrets-in-a-vault; it is the preferred store once a project outgrows loose `.env` files.
+
 ## Rationalizations
 
 | Excuse | Instead |

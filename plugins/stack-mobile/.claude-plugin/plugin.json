@@ -1,0 +1,18 @@
+{
+  "name": "stack-mobile",
+  "version": "0.1.0",
+  "description": "Mobile defaults: Expo + Expo Router apps in TypeScript, native UI conventions, secure auth and storage, push notifications, Maestro-first testing, and EAS releases gated on the owner's yes.",
+  "author": {
+    "name": "Claude Code / Codex Starter Pack contributors"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "expo",
+    "react-native",
+    "expo-router",
+    "eas",
+    "mobile",
+    "maestro"
+  ]
+}

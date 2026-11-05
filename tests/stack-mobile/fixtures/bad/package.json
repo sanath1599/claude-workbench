@@ -1,0 +1,1 @@
+{ "name": "bad-app", "version": "2.0.0", "dependencies": { "expo": "~58.0.0", "expo-updates": "~58.0.0" } }

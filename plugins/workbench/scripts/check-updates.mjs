@@ -10,7 +10,7 @@ import { additionalContext, findProjectRoot, isMain, loadProfile, loadProjectCon
 
 export const DEFAULT_WATCH = {
   PyPI: ['temporalio', 'pydantic', 'pydantic-ai', 'pydantic-ai-slim', 'pydantic-settings', 'pydantic-graph', 'pydantic-evals', 'logfire', 'qdrant-client', 'fastapi', 'resend', 'livekit-agents', 'anthropic', 'ollama', 'sqlalchemy', 'alembic', 'httpx'],
-  npm: ['@tanstack/react-router', '@tanstack/react-query', '@tanstack/react-start', '@tanstack/react-form', '@tanstack/react-table', '@tanstack/router-plugin', 'vite', 'typescript', 'resend', '@temporalio/client', '@temporalio/worker', '@temporalio/workflow', '@qdrant/js-client-rest', 'prisma', '@prisma/client', 'next', 'react', 'zod', 'sileo', 'ai', '@anthropic-ai/sdk', 'livekit-client', '@livekit/agents', 'lucide-react', 'playwright', '@playwright/test', 'vitest'],
+  npm: ['@tanstack/react-router', '@tanstack/react-query', '@tanstack/react-start', '@tanstack/react-form', '@tanstack/react-table', '@tanstack/router-plugin', 'vite', 'typescript', 'resend', '@temporalio/client', '@temporalio/worker', '@temporalio/workflow', '@qdrant/js-client-rest', 'prisma', '@prisma/client', 'next', 'react', 'zod', 'sileo', 'ai', '@anthropic-ai/sdk', 'livekit-client', '@livekit/agents', 'lucide-react', 'playwright', '@playwright/test', 'vitest', 'expo', 'expo-router', 'react-native'],
 };
 
 const TTL_MS = 12 * 60 * 60 * 1000;

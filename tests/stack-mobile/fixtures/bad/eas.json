@@ -1,0 +1,8 @@
+{
+  "cli": { "appVersionSource": "remote" },
+  "build": {
+    "development": { "developmentClient": true },
+    "preview": { "distribution": "internal" },
+    "staging": { "env": { "EXPO_PUBLIC_STRIPE_SECRET_KEY": "x", "EXPO_PUBLIC_API_URL": "https://api.example.invalid" } }
+  }
+}

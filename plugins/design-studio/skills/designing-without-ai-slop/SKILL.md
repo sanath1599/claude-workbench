@@ -20,7 +20,7 @@ The owner wants modern, minimal, intentional UI. Slop is what appears when defau
 
 ## Procedure
 
-1. **Gather direction.** Use `design-studio:choosing-type-and-color` for the palette, fonts and tokens file, and `design-studio:adding-motion-and-3d` only if motion is requested. Take the results as inputs, then apply the rules below, which win on conflict. Before any markup, write a compact plan: four to six named colour values, the type roles, a layout idea in one sentence with an ASCII wireframe, and two or three principles. Then test the plan: if you would arrive at the same plan for any similar product, change the part that is generic and say what you changed. Spend boldness in one place: one memorable element, everything around it quiet.
+1. **Start from the house style** (`references/house-style.md`: "Navy professional" or "Graphite editorial", tokens in `assets/house-tokens.css`) unless a client brand or the brief says otherwise. **Gather direction.** Use `design-studio:choosing-type-and-color` for the palette, fonts and tokens file, and `design-studio:adding-motion-and-3d` only if motion is requested. Take the results as inputs, then apply the rules below, which win on conflict. Before any markup, write a compact plan: four to six named colour values, the type roles, a layout idea in one sentence with an ASCII wireframe, and two or three principles. Then test the plan: if you would arrive at the same plan for any similar product, change the part that is generic and say what you changed. Spend boldness in one place: one memorable element, everything around it quiet.
    **Done when:** you can name one palette, one type pair and one layout idea, and why they suit this product.
 2. **Set tokens.** One tokens file: colour, type scale, spacing, radius, shadow. Components never contain hex. Use the client's colours and logo when there is a client; default to light mode for client and enterprise work.
 3. **Apply the taste rules.**
@@ -90,4 +90,6 @@ Also read as generated: the defaults below are legitimate only when the brief as
 
 | File | Load when |
 | --- | --- |
+| references/house-style.md | starting any UI with no client brand, or the owner says "like the interview platform" or "like Animated Technical Interactive" |
+| assets/house-tokens.css | writing the tokens file for a house-style UI |
 | references/checklist.md | the final review pass |

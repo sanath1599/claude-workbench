@@ -9,7 +9,7 @@ run() { if [ $APPLY = 1 ]; then echo "+ $*"; "$@" || echo "  (failed or already 
 
 MARKETPLACE_REPO="sanath1599/claude-workbench"
 MARKETPLACE="starter-pack"
-OURS=(workbench workflow kickoff stack-web stack-python design-studio engineering-craft ops-and-sre docs-and-data interactive-demos stack-connectors toolbelt)
+OURS=(workbench workflow kickoff stack-web stack-python stack-mobile design-studio engineering-craft ops-and-sre docs-and-data interactive-demos stack-connectors toolbelt)
 
 THIRD_PARTY=(
   superpowers@claude-plugins-official

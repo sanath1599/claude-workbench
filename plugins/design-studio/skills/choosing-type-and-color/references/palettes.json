@@ -1487,5 +1487,161 @@
    "borderOnBg": 1.21
   },
   "notes": "A slightly lighter blue than cobalt ledger; orange accent marks due dates and flags."
+ },
+ {
+  "id": "house-navy",
+  "name": "Navy professional (house)",
+  "mood": [
+   "professional",
+   "trustworthy",
+   "calm",
+   "house"
+  ],
+  "industries": [
+   "saas",
+   "hr",
+   "enterprise",
+   "fintech"
+  ],
+  "use": [
+   "house",
+   "dashboard",
+   "forms",
+   "b2b",
+   "landing"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F8F9FC",
+   "surface": "#FFFFFF",
+   "fg": "#101A29",
+   "muted": "#5C6074",
+   "border": "#DCE1EB",
+   "primary": "#246BFD",
+   "onPrimary": "#FFFFFF",
+   "accent": "#155BAC",
+   "success": "#0A7F58",
+   "warning": "#9A5B00",
+   "danger": "#C03535"
+  },
+  "dark": {
+   "bg": "#101A29",
+   "surface": "#182640",
+   "fg": "#EAF0FF",
+   "muted": "#93A6CC",
+   "border": "#2A3B5C",
+   "primary": "#5B8EFF",
+   "onPrimary": "#101A29",
+   "accent": "#8FB2FF",
+   "success": "#7BE3B6",
+   "warning": "#E8A21A",
+   "danger": "#F07878"
+  },
+  "chart": {
+   "light": [
+    "#246BFD",
+    "#155BAC",
+    "#0E7490",
+    "#0A7F58",
+    "#9A5B00"
+   ],
+   "dark": [
+    "#8FB2FF",
+    "#5B8EFF",
+    "#2DD4BF",
+    "#7BE3B6",
+    "#E8A21A"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.6,
+   "mutedOnBg": 5.9,
+   "mutedOnSurface": 6.21,
+   "onPrimaryOnPrimary": 4.57,
+   "primaryOnBg": 4.34,
+   "accentOnBg": 6.39,
+   "borderOnBg": 1.25
+  },
+  "notes": "The owner's house style for HR, B2B and candidate-facing products: cool off-white page, navy ink, one electric blue. Muted text and status hues are darkened a step from the original app so they pass 4.5:1. Dark mode is the navy surface family, button labels turn navy."
+ },
+ {
+  "id": "house-graphite",
+  "name": "Graphite editorial (house)",
+  "mood": [
+   "editorial",
+   "minimal",
+   "technical",
+   "house"
+  ],
+  "industries": [
+   "developer-tools",
+   "saas",
+   "agency"
+  ],
+  "use": [
+   "house",
+   "landing",
+   "docs",
+   "dashboard"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#FFFFFF",
+   "surface": "#FFFFFF",
+   "fg": "#16181D",
+   "muted": "#5B606B",
+   "border": "#E2E4E9",
+   "primary": "#C4500F",
+   "onPrimary": "#FFFFFF",
+   "accent": "#C4500F",
+   "success": "#13774E",
+   "warning": "#9A5B00",
+   "danger": "#C52020"
+  },
+  "dark": {
+   "bg": "#0F1114",
+   "surface": "#16191D",
+   "fg": "#EEEFF1",
+   "muted": "#A0A4AC",
+   "border": "#282C33",
+   "primary": "#FF7E33",
+   "onPrimary": "#111317",
+   "accent": "#FF7E33",
+   "success": "#3DBD83",
+   "warning": "#F5A524",
+   "danger": "#EF5B49"
+  },
+  "chart": {
+   "light": [
+    "#16181D",
+    "#C4500F",
+    "#0F766E",
+    "#2563EB",
+    "#9A5B00"
+   ],
+   "dark": [
+    "#EEEFF1",
+    "#FF7E33",
+    "#2DD4BF",
+    "#60A5FA",
+    "#F5A524"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.76,
+   "mutedOnBg": 6.31,
+   "mutedOnSurface": 6.31,
+   "onPrimaryOnPrimary": 4.67,
+   "primaryOnBg": 4.67,
+   "accentOnBg": 4.67,
+   "borderOnBg": 1.27
+  },
+  "notes": "The owner's house style for landing pages and product tools: white paper, cool graphite ink, orange only on things that can be clicked. The original orange (#E7641D) gives white labels 3.4:1, so the light primary is darkened to #C4500F; wells and secondary fills use #F3F4F6 (not a surface token)."
  }
 ]

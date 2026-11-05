@@ -5,7 +5,7 @@ An opinionated starter pack of skills, guard hooks, project kickoff with cloud h
 - house rules distilled from about 2,800 prompts and 56 answered decisions across 60 projects;
 - guard hooks that enforce the mechanical rules;
 - a project kickoff that prepares cloud handoffs;
-- 86 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
+- 95 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
 
 Everything is written in our own words. Ideas came from studying the well-known marketplaces and from real projects; no text was copied. See `docs/research/marketplace-notes.md` and `docs/installed-audit.md`.
 
@@ -70,6 +70,7 @@ What does not carry over to Codex:
 | **kickoff** | Starting a project (the cloud-handoff question comes first), choosing the stack, the design spec, the cloud kit and handoff, landing cloud work, cloud routines, keeping context across sessions | 7 |
 | **stack-web** | Vite + TanStack, Vercel (deploys, functions, storage, background work, protection), subdomains on Cloudflare, Resend (outbound and inbound), auth, maps, content pipelines, browser performance, API testing, Next.js 16 | 16 |
 | **stack-python** | Pydantic AI patterns, Temporal patterns, Postgres, Qdrant, FastAPI, reliable LLM calls, LiveKit voice agents | 7 |
+| **stack-mobile** | Expo + React Native: Expo Router, native UI conventions, auth and secure storage, push notifications, Maestro tests, EAS builds, submissions and OTA updates | 6 |
 | **design-studio** | HTML preview before building, no AI slop, browser verification at four widths, type and colour (curated data and a search script), motion and 3D, charts, single-file HTML, guided demo decks, showcase READMEs. Agent: design-critic | 9 |
 | **engineering-craft** | System design with ADRs, distributed-systems hardening, contract-first APIs, LLM features and evals, MCP servers, QA passes, security review, test planning, PR review replies. Agents: qa-auditor, security-reviewer, finding-verifier | 9 |
 | **ops-and-sre** | CI with pinned actions, safe releases and migrations, incidents with a live timeline, SLOs and burn rate, instrumentation, runbooks, VPS and Azure deploys. Agent: runbook-cold-reader | 8 |

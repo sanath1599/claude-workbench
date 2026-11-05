@@ -1,0 +1,7 @@
+[
+  {"name": "ortools", "ecosystem": "PyPI", "documented": "9.15.6755", "changelog": "https://github.com/google/or-tools/releases", "skills": ["solving-allocation-and-routing-problems"]},
+  {"name": "networkx", "ecosystem": "PyPI", "documented": "3.7", "changelog": "https://networkx.org/documentation/stable/release/index.html", "skills": ["solving-allocation-and-routing-problems"]},
+  {"name": "osrm-backend", "ecosystem": "github", "repo": "Project-OSRM/osrm-backend", "documented": "v26.11.0", "changelog": "https://github.com/Project-OSRM/osrm-backend/releases", "skills": ["solving-allocation-and-routing-problems"]},
+  {"name": "valhalla", "ecosystem": "github", "repo": "valhalla/valhalla", "documented": "3.9.1", "changelog": "https://github.com/valhalla/valhalla/releases", "skills": ["solving-allocation-and-routing-problems"]},
+  {"name": "googlemaps", "ecosystem": "PyPI", "documented": "4.10.0", "changelog": "https://github.com/googlemaps/google-maps-services-python/releases", "skills": ["solving-allocation-and-routing-problems"]}
+]

@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Good",
+    "slug": "good",
+    "version": "1.2.0",
+    "scheme": "good",
+    "runtimeVersion": { "policy": "fingerprint" },
+    "updates": { "url": "https://u.expo.dev/00000000-0000-0000-0000-000000000000" },
+    "ios": { "bundleIdentifier": "com.example.good" },
+    "android": { "package": "com.example.good" },
+    "extra": { "eas": { "projectId": "00000000-0000-0000-0000-000000000000" } }
+  }
+}

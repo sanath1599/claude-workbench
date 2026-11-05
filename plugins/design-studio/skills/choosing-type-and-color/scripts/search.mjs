@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Search the curated palette and font-pairing datasets, and export a tokens CSS file.
 // Usage:
-//   node search.mjs palettes [--tags a,b] [--mood x] [--industry y] [--text q] [--mode light|dark] [--json]
+//   node search.mjs palettes [--tags a,b | --tag house] [--mood x] [--industry y] [--text q] [--mode light|dark] [--json]
 //   node search.mjs fonts    [--tags a,b] [--mood x] [--industry y] [--text q] [--json]
 //   node search.mjs export <palette-id> [--font <font-id>] [--mode light|dark] [--dark] [--out tokens.css]
 //   node search.mjs contrast <hex> <hex>
@@ -163,7 +163,7 @@ export function run(argv, io = { out: console.log, err: console.error }, dir = D
   const args = parseArgs(argv)
   const [cmd, ...rest] = args._
   const { palettes, fonts } = loadData(dir)
-  const q = { tags: args.tags, mood: args.mood, industry: args.industry, text: args.text, mode: args.mode }
+  const q = { tags: args.tags ?? args.tag, mood: args.mood, industry: args.industry, text: args.text, mode: args.mode }
   if (cmd === 'palettes' || cmd === 'fonts') {
     const res = filterEntries(cmd === 'palettes' ? palettes : fonts, cmd === 'fonts' ? { ...q, mode: undefined } : q)
     if (args.json) io.out(JSON.stringify(res, null, 2))

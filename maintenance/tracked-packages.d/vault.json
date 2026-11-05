@@ -1,0 +1,7 @@
+[
+  {"name": "getsops/sops", "ecosystem": "github", "repo": "getsops/sops", "documented": "3.13.3", "changelog": "https://github.com/getsops/sops/releases", "skills": ["keeping-secrets-in-a-vault"]},
+  {"name": "FiloSottile/age", "ecosystem": "github", "repo": "FiloSottile/age", "documented": "1.3.2", "changelog": "https://github.com/FiloSottile/age/releases", "skills": ["keeping-secrets-in-a-vault"]},
+  {"name": "Infisical/infisical", "ecosystem": "github", "repo": "Infisical/infisical", "documented": "0.167.6", "changelog": "https://github.com/Infisical/infisical/releases", "skills": ["keeping-secrets-in-a-vault"]},
+  {"name": "Infisical/cli", "ecosystem": "github", "repo": "Infisical/cli", "documented": "0.44.15", "changelog": "https://github.com/Infisical/cli/releases", "skills": ["keeping-secrets-in-a-vault"]},
+  {"name": "openbao/openbao", "ecosystem": "github", "repo": "openbao/openbao", "documented": "2.7.2", "changelog": "https://github.com/openbao/openbao/releases", "skills": ["keeping-secrets-in-a-vault"]}
+]
