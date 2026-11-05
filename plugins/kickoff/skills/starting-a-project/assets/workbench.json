@@ -1,0 +1,10 @@
+{
+  "commits": "per-increment",
+  "coAuthorTrailer": true,
+  "branchPolicy": "feature-branch",
+  "cloudHandoff": "yes",
+  "productionDeploys": "ask",
+  "graphify": true,
+  "watchPackages": [],
+  "notes": "Answers from kickoff:starting-a-project on <date>."
+}

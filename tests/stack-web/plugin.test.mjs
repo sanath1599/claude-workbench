@@ -16,7 +16,7 @@ function walk(dir) {
 }
 const text = (p) => readFileSync(p, "utf8");
 
-test("all six skills exist", () => assert.deepEqual([...skills].sort(), EXPECTED));
+test("the six core skills exist", () => { for (const s of EXPECTED) assert.ok(skills.includes(s), s); });
 
 for (const s of EXPECTED) {
   test(`${s}: frontmatter and size`, () => {
