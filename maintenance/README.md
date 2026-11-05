@@ -19,7 +19,7 @@ The skills cite package versions, APIs, endpoints and docs that keep moving. A d
    - bumps plugin versions;
    - runs the tests and validation;
    - opens a PR from `maintenance/<date>`.
-3. **High or critical vulnerabilities** are emailed through the Resend API to `ALERT_EMAIL` (default owner@example.com).
+3. **High or critical vulnerabilities** are emailed through the Resend API to the `ALERT_EMAIL` repo secret.
 
 Nothing merges by itself. Once you merge a PR, installed marketplaces pick it up on their next update. Turn on auto-update for this marketplace in `/plugin`, under Marketplaces.
 
@@ -29,8 +29,8 @@ Nothing merges by itself. Once you merge a PR, installed marketplaces pick it up
 claude setup-token                                    # prints a long-lived OAuth token for CI
 gh secret set CLAUDE_CODE_OAUTH_TOKEN -R sanath1599/claude-workbench   # paste the token when asked
 gh secret set RESEND_API_KEY -R sanath1599/claude-workbench            # paste a Resend key with send access
-gh variable set ALERT_FROM -R sanath1599/claude-workbench --body "Workbench <workbench@antm.ai>"   # a sender on a verified domain
-gh variable set ALERT_EMAIL -R sanath1599/claude-workbench --body "owner@example.com"
+gh variable set ALERT_FROM -R sanath1599/claude-workbench --body "Starter Pack <alerts@your-domain.example>"   # a sender on a verified domain
+gh secret set ALERT_EMAIL -R sanath1599/claude-workbench                # your alert address (a secret, so public logs mask it)
 gh label create maintenance -R sanath1599/claude-workbench --color 0E8A16 || true
 gh workflow run daily-maintenance.yml -R sanath1599/claude-workbench   # first run by hand
 ```

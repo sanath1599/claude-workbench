@@ -7,7 +7,7 @@ Names under `{{wb.domain}}`. Targets are types only. Read the live target from V
 | `{{wb.domain}}` (apex) | Vercel | A, from Vercel | main site |
 | `www` | Vercel | CNAME, DNS-only | redirects with the apex |
 | `app` | VPS | A, DNS-only | nginx + certbot on the owner's VPS |
-| `status` | Vercel | CNAME, DNS-only | |
+| `status` | Vercel | CNAME, DNS-only | example |
 | `careers.acme` | Vercel | CNAME, DNS-only | two labels: client-scoped app |
 
 Other names may already exist on the VPS (it hosts several apps). Always run the `dig` and `list` checks before trusting this table.

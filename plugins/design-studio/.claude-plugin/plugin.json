@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Design workflow: approve a single-file HTML preview before building, modern-minimal UI rules, browser verification at four widths, guided demo decks and showcase READMEs.",
   "author": {
-    "name": "Starter Pack contributors",
-    "url": "https://github.com/sanath1599"
+    "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "PolyForm-Noncommercial-1.0.0",

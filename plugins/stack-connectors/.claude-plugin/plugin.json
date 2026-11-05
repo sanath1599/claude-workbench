@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "MCP connectors for the stack, bundled so third-party plugins aren't needed: Vercel, Cloudflare API and docs, Resend, Logfire, Temporal docs, Context7, Prisma and Chrome DevTools.",
   "author": {
-    "name": "Starter Pack contributors",
-    "url": "https://github.com/sanath1599"
+    "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "PolyForm-Noncommercial-1.0.0",

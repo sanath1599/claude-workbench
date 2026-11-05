@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "TypeScript web stack defaults: Vite + TanStack frontends, Vercel deploys, owner-domain subdomains with DNS-only records, Resend email, lightweight auth, and Next.js 16 for existing apps.",
   "author": {
-    "name": "Starter Pack contributors",
-    "url": "https://github.com/sanath1599"
+    "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "PolyForm-Noncommercial-1.0.0",

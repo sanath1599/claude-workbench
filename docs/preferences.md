@@ -1,4 +1,6 @@
-# Owner preferences catalogue
+# Default preferences
+
+These defaults were distilled from one developer's real sessions. Edit this file (and `plugins/workbench/rules.md`) to make the pack yours.
 
 The source of truth behind the house rules (`plugins/workbench/rules.md`), the guard hooks and `workbench:ask-the-owner`. It was built on 2026-11-05 from about 2,800 typed prompts (February to November 2026), 56 answered questions, 31 project instruction files, 19 design specs and 32 saved memories. Strength: **rule** = stated as a rule; **pattern** = seen three or more times; **once** = seen once.
 
@@ -51,7 +53,7 @@ When two entries conflict, the newer one wins. When a project's own CLAUDE.md co
 
 ## Git
 - Init git immediately, create the private GitHub remote on day one, work on a feature branch, commit at meaningful increments, push before deploying. *(pattern)*
-- Commit author: `owner@example.com` (the Vercel-linked identity). No Claude co-author on Vercel Hobby repos. *(rule, 2026-11-05)*
+- Commit author: the owner's Vercel-linked personal address (`git_author_email` in the profile). No Claude co-author on Vercel Hobby repos. *(rule, 2026-11-05)*
 - Run a code review before merging or deploying, and answer every PR comment with a fix or a justification. *(pattern)*
 
 ## Delivery and infrastructure

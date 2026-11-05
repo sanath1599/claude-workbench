@@ -1,30 +1,59 @@
-# starter-pack
+# Claude Code / Codex Starter Pack
 
-A personal Claude Code plugin marketplace that makes every session work the way its owner wants without being re-told. It holds:
+An opinionated starter pack of skills, guard hooks, project kickoff with cloud handoff, a browser studio for new projects, and stack, design, engineering, SRE and docs skills, distilled from real projects. It runs as a Claude Code plugin marketplace and installs its skills and rules into the Codex CLI too. It holds:
 
 - house rules distilled from about 2,800 prompts and 56 answered decisions across 60 projects;
 - guard hooks that enforce the mechanical rules;
 - a project kickoff that prepares cloud handoffs;
 - 84 skills of our own for a TypeScript + Python agentic stack, design, engineering, SRE, documents and demos, plus 16 bundled third-party skills (graphify, MulmoTerminal, REA) kept in sync with upstream.
 
-Everything is written in our own words. Ideas came from studying the well-known marketplaces and from the owner's own projects; no text was copied. See `docs/research/marketplace-notes.md` and `docs/installed-audit.md`.
+Everything is written in our own words. Ideas came from studying the well-known marketplaces and from real projects; no text was copied. See `docs/research/marketplace-notes.md` and `docs/installed-audit.md`.
 
-## Install
+## Setup
 
-```bash
-gh auth setup-git                                         # the repo is private; lets git use your gh login
-claude plugin marketplace add sanath1599/claude-workbench
-claude plugin install workbench@starter-pack          # then any of the plugins below
-```
+### Claude Code
 
-Or switch over in one go, uninstalling the third-party plugins this replaces (dry run first):
+1. **Prerequisites.** Claude Code 2.1.269 or newer, Node 20+, and the GitHub CLI (`gh`). Optional: `pipx` (graphify) and `uv` (Python projects).
+2. **Add the marketplace.**
+   ```bash
+   claude plugin marketplace add sanath1599/claude-workbench
+   ```
+3. **Install the plugins.** All of them in one line, or pick from the table below:
+   ```bash
+   for p in workbench workflow kickoff stack-web stack-python design-studio engineering-craft ops-and-sre docs-and-data interactive-demos stack-connectors toolbelt; do claude plugin install "$p@starter-pack"; done
+   ```
+4. **Restart Claude Code** (or run `/reload-plugins`).
+5. **Run `/workbench:setup`.** It asks for your email, domain, accounts and stack choices, writes `~/.claude/workbench/profile.json`, and can render a personalised copy of the whole marketplace.
+6. **Turn on auto-update** for `starter-pack` in `/plugin`, under Marketplaces, so the daily maintenance PRs reach you once merged.
+7. **Start a project** with `/workbench:new <brief>`.
+
+### Switching from other plugins
+
+Uninstall the third-party plugins this pack replaces (dry run first):
 
 ```bash
 bash scripts/migrate-from-third-party.sh            # shows what it would do
 bash scripts/migrate-from-third-party.sh --apply
 ```
 
-Then start a new session and run `/workbench:setup`. It asks for your email, domain, accounts and stack choices, writes `~/.claude/workbench/profile.json`, and can render a personalised copy of the whole marketplace. Turn on auto-update for `starter-pack` in `/plugin`, under Marketplaces, so the daily maintenance PRs reach you once merged.
+### Codex
+
+1. Clone the repo: `git clone https://github.com/sanath1599/claude-workbench && cd claude-codex-starter-pack`.
+2. Create your profile: run `/workbench:setup` in Claude Code once, or copy `plugins/workbench/profile.defaults.json` to `~/.claude/workbench/profile.json` and fill it in.
+3. Install: `node scripts/install-codex.mjs` (try `--dry-run` first). It copies the skills into `~/.codex/skills/` (or `$CODEX_HOME`), renders your profile into them, and writes the house rules into `~/.codex/AGENTS.md` between `starter-pack` markers. Options: `--plugins a,b`, `--codex-home <dir>`, `--profile <file>`, `--uninstall`. It never overwrites a skill directory it did not create.
+4. Add the MCP servers: the installer prints a TOML snippet for `~/.codex/config.toml` (verify it against the Codex docs).
+
+What does not carry over to Codex:
+
+- The guard hooks. Codex has its own hooks; the rules still apply through `AGENTS.md`.
+- The `/workbench:new` browser studio works only where the agent can run background commands, as Claude Code can. In Codex, invoke the `new` skill by name and use its fallback.
+- Plugin-bundled MCP servers. Use the printed snippet instead.
+
+### Make it yours (fork)
+
+- Edit `docs/preferences.md` and `plugins/workbench/rules.md` so the defaults match how you work.
+- Set the CI secrets for the daily maintenance (see `maintenance/README.md`).
+- In the repo settings under Actions, enable "Allow GitHub Actions to create and approve pull requests".
 
 ## Plugins
 
@@ -69,12 +98,12 @@ Then start a new session and run `/workbench:setup`. It asks for your email, dom
 .claude-plugin/marketplace.json   the catalogue
 plugins/<plugin>/                 skills/, agents/, hooks/, scripts/, evals/, .mcp.json
 docs/authoring.md                 how every skill is written (read before changing anything)
-docs/preferences.md               the owner's preferences, with strength and provenance
+docs/preferences.md               the default preferences, with strength and provenance
 docs/installed-audit.md           verdict on each of the 280 previously installed skills, agents, hooks and MCPs
 docs/decisions.md                 why the workbench is built the way it is
 docs/learnings.md                 dated log of what was learned and where it went
 maintenance/                      the daily job: collector, notifier, Claude prompt, tracked packages
-scripts/                          find-skill, bump-version, migrate-from-third-party
+scripts/                          find-skill, bump-version, migrate-from-third-party, install-codex
 tests/                            node:test suites for hooks, scripts, structure and the eval schema
 ```
 
@@ -92,4 +121,4 @@ CI runs the tests, a secret scan and strict validation on every push.
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE). Free to use and adapt for noncommercial purposes, keeping the Required Notice. Commercial use needs the owner's permission.
+[PolyForm Noncommercial 1.0.0](LICENSE). Free to use and adapt for noncommercial purposes, keeping the Required Notice. Commercial use needs the copyright holders' permission.

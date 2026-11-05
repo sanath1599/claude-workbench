@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      ALERT_EMAIL: ${{ vars.ALERT_EMAIL || 'owner@example.com' }}
-      ALERT_FROM: ${{ vars.ALERT_FROM || 'Workbench <workbench@antm.ai>' }}
+      ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }} # a secret, so it stays masked in public logs
+      ALERT_FROM: ${{ vars.ALERT_FROM }} # a sender on a Resend-verified domain, e.g. "Starter Pack <alerts@your-domain>"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

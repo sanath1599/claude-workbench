@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "DevOps and SRE procedures: CI with pinned actions, safe releases and migrations, incidents with a live timeline, SLOs and burn-rate alerts, instrumentation, runbooks and VPS deploys.",
   "author": {
-    "name": "Starter Pack contributors",
-    "url": "https://github.com/sanath1599"
+    "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "PolyForm-Noncommercial-1.0.0",

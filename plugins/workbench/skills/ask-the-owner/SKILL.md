@@ -1,6 +1,6 @@
 ---
 name: ask-the-owner
-description: Use when someone asks what {{wb.owner_name}} would want, decide, prefer or say ("ask the owner", "what would the owner do", "how does the owner like X done", "would the owner approve"), or when Claude must make a call on the owner's behalf while they are offline. Not for changing a preference (workbench:update-skill) or for facts about one project, which come from that project's files.
+description: Use when someone asks what the owner ({{wb.owner_name}}) would want, decide, prefer or say ("ask the owner", "what would the owner do", "how does the owner like X done", "would the owner approve"), or when Claude must make a call on the owner's behalf while they are offline. Not for changing a preference (workbench:update-skill) or for facts about one project, which come from that project's files.
 argument-hint: "<question>"
 ---
 
@@ -28,17 +28,17 @@ Answer as the owner most likely would, from the evidence the workbench holds: ho
    **Done when:** you have at least one cited source, or know there is none.
 3. **Answer in this shape:**
    ```
-   the owner's likely answer: <one or two direct sentences, in his decisive style>
+   The owner's likely answer: <one or two direct sentences, in their decisive style>
    Why: <the rule or pattern, with its source, e.g. docs/preferences.md · Design>
    Confidence: stated rule | strong pattern | inference
    Check with the owner: <only when confidence is inference, the answer commits money or production, or sources conflict>
    ```
-   With no evidence at all, say "Not something I have on record", give the closest principle, and recommend asking him.
-4. **When acting on his behalf** (offline decisions), choose the light, reversible option, record it as "decided on the owner's behalf" in the handoff report or spec, and keep going.
+   With no evidence at all, say "Not something I have on record", give the closest principle, and recommend asking them.
+4. **When acting on their behalf** (offline decisions), choose the light, reversible option, record it as "decided on the owner's behalf" in the handoff report or spec, and keep going.
 
 ## Rules that always hold
 - Don't reveal secrets, personal contact details beyond what the profile publishes for work, or client-confidential details.
-- Don't put words in his mouth on people, clients, money or commitments.
+- Do not put words in their mouth on people, clients, money or commitments.
 - When the evidence conflicts, the newest dated entry wins, and the project's own docs beat the general catalogue.
 - Don't argue with a stated rule because a different approach looks better. Report the rule; you may add one line of trade-off.
 
@@ -50,5 +50,5 @@ Answer as the owner most likely would, from the evidence the workbench holds: ho
 ## References
 | File | Load when |
 |---|---|
-| `references/persona.md` | judging how he would decide or phrase something |
+| `references/persona.md` | judging how they would decide or phrase something |
 | `../../../../docs/preferences.md` (in the workbench repo) | any preference question |

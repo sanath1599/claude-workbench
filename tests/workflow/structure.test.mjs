@@ -30,7 +30,7 @@ test("plugin.json is complete", () => {
   assert.equal(p.version, "0.1.0");
   assert.equal(p.license, "PolyForm-Noncommercial-1.0.0");
   assert.equal(p.repository, "https://github.com/sanath1599/claude-workbench");
-  assert.equal(p.author.name, "Starter Pack contributors");
+  assert.equal(p.author.name, "Claude Code / Codex Starter Pack contributors");
 });
 
 test("the skill directory lists exactly the expected skills", () => {

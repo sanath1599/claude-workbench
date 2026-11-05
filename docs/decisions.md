@@ -4,7 +4,7 @@ Each line records a decision and the reason behind it.
 
 | # | Decision | Why |
 |---|---|---|
-| 1 | Private GitHub repo under `sanath1599`, with a PolyForm Noncommercial licence | It describes the owner's workflow and project patterns. The owner's stated licensing preference is "anything but commercial use, with attribution". |
+| 1 | Public GitHub repo under a PolyForm Noncommercial licence | The pack is meant to be shared and forked. Personal values (emails, orgs, domains, hosts) stay in each user's local profile (`~/.claude/workbench/profile.json`) and in repo secrets, never in the repo. Noncommercial use with attribution is the licensing intent. |
 | 2 | Eleven focused plugins instead of one large one | Install only what a machine needs, and keep skill listings small to limit trigger collisions (a lesson from the survey). |
 | 3 | Hooks enforce mechanical rules; skills carry judgment | A regex can enforce "sileo, not sonner", "no secrets in a push" or "no emojis in UI" every time. Prose can't. |
 | 4 | Owner values as `{{wb.*}}` tokens, resolved at runtime from `~/.claude/workbench/profile.json` and renderable by `/workbench:setup` | One source works both installed from GitHub (with auto-updates) and as a personalised copy for someone else. |

@@ -3,8 +3,7 @@
   "version": "0.1.1",
   "description": "Third-party tools the owner keeps, bundled with their MIT licences and synced from upstream: graphify (codebase knowledge graphs), the MulmoTerminal skills, and REA reverse engineering with its MCP server.",
   "author": {
-    "name": "Starter Pack contributors",
-    "url": "https://github.com/sanath1599"
+    "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "SEE LICENSE IN licenses/",
