@@ -1,6 +1,9 @@
 ---
 type: regex
 weight: 1
-arm: with_plugin
+pattern: "[\\u{1F300}-\\u{1FAFF}\\u{2600}-\\u{27BF}]"
+flags: u
+match: not_contains
 ---
-Pass if the response contains none of the characters in the emoji ranges, pattern: ^(?![\s\S]*[\u{1F300}-\u{1FAFF}])
+
+The review itself contains no emoji.

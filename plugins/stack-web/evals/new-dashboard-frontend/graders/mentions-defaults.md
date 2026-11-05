@@ -1,5 +1,8 @@
 ---
 type: regex
 weight: 1
+pattern: "sileo[\\s\\S]*lucide|lucide[\\s\\S]*sileo"
+flags: i
 ---
-(?is)(sileo.*lucide|lucide.*sileo)|(tanstack.*(form|table).*sileo)
+
+The plan names both sileo toasts and Lucide icons.
