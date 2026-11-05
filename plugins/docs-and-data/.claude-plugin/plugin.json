@@ -1,0 +1,12 @@
+{
+  "name": "docs-and-data",
+  "version": "0.1.0",
+  "description": "Client deliverables and data work: Word documents with page numbers that match, Excel workbooks with live formulas, PowerPoint decks, PDFs, tabular data analysis and multi-source research with citations.",
+  "author": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
+  "repository": "https://github.com/sanath1599/claude-workbench",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": ["word", "docx", "excel", "xlsx", "powerpoint", "pdf", "pandas", "research"]
+}

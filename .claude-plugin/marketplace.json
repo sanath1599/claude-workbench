@@ -2,13 +2,22 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "starter-pack",
   "description": "A personal Claude Code marketplace: house rules and guard hooks, project kickoff and cloud handoff, TypeScript and Python stack skills, design, engineering and SRE procedures, interactive demos and connectors.",
-  "owner": { "name": "Starter Pack contributors", "url": "https://github.com/sanath1599" },
+  "owner": {
+    "name": "Starter Pack contributors",
+    "url": "https://github.com/sanath1599"
+  },
   "plugins": [
     {
       "name": "workbench",
       "source": "./plugins/workbench",
       "description": "House rules, guard hooks (secret scans, sileo, no emojis in UI, production gates), guided setup, update-skill and the session-start dependency review.",
       "category": "productivity"
+    },
+    {
+      "name": "workflow",
+      "source": "./plugins/workflow",
+      "description": "Process discipline tuned to the owner: shaping work, plans, batched-review execution, systematic debugging, test-first, verification, pre-merge review, simplification, branch finishing, parallel sessions.",
+      "category": "development"
     },
     {
       "name": "kickoff",
@@ -57,6 +66,12 @@
       "source": "./plugins/stack-connectors",
       "description": "MCP connectors the official catalog lacks for this stack: Temporal docs and Qdrant.",
       "category": "development"
+    },
+    {
+      "name": "docs-and-data",
+      "source": "./plugins/docs-and-data",
+      "description": "Word documents, spreadsheets with live formulas, slide decks, PDFs, tabular data analysis and in-depth research with citations.",
+      "category": "productivity"
     }
   ]
 }

@@ -1,0 +1,13 @@
+[
+  {"name": "python-docx", "ecosystem": "PyPI", "documented": "1.2.0", "changelog": "https://github.com/python-openxml/python-docx/blob/master/HISTORY.rst", "skills": ["docs-and-data:producing-word-documents"]},
+  {"name": "openpyxl", "ecosystem": "PyPI", "documented": "3.1.5", "changelog": "https://openpyxl.readthedocs.io/en/stable/changes.html", "skills": ["docs-and-data:producing-spreadsheets"]},
+  {"name": "python-pptx", "ecosystem": "PyPI", "documented": "1.0.2", "changelog": "https://github.com/scanny/python-pptx/blob/master/HISTORY.rst", "skills": ["docs-and-data:producing-slide-decks"]},
+  {"name": "pypdf", "ecosystem": "PyPI", "documented": "6.21.4", "changelog": "https://github.com/py-pdf/pypdf/blob/main/CHANGELOG.md", "skills": ["docs-and-data:working-with-pdfs"]},
+  {"name": "pdfplumber", "ecosystem": "PyPI", "documented": "0.11.10", "changelog": "https://github.com/jsvine/pdfplumber/blob/stable/CHANGELOG.md", "skills": ["docs-and-data:working-with-pdfs"]},
+  {"name": "pandas", "ecosystem": "PyPI", "documented": "3.1.1", "changelog": "https://pandas.pydata.org/docs/whatsnew/index.html", "skills": ["docs-and-data:analysing-tabular-data"]},
+  {"name": "@modelcontextprotocol/server", "ecosystem": "npm", "documented": "2.4.0", "changelog": "https://github.com/modelcontextprotocol/typescript-sdk/releases", "skills": ["engineering-craft:building-mcp-servers"]},
+  {"name": "@modelcontextprotocol/sdk", "ecosystem": "npm", "documented": "1.32.2", "changelog": "https://github.com/modelcontextprotocol/typescript-sdk/releases", "skills": ["engineering-craft:building-mcp-servers"]},
+  {"name": "@modelcontextprotocol/inspector", "ecosystem": "npm", "documented": "2.14.0", "changelog": "https://github.com/modelcontextprotocol/inspector/releases", "skills": ["engineering-craft:building-mcp-servers"]},
+  {"name": "mcp", "ecosystem": "PyPI", "documented": "2.3.0", "changelog": "https://github.com/modelcontextprotocol/python-sdk/releases", "skills": ["engineering-craft:building-mcp-servers"]},
+  {"name": "fastmcp", "ecosystem": "PyPI", "documented": "4.1.6", "changelog": "https://github.com/jlowin/fastmcp/releases", "skills": ["engineering-craft:building-mcp-servers"]}
+]

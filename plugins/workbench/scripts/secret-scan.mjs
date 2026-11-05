@@ -44,6 +44,7 @@ export const RULES = [
       if (PLACEHOLDER.test(value) || ENV_REFERENCE.test(value) || ENV_REFERENCE.test(line.slice(m.index, m.index + m[0].length + 20))) return false;
       if (/^[a-z_.]+\(?$/i.test(value) || /^(?:true|false|\d+)$/i.test(value)) return false;
       if (/[()[\]{}<>]/.test(value)) return false; // code (calls, generics, templates), not a literal secret
+      if (/\\[ntr]/.test(value) || /^[A-Z0-9_]*=/.test(value.replace(/^\\n/, ''))) return false; // escaped text or chained assignments
       if (/^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)+$/.test(value)) return false; // member access like config.apiKey
       if (!/\d/.test(value) && value.length < 32) return false; // real keys almost always carry digits
       return entropy(value) >= 3.5;

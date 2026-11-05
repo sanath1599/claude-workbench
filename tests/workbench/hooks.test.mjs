@@ -19,7 +19,7 @@ const FAKE_KEY = ['sk-ant-api03-', 'Zx9'.repeat(16)].join('');
 
 test('secret scanner catches real-looking keys and ignores code and placeholders', () => {
   assert.ok(scanLine(`ANTHROPIC_API_KEY=${FAKE_KEY}`).length);
-  assert.ok(scanLine('const u = "postgresql://app:S3cr3tPassw0rd@db.example-host.com:5432/x"').length);
+  assert.ok(scanLine('const u = "postgresql://app:S3cr3tPassw0rd@db.example-host.com:5432/x"').length); // workbench:allow-secret
   assert.equal(scanLine('postgresql://app:app@localhost:5434/dev').length, 0);
   assert.equal(scanLine('const apiKey = process.env.RESEND_API_KEY').length, 0);
   assert.equal(scanLine('const commandSecrets = scanText(command, x)').length, 0);
