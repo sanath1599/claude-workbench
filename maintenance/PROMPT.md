@@ -21,7 +21,7 @@ You are maintaining this Claude Code plugin marketplace. A deterministic script 
 
 6. **Stale verification dates.** Re-verify up to 10 of the oldest facts against current docs. Only change a date after you have re-checked the fact.
 
-7. **Learnings inbox.** If `docs/learnings.d/` has files, fold their entries into `docs/learnings.md` (newest first) and delete the inbox files.
+7. **Learnings inbox.** If `docs/learnings.d/` has files, fold their entries into `docs/learnings.md` (newest first), skipping lines already there, then remove the inbox files with `git rm docs/learnings.d/*.md`.
 
 ## Rules
 - Follow `docs/authoring.md`. Integrate changes where they belong; never append dumps.
