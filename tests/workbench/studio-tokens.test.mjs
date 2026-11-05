@@ -14,9 +14,12 @@ test('studio push fills {{wb.*}} tokens from the profile before the page sees th
   try {
     const file = join(dir, '..', 'q.json');
     writeFileSync(file, JSON.stringify({ sections: [{ id: 's', title: 'Repo', fields: [{ id: 'owner', type: 'text', label: 'Owner', value: '{{wb.github_owner}}' }] }] }));
-    execFileSync('node', [ST, 'push', '--dir', dir, '--kind', 'questions', '--file', file], { encoding: 'utf8' });
+    const profile = join(dir, '..', 'profile.json');
+    writeFileSync(profile, JSON.stringify({ github_owner: 'octo-owner' }));
+    execFileSync('node', [ST, 'push', '--dir', dir, '--kind', 'questions', '--file', file], { encoding: 'utf8', env: { ...process.env, WORKBENCH_PROFILE: profile } });
     const outbox = readFileSync(join(dir, 'outbox.jsonl'), 'utf8');
     assert.ok(!outbox.includes('{{wb.github_owner}}'), 'raw token reached the page');
+    assert.ok(outbox.includes('octo-owner'), 'profile value was not filled in');
   } finally {
     execFileSync('node', [ST, 'stop', '--dir', dir]);
     srv.kill();
