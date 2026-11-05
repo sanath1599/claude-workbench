@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "animated-technical-interactive": {
+      "type": "http",
+      "url": "https://app.antm.ai/api/mcp"
+    }
+  }
+}

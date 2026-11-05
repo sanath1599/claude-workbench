@@ -1,0 +1,16 @@
+[
+  {"name":"@vercel/functions","ecosystem":"npm","documented":"3.10.6","changelog":"https://github.com/vercel/vercel/releases","skills":["stack-web:sizing-vercel-functions"]},
+  {"name":"@vercel/queue","ecosystem":"npm","documented":"0.11.0","changelog":"https://vercel.com/docs/queues","skills":["stack-web:choosing-background-work-on-vercel"]},
+  {"name":"workflow","ecosystem":"npm","documented":"5.4.0","changelog":"https://github.com/vercel/workflow/releases","skills":["stack-web:choosing-background-work-on-vercel"]},
+  {"name":"@vercel/sandbox","ecosystem":"npm","documented":"3.9.1","changelog":"https://github.com/vercel/sandbox/releases","skills":["stack-web:choosing-background-work-on-vercel"]},
+  {"name":"@vercel/blob","ecosystem":"npm","documented":"2.8.2","changelog":"https://github.com/vercel/storage/releases","skills":["stack-web:storing-data-on-vercel"]},
+  {"name":"@vercel/global-config","ecosystem":"npm","documented":"1.5.1","changelog":"https://github.com/vercel/storage/releases","skills":["stack-web:storing-data-on-vercel"]},
+  {"name":"@neondatabase/serverless","ecosystem":"npm","documented":"1.2.0","changelog":"https://github.com/neondatabase/serverless/releases","skills":["stack-web:storing-data-on-vercel"]},
+  {"name":"botid","ecosystem":"npm","documented":"1.5.12","changelog":"https://vercel.com/docs/botid","skills":["stack-web:protecting-and-promoting-on-vercel"]},
+  {"name":"wrangler","ecosystem":"npm","documented":"4.157.0","changelog":"https://github.com/cloudflare/workers-sdk/releases","skills":["stack-web:using-cloudflare-beyond-dns"]},
+  {"name":"chrome-devtools-mcp","ecosystem":"npm","documented":"1.12.0","changelog":"https://github.com/ChromeDevTools/chrome-devtools-mcp/releases","skills":["stack-web:debugging-web-performance-in-chrome"]},
+  {"name":"lighthouse","ecosystem":"npm","documented":"13.6.0","changelog":"https://github.com/GoogleChrome/lighthouse/releases","skills":["stack-web:debugging-web-performance-in-chrome"]},
+  {"name":"schemathesis","ecosystem":"PyPI","documented":"4.33.1","changelog":"https://github.com/schemathesis/schemathesis/releases","skills":["stack-web:testing-apis-from-the-command-line"]},
+  {"name":"httpx","ecosystem":"PyPI","documented":"0.28.1","changelog":"https://github.com/encode/httpx/releases","skills":["stack-web:testing-apis-from-the-command-line"]},
+  {"name":"svix","ecosystem":"npm","documented":"2.9.1","changelog":"https://github.com/svix/svix-webhooks/releases","skills":["stack-web:handling-inbound-email-safely"]}
+]

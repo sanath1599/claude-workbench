@@ -1,7 +1,7 @@
 {
   "name": "stack-connectors",
   "version": "0.1.0",
-  "description": "MCP connectors the stack needs that the official catalog lacks: Temporal docs and Qdrant. Points to official plugins for the rest.",
+  "description": "MCP connectors for the stack, bundled so third-party plugins aren't needed: Vercel, Cloudflare API and docs, Resend, Logfire, Temporal docs, Context7, Prisma and Chrome DevTools.",
   "author": {
     "name": "Starter Pack contributors",
     "url": "https://github.com/sanath1599"
@@ -11,7 +11,12 @@
   "keywords": [
     "mcp",
     "connectors",
+    "vercel",
+    "cloudflare",
+    "resend",
+    "logfire",
     "temporal",
-    "qdrant"
+    "prisma",
+    "chrome-devtools"
   ]
 }

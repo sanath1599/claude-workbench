@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "vercel": { "type": "http", "url": "https://mcp.vercel.com" },
+    "cloudflare-api": { "type": "http", "url": "https://mcp.cloudflare.com/mcp" },
+    "cloudflare-docs": { "type": "http", "url": "https://docs.mcp.cloudflare.com/mcp" },
+    "resend": { "type": "http", "url": "https://mcp.resend.com/mcp" },
+    "logfire": { "type": "http", "url": "https://logfire-us.pydantic.dev/mcp" },
+    "temporal-docs": { "type": "http", "url": "https://temporal.mcp.kapa.ai" },
+    "context7": { "type": "http", "url": "https://mcp.context7.com/mcp" },
+    "prisma-local": { "command": "npx", "args": ["-y", "prisma@7.10.1", "mcp"] },
+    "chrome-devtools": { "command": "npx", "args": ["-y", "chrome-devtools-mcp@1.12.0"] }
+  }
+}

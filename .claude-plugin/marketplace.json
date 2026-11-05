@@ -64,7 +64,7 @@
     {
       "name": "stack-connectors",
       "source": "./plugins/stack-connectors",
-      "description": "MCP connectors the official catalog lacks for this stack: Temporal docs and Qdrant.",
+      "description": "MCP connectors for the stack: Vercel, Cloudflare API and docs, Resend, Logfire, Temporal docs, Context7, Prisma and Chrome DevTools.",
       "category": "development"
     },
     {
