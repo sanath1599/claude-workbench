@@ -1,0 +1,1491 @@
+[
+ {
+  "id": "cobalt-ledger",
+  "name": "Cobalt ledger",
+  "mood": [
+   "trustworthy",
+   "precise",
+   "calm"
+  ],
+  "industries": [
+   "saas",
+   "fintech",
+   "enterprise"
+  ],
+  "use": [
+   "dashboard",
+   "b2b",
+   "admin"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F8FAFC",
+   "surface": "#FFFFFF",
+   "fg": "#0F172A",
+   "muted": "#475569",
+   "border": "#E2E8F0",
+   "primary": "#1D4ED8",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0E7490",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#0B1220",
+   "surface": "#111A2E",
+   "fg": "#E5EAF3",
+   "muted": "#9AA7BD",
+   "border": "#243049",
+   "primary": "#6EA0FF",
+   "onPrimary": "#08111F",
+   "accent": "#2DD4BF",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ],
+   "dark": [
+    "#6EA0FF",
+    "#FB923C",
+    "#2DD4BF",
+    "#F472B6",
+    "#A3E635"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.06,
+   "mutedOnBg": 7.24,
+   "mutedOnSurface": 7.58,
+   "onPrimaryOnPrimary": 6.7,
+   "primaryOnBg": 6.41,
+   "accentOnBg": 5.12,
+   "borderOnBg": 1.18
+  },
+  "notes": "Default for B2B product UI. Blue is the single accent; teal is for secondary data only."
+ },
+ {
+  "id": "graphite-mono",
+  "name": "Graphite mono",
+  "mood": [
+   "minimal",
+   "technical",
+   "neutral"
+  ],
+  "industries": [
+   "developer-tools",
+   "saas",
+   "agency"
+  ],
+  "use": [
+   "dashboard",
+   "docs",
+   "landing"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#FAFAFA",
+   "surface": "#FFFFFF",
+   "fg": "#18181B",
+   "muted": "#52525B",
+   "border": "#E4E4E7",
+   "primary": "#18181B",
+   "onPrimary": "#FAFAFA",
+   "accent": "#2563EB",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#0A0A0B",
+   "surface": "#141416",
+   "fg": "#F4F4F5",
+   "muted": "#A1A1AA",
+   "border": "#27272A",
+   "primary": "#F4F4F5",
+   "onPrimary": "#18181B",
+   "accent": "#60A5FA",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#18181B",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ],
+   "dark": [
+    "#F4F4F5",
+    "#60A5FA",
+    "#FB923C",
+    "#2DD4BF",
+    "#F472B6"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.97,
+   "mutedOnBg": 7.41,
+   "mutedOnSurface": 7.73,
+   "onPrimaryOnPrimary": 16.97,
+   "primaryOnBg": 16.97,
+   "accentOnBg": 4.95,
+   "borderOnBg": 1.22
+  },
+  "notes": "Near-black buttons, blue reserved for links and focus. The most restrained option here."
+ },
+ {
+  "id": "pine-people",
+  "name": "Pine people",
+  "mood": [
+   "warm",
+   "trustworthy",
+   "human"
+  ],
+  "industries": [
+   "hr",
+   "recruiting",
+   "education"
+  ],
+  "use": [
+   "admin",
+   "forms",
+   "dashboard"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F7FAF9",
+   "surface": "#FFFFFF",
+   "fg": "#10231F",
+   "muted": "#4A5F5A",
+   "border": "#DCE7E3",
+   "primary": "#134E4A",
+   "onPrimary": "#FFFFFF",
+   "accent": "#A16207",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#134E4A",
+    "#1D4ED8",
+    "#C2410C",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.6,
+   "mutedOnBg": 6.5,
+   "mutedOnSurface": 6.83,
+   "onPrimaryOnPrimary": 9.48,
+   "primaryOnBg": 9.02,
+   "accentOnBg": 4.69,
+   "borderOnBg": 1.21
+  },
+  "notes": "Fits hiring and people tools. Amber accent clears 4.5:1 on the page background by a small margin, so keep it off tinted surfaces."
+ },
+ {
+  "id": "forest-clinic",
+  "name": "Forest clinic",
+  "mood": [
+   "calm",
+   "clean",
+   "reassuring"
+  ],
+  "industries": [
+   "healthcare",
+   "wellness",
+   "insurance"
+  ],
+  "use": [
+   "patient-portal",
+   "forms",
+   "dashboard"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F6FAF7",
+   "surface": "#FFFFFF",
+   "fg": "#12251C",
+   "muted": "#4B5F55",
+   "border": "#DCE6E0",
+   "primary": "#166534",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0F766E",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#0C1511",
+   "surface": "#121E18",
+   "fg": "#E3EEE7",
+   "muted": "#9BB0A3",
+   "border": "#22332A",
+   "primary": "#4ADE80",
+   "onPrimary": "#07140C",
+   "accent": "#2DD4BF",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#166534",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D"
+   ],
+   "dark": [
+    "#4ADE80",
+    "#60A5FA",
+    "#FB923C",
+    "#2DD4BF",
+    "#F472B6"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.25,
+   "mutedOnBg": 6.5,
+   "mutedOnSurface": 6.85,
+   "onPrimaryOnPrimary": 7.13,
+   "primaryOnBg": 6.77,
+   "accentOnBg": 5.2,
+   "borderOnBg": 1.21
+  },
+  "notes": "Green carries both brand and success, so use an icon plus text for success states."
+ },
+ {
+  "id": "lagoon-travel",
+  "name": "Lagoon travel",
+  "mood": [
+   "fresh",
+   "open",
+   "friendly"
+  ],
+  "industries": [
+   "travel",
+   "hospitality",
+   "marketplace"
+  ],
+  "use": [
+   "landing",
+   "booking",
+   "consumer"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F5FAFB",
+   "surface": "#FFFFFF",
+   "fg": "#0C2230",
+   "muted": "#475C69",
+   "border": "#D9E7EC",
+   "primary": "#0E7490",
+   "onPrimary": "#FFFFFF",
+   "accent": "#C2410C",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#0E7490",
+    "#1D4ED8",
+    "#C2410C",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.5,
+   "mutedOnBg": 6.64,
+   "mutedOnSurface": 6.99,
+   "onPrimaryOnPrimary": 5.36,
+   "primaryOnBg": 5.09,
+   "accentOnBg": 4.92,
+   "borderOnBg": 1.2
+  },
+  "notes": "Teal primary with a burnt orange call to action for rare emphasis."
+ },
+ {
+  "id": "ember-commerce",
+  "name": "Ember commerce",
+  "mood": [
+   "energetic",
+   "confident",
+   "warm"
+  ],
+  "industries": [
+   "retail",
+   "ecommerce",
+   "food"
+  ],
+  "use": [
+   "storefront",
+   "landing",
+   "checkout"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FFFBF7",
+   "surface": "#FFFFFF",
+   "fg": "#241810",
+   "muted": "#5E4B3F",
+   "border": "#EFE3D8",
+   "primary": "#C2410C",
+   "onPrimary": "#FFFFFF",
+   "accent": "#1D4ED8",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#C2410C",
+    "#1D4ED8",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.81,
+   "mutedOnBg": 7.98,
+   "mutedOnSurface": 8.22,
+   "onPrimaryOnPrimary": 5.18,
+   "primaryOnBg": 5.03,
+   "accentOnBg": 6.51,
+   "borderOnBg": 1.22
+  },
+  "notes": "Orange primary is strong; keep surfaces quiet. Blue accent for links so they differ from buttons."
+ },
+ {
+  "id": "navy-brass",
+  "name": "Navy and brass",
+  "mood": [
+   "formal",
+   "established",
+   "authoritative"
+  ],
+  "industries": [
+   "government",
+   "legal",
+   "enterprise",
+   "finance"
+  ],
+  "use": [
+   "portal",
+   "reports",
+   "landing"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F8F9FB",
+   "surface": "#FFFFFF",
+   "fg": "#0F1B2D",
+   "muted": "#4B5870",
+   "border": "#DFE4EC",
+   "primary": "#1E3A5F",
+   "onPrimary": "#FFFFFF",
+   "accent": "#A16207",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#1E3A5F",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.41,
+   "mutedOnBg": 6.81,
+   "mutedOnSurface": 7.17,
+   "onPrimaryOnPrimary": 11.5,
+   "primaryOnBg": 10.92,
+   "accentOnBg": 4.67,
+   "borderOnBg": 1.21
+  },
+  "notes": "Client-friendly default for corporate work. Brass is an accent for rules and icons, not body text."
+ },
+ {
+  "id": "sand-stone",
+  "name": "Sand and stone",
+  "mood": [
+   "warm",
+   "calm",
+   "crafted"
+  ],
+  "industries": [
+   "hospitality",
+   "real-estate",
+   "interior",
+   "lifestyle"
+  ],
+  "use": [
+   "landing",
+   "portfolio",
+   "editorial"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FAF7F2",
+   "surface": "#FFFFFF",
+   "fg": "#292524",
+   "muted": "#57534E",
+   "border": "#E7E0D6",
+   "primary": "#44403C",
+   "onPrimary": "#FAF7F2",
+   "accent": "#A16207",
+   "success": "#4D7C0F",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#44403C",
+    "#1D4ED8",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 14.19,
+   "mutedOnBg": 7.14,
+   "mutedOnSurface": 7.63,
+   "onPrimaryOnPrimary": 9.61,
+   "primaryOnBg": 9.61,
+   "accentOnBg": 4.61,
+   "borderOnBg": 1.23
+  },
+  "notes": "Warm paper background with stone buttons. Avoid pairing with a serif display and terracotta, which is a common generated look."
+ },
+ {
+  "id": "ocean-logistics",
+  "name": "Ocean logistics",
+  "mood": [
+   "practical",
+   "clear",
+   "steady"
+  ],
+  "industries": [
+   "logistics",
+   "transport",
+   "energy",
+   "operations"
+  ],
+  "use": [
+   "dashboard",
+   "tracking",
+   "admin"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F4F8FB",
+   "surface": "#FFFFFF",
+   "fg": "#0B2233",
+   "muted": "#41586B",
+   "border": "#D6E2EC",
+   "primary": "#0369A1",
+   "onPrimary": "#FFFFFF",
+   "accent": "#C2410C",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#08131C",
+   "surface": "#0E1D2A",
+   "fg": "#E2ECF4",
+   "muted": "#92A8BA",
+   "border": "#1D3243",
+   "primary": "#38BDF8",
+   "onPrimary": "#06121B",
+   "accent": "#FB923C",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#0369A1",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ],
+   "dark": [
+    "#38BDF8",
+    "#FB923C",
+    "#2DD4BF",
+    "#F472B6",
+    "#A3E635"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.24,
+   "mutedOnBg": 6.94,
+   "mutedOnSurface": 7.41,
+   "onPrimaryOnPrimary": 5.93,
+   "primaryOnBg": 5.56,
+   "accentOnBg": 4.85,
+   "borderOnBg": 1.23
+  },
+  "notes": "Good for dense operational tables; status colours stay distinct from the blue brand."
+ },
+ {
+  "id": "rose-boutique",
+  "name": "Rose boutique",
+  "mood": [
+   "elegant",
+   "soft",
+   "expressive"
+  ],
+  "industries": [
+   "beauty",
+   "fashion",
+   "events"
+  ],
+  "use": [
+   "landing",
+   "storefront",
+   "portfolio"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FFF9FA",
+   "surface": "#FFFFFF",
+   "fg": "#2A1620",
+   "muted": "#6B4A58",
+   "border": "#F2DDE4",
+   "primary": "#BE185D",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0F766E",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#BE185D",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.35,
+   "mutedOnBg": 7.35,
+   "mutedOnSurface": 7.65,
+   "onPrimaryOnPrimary": 6.04,
+   "primaryOnBg": 5.8,
+   "accentOnBg": 5.26,
+   "borderOnBg": 1.24
+  },
+  "notes": "Magenta rose primary; teal accent balances it. Use photography to carry the brand."
+ },
+ {
+  "id": "olive-field",
+  "name": "Olive field",
+  "mood": [
+   "natural",
+   "grounded",
+   "honest"
+  ],
+  "industries": [
+   "agriculture",
+   "climate",
+   "nonprofit",
+   "food"
+  ],
+  "use": [
+   "landing",
+   "reports",
+   "dashboard"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F8FAF3",
+   "surface": "#FFFFFF",
+   "fg": "#1B2512",
+   "muted": "#51603F",
+   "border": "#E0E7D2",
+   "primary": "#4D7C0F",
+   "onPrimary": "#FFFFFF",
+   "accent": "#A16207",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#4D7C0F",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.12,
+   "mutedOnBg": 6.45,
+   "mutedOnSurface": 6.79,
+   "onPrimaryOnPrimary": 4.99,
+   "primaryOnBg": 4.75,
+   "accentOnBg": 4.68,
+   "borderOnBg": 1.21
+  },
+  "notes": "White label on the olive primary is close to the 4.5:1 limit, so do not lighten the primary."
+ },
+ {
+  "id": "ink-editorial",
+  "name": "Ink editorial",
+  "mood": [
+   "serious",
+   "literate",
+   "quiet"
+  ],
+  "industries": [
+   "media",
+   "publishing",
+   "research",
+   "education"
+  ],
+  "use": [
+   "article",
+   "docs",
+   "newsletter"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FDFDFB",
+   "surface": "#FFFFFF",
+   "fg": "#111827",
+   "muted": "#4B5563",
+   "border": "#E5E7EB",
+   "primary": "#111827",
+   "onPrimary": "#FFFFFF",
+   "accent": "#B91C1C",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#111827",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.42,
+   "mutedOnBg": 7.42,
+   "mutedOnSurface": 7.56,
+   "onPrimaryOnPrimary": 17.74,
+   "primaryOnBg": 17.42,
+   "accentOnBg": 6.35,
+   "borderOnBg": 1.22
+  },
+  "notes": "Black and white with one red used sparingly for emphasis. Needs good typography to work."
+ },
+ {
+  "id": "chalk-learning",
+  "name": "Chalk learning",
+  "mood": [
+   "approachable",
+   "clear",
+   "encouraging"
+  ],
+  "industries": [
+   "education",
+   "edtech",
+   "kids-parents"
+  ],
+  "use": [
+   "courses",
+   "dashboard",
+   "landing"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FFFEF9",
+   "surface": "#FFFFFF",
+   "fg": "#1C1917",
+   "muted": "#57534E",
+   "border": "#EDE9DC",
+   "primary": "#1D4ED8",
+   "onPrimary": "#FFFFFF",
+   "accent": "#C2410C",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.32,
+   "mutedOnBg": 7.56,
+   "mutedOnSurface": 7.63,
+   "onPrimaryOnPrimary": 6.7,
+   "primaryOnBg": 6.64,
+   "accentOnBg": 5.13,
+   "borderOnBg": 1.2
+  },
+  "notes": "Blue for navigation and actions, orange for progress highlights. Warm white page reduces glare."
+ },
+ {
+  "id": "crimson-counsel",
+  "name": "Crimson counsel",
+  "mood": [
+   "serious",
+   "traditional",
+   "secure"
+  ],
+  "industries": [
+   "legal",
+   "insurance",
+   "banking"
+  ],
+  "use": [
+   "portal",
+   "landing",
+   "reports"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FAF9F8",
+   "surface": "#FFFFFF",
+   "fg": "#1F1414",
+   "muted": "#5C4646",
+   "border": "#E8DEDC",
+   "primary": "#7F1D1D",
+   "onPrimary": "#FFFFFF",
+   "accent": "#1E3A5F",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#7F1D1D",
+    "#1D4ED8",
+    "#0F766E",
+    "#4D7C0F",
+    "#A16207"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.09,
+   "mutedOnBg": 8.25,
+   "mutedOnSurface": 8.68,
+   "onPrimaryOnPrimary": 10.02,
+   "primaryOnBg": 9.53,
+   "accentOnBg": 10.94,
+   "borderOnBg": 1.25
+  },
+  "notes": "Deep red doubles as the error colour, so errors need icons and text labels. Navy accent for links."
+ },
+ {
+  "id": "mint-ledger",
+  "name": "Mint ledger",
+  "mood": [
+   "fresh",
+   "modern",
+   "precise"
+  ],
+  "industries": [
+   "fintech",
+   "payments",
+   "accounting"
+  ],
+  "use": [
+   "dashboard",
+   "landing",
+   "onboarding"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F6FBF9",
+   "surface": "#FFFFFF",
+   "fg": "#0B1F1A",
+   "muted": "#44605A",
+   "border": "#D8EBE5",
+   "primary": "#047857",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0F172A",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#047857",
+    "#1D4ED8",
+    "#C2410C",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.39,
+   "mutedOnBg": 6.55,
+   "mutedOnSurface": 6.85,
+   "onPrimaryOnPrimary": 5.48,
+   "primaryOnBg": 5.25,
+   "accentOnBg": 17.07,
+   "borderOnBg": 1.19
+  },
+  "notes": "Emerald primary with near-black accent. Success and brand share a hue; label states with text."
+ },
+ {
+  "id": "copper-craft",
+  "name": "Copper craft",
+  "mood": [
+   "artisan",
+   "warm",
+   "grounded"
+  ],
+  "industries": [
+   "food",
+   "beverage",
+   "craft",
+   "hospitality"
+  ],
+  "use": [
+   "storefront",
+   "landing",
+   "menu"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FCF8F4",
+   "surface": "#FFFFFF",
+   "fg": "#2B1A12",
+   "muted": "#6A4E40",
+   "border": "#EEDFD3",
+   "primary": "#9A3412",
+   "onPrimary": "#FFFFFF",
+   "accent": "#365314",
+   "success": "#4D7C0F",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#9A3412",
+    "#1D4ED8",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 15.78,
+   "mutedOnBg": 7.16,
+   "mutedOnSurface": 7.56,
+   "onPrimaryOnPrimary": 7.31,
+   "primaryOnBg": 6.91,
+   "accentOnBg": 8.27,
+   "borderOnBg": 1.23
+  },
+  "notes": "Dark copper primary reads as earthy; green accent for freshness cues."
+ },
+ {
+  "id": "steel-industrial",
+  "name": "Steel industrial",
+  "mood": [
+   "robust",
+   "neutral",
+   "functional"
+  ],
+  "industries": [
+   "manufacturing",
+   "construction",
+   "automotive",
+   "operations"
+  ],
+  "use": [
+   "dashboard",
+   "admin",
+   "spec-sheet"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F5F6F8",
+   "surface": "#FFFFFF",
+   "fg": "#14181F",
+   "muted": "#474F5C",
+   "border": "#DADEE5",
+   "primary": "#334155",
+   "onPrimary": "#FFFFFF",
+   "accent": "#C2410C",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#334155",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.46,
+   "mutedOnBg": 7.64,
+   "mutedOnSurface": 8.26,
+   "onPrimaryOnPrimary": 10.35,
+   "primaryOnBg": 9.58,
+   "accentOnBg": 4.79,
+   "borderOnBg": 1.25
+  },
+  "notes": "Slate primary with an orange used only for alerts and highlights."
+ },
+ {
+  "id": "iris-calm",
+  "name": "Iris calm",
+  "mood": [
+   "gentle",
+   "thoughtful",
+   "soft"
+  ],
+  "industries": [
+   "wellness",
+   "journaling",
+   "meditation",
+   "creative"
+  ],
+  "use": [
+   "mobile",
+   "landing",
+   "onboarding"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FAF9FC",
+   "surface": "#FFFFFF",
+   "fg": "#1E1A2B",
+   "muted": "#5A5470",
+   "border": "#E6E2F0",
+   "primary": "#5B4B8A",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0F766E",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#5B4B8A",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.17,
+   "mutedOnBg": 6.82,
+   "mutedOnSurface": 7.15,
+   "onPrimaryOnPrimary": 7.45,
+   "primaryOnBg": 7.1,
+   "accentOnBg": 5.22,
+   "borderOnBg": 1.21
+  },
+  "notes": "Muted violet, not a saturated purple, which keeps it away from the generated-gradient look."
+ },
+ {
+  "id": "citrus-signal",
+  "name": "Citrus signal",
+  "mood": [
+   "playful",
+   "bold",
+   "optimistic"
+  ],
+  "industries": [
+   "consumer",
+   "startup",
+   "media"
+  ],
+  "use": [
+   "landing",
+   "app",
+   "campaign"
+  ],
+  "modes": [
+   "light"
+  ],
+  "primaryIsFillOnly": true,
+  "light": {
+   "bg": "#FFFEF5",
+   "surface": "#FFFFFF",
+   "fg": "#1C1917",
+   "muted": "#57534E",
+   "border": "#EFEBD0",
+   "primary": "#FACC15",
+   "onPrimary": "#1C1917",
+   "accent": "#1D4ED8",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.28,
+   "mutedOnBg": 7.54,
+   "mutedOnSurface": 7.63,
+   "onPrimaryOnPrimary": 11.42,
+   "primaryOnBg": 1.51,
+   "accentOnBg": 6.62,
+   "borderOnBg": 1.19
+  },
+  "notes": "Yellow primary only works with dark text on it. Never place white text on this primary."
+ },
+ {
+  "id": "coral-social",
+  "name": "Coral social",
+  "mood": [
+   "lively",
+   "friendly",
+   "direct"
+  ],
+  "industries": [
+   "social",
+   "community",
+   "consumer"
+  ],
+  "use": [
+   "app",
+   "landing",
+   "feed"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FFFAFA",
+   "surface": "#FFFFFF",
+   "fg": "#27161A",
+   "muted": "#6A4B51",
+   "border": "#F4DFE2",
+   "primary": "#E11D48",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0369A1",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#E11D48",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.7,
+   "mutedOnBg": 7.42,
+   "mutedOnSurface": 7.67,
+   "onPrimaryOnPrimary": 4.7,
+   "primaryOnBg": 4.54,
+   "accentOnBg": 5.74,
+   "borderOnBg": 1.23
+  },
+  "notes": "Coral red is close to the error colour; use a different danger hue or an icon on destructive actions."
+ },
+ {
+  "id": "night-terminal",
+  "name": "Night terminal",
+  "mood": [
+   "technical",
+   "focused",
+   "sharp"
+  ],
+  "industries": [
+   "developer-tools",
+   "devops",
+   "security",
+   "ai"
+  ],
+  "use": [
+   "dashboard",
+   "docs",
+   "cli-ui"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F7F8FA",
+   "surface": "#FFFFFF",
+   "fg": "#0F1419",
+   "muted": "#4B5563",
+   "border": "#E1E5EA",
+   "primary": "#0F766E",
+   "onPrimary": "#FFFFFF",
+   "accent": "#1D4ED8",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#0B0E12",
+   "surface": "#12171D",
+   "fg": "#E6EAF0",
+   "muted": "#97A3B3",
+   "border": "#232A33",
+   "primary": "#2DD4BF",
+   "onPrimary": "#06100E",
+   "accent": "#60A5FA",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#0F766E",
+    "#1D4ED8",
+    "#C2410C",
+    "#BE185D",
+    "#4D7C0F"
+   ],
+   "dark": [
+    "#2DD4BF",
+    "#60A5FA",
+    "#FB923C",
+    "#F472B6",
+    "#A3E635"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17.42,
+   "mutedOnBg": 7.11,
+   "mutedOnSurface": 7.56,
+   "onPrimaryOnPrimary": 5.47,
+   "primaryOnBg": 5.15,
+   "accentOnBg": 6.31,
+   "borderOnBg": 1.19
+  },
+  "notes": "Dark-first for tools engineers live in; the light mode exists for client demos."
+ },
+ {
+  "id": "midnight-media",
+  "name": "Midnight media",
+  "mood": [
+   "cinematic",
+   "immersive",
+   "high-contrast"
+  ],
+  "industries": [
+   "media",
+   "gaming",
+   "music",
+   "events"
+  ],
+  "use": [
+   "landing",
+   "player",
+   "gallery"
+  ],
+  "modes": [
+   "light",
+   "dark"
+  ],
+  "light": {
+   "bg": "#F6F6F8",
+   "surface": "#FFFFFF",
+   "fg": "#14141A",
+   "muted": "#52525E",
+   "border": "#E1E1E8",
+   "primary": "#9F1239",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0369A1",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "dark": {
+   "bg": "#09090D",
+   "surface": "#121218",
+   "fg": "#F2F2F6",
+   "muted": "#A1A1B0",
+   "border": "#25252E",
+   "primary": "#FB7185",
+   "onPrimary": "#18060B",
+   "accent": "#38BDF8",
+   "success": "#4ADE80",
+   "warning": "#FBBF24",
+   "danger": "#F87171"
+  },
+  "chart": {
+   "light": [
+    "#9F1239",
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#4D7C0F"
+   ],
+   "dark": [
+    "#FB7185",
+    "#60A5FA",
+    "#FB923C",
+    "#2DD4BF",
+    "#A3E635"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 17,
+   "mutedOnBg": 7.13,
+   "mutedOnSurface": 7.7,
+   "onPrimaryOnPrimary": 8.02,
+   "primaryOnBg": 7.43,
+   "accentOnBg": 5.5,
+   "borderOnBg": 1.21
+  },
+  "notes": "Use the dark mode for content-first media; pick it only when the owner asks for dark."
+ },
+ {
+  "id": "civic-clear",
+  "name": "Civic clear",
+  "mood": [
+   "accessible",
+   "plain",
+   "official"
+  ],
+  "industries": [
+   "government",
+   "public-sector",
+   "nonprofit",
+   "healthcare"
+  ],
+  "use": [
+   "forms",
+   "portal",
+   "reports"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FFFFFF",
+   "surface": "#F6F7F9",
+   "fg": "#0B0C0F",
+   "muted": "#3F4652",
+   "border": "#CBD2DC",
+   "primary": "#1D4ED8",
+   "onPrimary": "#FFFFFF",
+   "accent": "#0F5132",
+   "success": "#146C43",
+   "warning": "#8A4B00",
+   "danger": "#B02A37"
+  },
+  "chart": {
+   "light": [
+    "#1D4ED8",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 19.56,
+   "mutedOnBg": 9.51,
+   "mutedOnSurface": 8.87,
+   "onPrimaryOnPrimary": 6.7,
+   "primaryOnBg": 6.7,
+   "accentOnBg": 9.36,
+   "borderOnBg": 1.52
+  },
+  "notes": "Built for AAA body text. Borders are darker than usual so controls are visible without shadows."
+ },
+ {
+  "id": "paper-ink-warm",
+  "name": "Paper and ink",
+  "mood": [
+   "quiet",
+   "bookish",
+   "focused"
+  ],
+  "industries": [
+   "documentation",
+   "knowledge",
+   "notes",
+   "research"
+  ],
+  "use": [
+   "docs",
+   "article",
+   "wiki"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#FBF9F4",
+   "surface": "#FFFFFF",
+   "fg": "#1F2937",
+   "muted": "#4B5563",
+   "border": "#E8E3D6",
+   "primary": "#1F2937",
+   "onPrimary": "#FBF9F4",
+   "accent": "#B45309",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#1F2937",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 13.95,
+   "mutedOnBg": 7.18,
+   "mutedOnSurface": 7.56,
+   "onPrimaryOnPrimary": 13.95,
+   "primaryOnBg": 13.95,
+   "accentOnBg": 4.77,
+   "borderOnBg": 1.22
+  },
+  "notes": "Warm page, cool ink. Suits long reading; keep line length under 75 characters."
+ },
+ {
+  "id": "sky-ops",
+  "name": "Sky ops",
+  "mood": [
+   "bright",
+   "light",
+   "efficient"
+  ],
+  "industries": [
+   "saas",
+   "productivity",
+   "project-management"
+  ],
+  "use": [
+   "dashboard",
+   "kanban",
+   "settings"
+  ],
+  "modes": [
+   "light"
+  ],
+  "light": {
+   "bg": "#F5F9FD",
+   "surface": "#FFFFFF",
+   "fg": "#0E1C2E",
+   "muted": "#45556C",
+   "border": "#DAE5F1",
+   "primary": "#0B5FB4",
+   "onPrimary": "#FFFFFF",
+   "accent": "#B45309",
+   "success": "#15803D",
+   "warning": "#B45309",
+   "danger": "#B91C1C"
+  },
+  "chart": {
+   "light": [
+    "#0B5FB4",
+    "#C2410C",
+    "#0F766E",
+    "#BE185D",
+    "#4D7C0F"
+   ]
+  },
+  "contrast": {
+   "fgOnBg": 16.22,
+   "mutedOnBg": 7.17,
+   "mutedOnSurface": 7.58,
+   "onPrimaryOnPrimary": 6.34,
+   "primaryOnBg": 6,
+   "accentOnBg": 4.75,
+   "borderOnBg": 1.21
+  },
+  "notes": "A slightly lighter blue than cobalt ledger; orange accent marks due dates and flags."
+ }
+]

@@ -1,0 +1,1149 @@
+[
+ {
+  "id": "inter-solo",
+  "name": "Inter alone",
+  "display": {
+   "family": "Inter",
+   "role": "display",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "neutral",
+   "precise",
+   "utilitarian"
+  ],
+  "industries": [
+   "saas",
+   "fintech",
+   "enterprise"
+  ],
+  "use": [
+   "dashboard",
+   "admin",
+   "forms"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.01em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/inter",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "One family, weight carries hierarchy. Safest default; enable tabular numbers (font-variant-numeric: tabular-nums) in tables."
+ },
+ {
+  "id": "geist-clean",
+  "name": "Geist and Geist Mono",
+  "display": {
+   "family": "Geist",
+   "role": "display",
+   "stack": "\"Geist\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Geist",
+   "role": "body",
+   "stack": "\"Geist\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "Geist Mono",
+   "role": "mono",
+   "stack": "\"Geist Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "minimal",
+   "technical",
+   "sharp"
+  ],
+  "industries": [
+   "developer-tools",
+   "saas",
+   "ai"
+  ],
+  "use": [
+   "dashboard",
+   "docs",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.02em on large headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/geist",
+   "@fontsource-variable/geist-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Contemporary and compact. Pair with the graphite-mono or night-terminal palette."
+ },
+ {
+  "id": "dm-sans-solo",
+  "name": "DM Sans alone",
+  "display": {
+   "family": "DM Sans",
+   "role": "display",
+   "stack": "\"DM Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "DM Sans",
+   "role": "body",
+   "stack": "\"DM Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "friendly",
+   "geometric",
+   "light"
+  ],
+  "industries": [
+   "saas",
+   "startup",
+   "education"
+  ],
+  "use": [
+   "landing",
+   "dashboard",
+   "app"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/dm-sans",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Round without being childish. Use 500 for headings; 700 looks heavy."
+ },
+ {
+  "id": "manrope-inter",
+  "name": "Manrope headings, Inter body",
+  "display": {
+   "family": "Manrope",
+   "role": "display",
+   "stack": "\"Manrope\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "modern",
+   "confident",
+   "crisp"
+  ],
+  "industries": [
+   "fintech",
+   "saas",
+   "agency"
+  ],
+  "use": [
+   "landing",
+   "dashboard"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.01em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/manrope",
+   "@fontsource-variable/inter",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Manrope gives headings a distinct shape while Inter keeps dense UI readable."
+ },
+ {
+  "id": "jakarta-solo",
+  "name": "Plus Jakarta Sans alone",
+  "display": {
+   "family": "Plus Jakarta Sans",
+   "role": "display",
+   "stack": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Plus Jakarta Sans",
+   "role": "body",
+   "stack": "\"Plus Jakarta Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "friendly",
+   "contemporary",
+   "open"
+  ],
+  "industries": [
+   "hr",
+   "marketplace",
+   "healthcare",
+   "consumer"
+  ],
+  "use": [
+   "landing",
+   "app",
+   "forms"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/plus-jakarta-sans",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Warmer than Inter; works well for people-centric products."
+ },
+ {
+  "id": "figtree-solo",
+  "name": "Figtree alone",
+  "display": {
+   "family": "Figtree",
+   "role": "display",
+   "stack": "\"Figtree\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Figtree",
+   "role": "body",
+   "stack": "\"Figtree\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "approachable",
+   "clean",
+   "clear"
+  ],
+  "industries": [
+   "healthcare",
+   "education",
+   "nonprofit"
+  ],
+  "use": [
+   "forms",
+   "portal",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/figtree",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Very legible at 14px and 16px; good for forms-heavy tools."
+ },
+ {
+  "id": "instrument-solo",
+  "name": "Instrument Sans alone",
+  "display": {
+   "family": "Instrument Sans",
+   "role": "display",
+   "stack": "\"Instrument Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Instrument Sans",
+   "role": "body",
+   "stack": "\"Instrument Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "quiet",
+   "editorial-lite",
+   "polished"
+  ],
+  "industries": [
+   "agency",
+   "saas",
+   "media"
+  ],
+  "use": [
+   "landing",
+   "portfolio"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.01em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/instrument-sans",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Slightly condensed; a good heading face for tight layouts."
+ },
+ {
+  "id": "public-sans-gov",
+  "name": "Public Sans alone",
+  "display": {
+   "family": "Public Sans",
+   "role": "display",
+   "stack": "\"Public Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Public Sans",
+   "role": "body",
+   "stack": "\"Public Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "plain",
+   "official",
+   "accessible"
+  ],
+  "industries": [
+   "government",
+   "public-sector",
+   "nonprofit"
+  ],
+  "use": [
+   "forms",
+   "portal",
+   "reports"
+  ],
+  "scale": {
+   "base": 17,
+   "lh": 1.6,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/public-sans"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Designed for government interfaces. Raise base to 17px for long forms."
+ },
+ {
+  "id": "newsreader-inter",
+  "name": "Newsreader headings, Inter body",
+  "display": {
+   "family": "Newsreader",
+   "role": "display",
+   "stack": "\"Newsreader\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "editorial",
+   "literate",
+   "calm"
+  ],
+  "industries": [
+   "media",
+   "publishing",
+   "research"
+  ],
+  "use": [
+   "article",
+   "newsletter",
+   "landing"
+  ],
+  "scale": {
+   "base": 17,
+   "lh": 1.6,
+   "track": "-0.01em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/newsreader",
+   "@fontsource-variable/inter",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Serif for display only; body stays sans so the UI chrome and the prose do not fight."
+ },
+ {
+  "id": "source-serif-sans",
+  "name": "Source Serif 4 headings, Source Sans 3 body",
+  "display": {
+   "family": "Source Serif 4",
+   "role": "display",
+   "stack": "\"Source Serif 4\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Source Sans 3",
+   "role": "body",
+   "stack": "\"Source Sans 3\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "traditional",
+   "trustworthy",
+   "readable"
+  ],
+  "industries": [
+   "legal",
+   "finance",
+   "education",
+   "government"
+  ],
+  "use": [
+   "reports",
+   "portal",
+   "article"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.6,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/source-serif-4",
+   "@fontsource-variable/source-sans-3"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Matched pair from one design team, so metrics line up without fiddling."
+ },
+ {
+  "id": "fraunces-dm",
+  "name": "Fraunces headings, DM Sans body",
+  "display": {
+   "family": "Fraunces",
+   "role": "display",
+   "stack": "\"Fraunces\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "DM Sans",
+   "role": "body",
+   "stack": "\"DM Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "warm",
+   "crafted",
+   "characterful"
+  ],
+  "industries": [
+   "hospitality",
+   "food",
+   "lifestyle",
+   "real-estate"
+  ],
+  "use": [
+   "landing",
+   "storefront",
+   "menu"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/fraunces",
+   "@fontsource-variable/dm-sans"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Fraunces has a soft optical axis; use weight 400 to 600 and large sizes only. Many generated pages pair a serif display with a cream background, so choose a different background."
+ },
+ {
+  "id": "lora-inter",
+  "name": "Lora headings, Inter body",
+  "display": {
+   "family": "Lora",
+   "role": "display",
+   "stack": "\"Lora\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "classic",
+   "friendly",
+   "bookish"
+  ],
+  "industries": [
+   "education",
+   "nonprofit",
+   "publishing"
+  ],
+  "use": [
+   "article",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.6,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/lora",
+   "@fontsource-variable/inter"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500;600&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Gentle serif; works when you want warmth without a literary feel."
+ },
+ {
+  "id": "literata-reading",
+  "name": "Literata alone for reading",
+  "display": {
+   "family": "Literata",
+   "role": "display",
+   "stack": "\"Literata\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Literata",
+   "role": "body",
+   "stack": "\"Literata\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "mood": [
+   "bookish",
+   "focused",
+   "comfortable"
+  ],
+  "industries": [
+   "documentation",
+   "knowledge",
+   "publishing"
+  ],
+  "use": [
+   "docs",
+   "article",
+   "wiki"
+  ],
+  "scale": {
+   "base": 18,
+   "lh": 1.65,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/literata"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Literata:wght@400;600&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Built for long reading on screens. Use only for content areas, with a sans for chrome."
+ },
+ {
+  "id": "plex-family",
+  "name": "IBM Plex Sans with Plex Mono",
+  "display": {
+   "family": "IBM Plex Sans",
+   "role": "display",
+   "stack": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "IBM Plex Sans",
+   "role": "body",
+   "stack": "\"IBM Plex Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "IBM Plex Mono",
+   "role": "mono",
+   "stack": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "engineered",
+   "sober",
+   "technical"
+  ],
+  "industries": [
+   "enterprise",
+   "finance",
+   "developer-tools",
+   "government"
+  ],
+  "use": [
+   "dashboard",
+   "docs",
+   "reports"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource/ibm-plex-sans",
+   "@fontsource/ibm-plex-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "One superfamily: Mono for IDs and code. These are static font files, so import only the weights you use."
+ },
+ {
+  "id": "grotesk-inter",
+  "name": "Space Grotesk headings, Inter body",
+  "display": {
+   "family": "Space Grotesk",
+   "role": "display",
+   "stack": "\"Space Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "techy",
+   "distinct",
+   "playful"
+  ],
+  "industries": [
+   "startup",
+   "developer-tools"
+  ],
+  "use": [
+   "landing",
+   "campaign"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.02em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/space-grotesk",
+   "@fontsource-variable/inter",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Quirky letterforms; use at 32px and above, never for small labels."
+ },
+ {
+  "id": "outfit-solo",
+  "name": "Outfit alone",
+  "display": {
+   "family": "Outfit",
+   "role": "display",
+   "stack": "\"Outfit\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Outfit",
+   "role": "body",
+   "stack": "\"Outfit\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "geometric",
+   "friendly",
+   "lightweight"
+  ],
+  "industries": [
+   "consumer",
+   "wellness",
+   "education"
+  ],
+  "use": [
+   "landing",
+   "app",
+   "onboarding"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/outfit",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Geometric and rounded; avoid weights under 400 at small sizes."
+ },
+ {
+  "id": "sora-inter",
+  "name": "Sora headings, Inter body",
+  "display": {
+   "family": "Sora",
+   "role": "display",
+   "stack": "\"Sora\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Inter",
+   "role": "body",
+   "stack": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "futuristic",
+   "clean",
+   "wide"
+  ],
+  "industries": [
+   "fintech",
+   "ai",
+   "energy"
+  ],
+  "use": [
+   "landing",
+   "dashboard"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/sora",
+   "@fontsource-variable/inter",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Sora:wght@400;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Wide letterforms; keep headings short."
+ },
+ {
+  "id": "onest-solo",
+  "name": "Onest alone",
+  "display": {
+   "family": "Onest",
+   "role": "display",
+   "stack": "\"Onest\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Onest",
+   "role": "body",
+   "stack": "\"Onest\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "neutral",
+   "soft",
+   "modern"
+  ],
+  "industries": [
+   "saas",
+   "marketplace",
+   "b2b"
+  ],
+  "use": [
+   "dashboard",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/onest",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Good Cyrillic and Latin coverage if the product is multilingual."
+ },
+ {
+  "id": "hanken-solo",
+  "name": "Hanken Grotesk alone",
+  "display": {
+   "family": "Hanken Grotesk",
+   "role": "display",
+   "stack": "\"Hanken Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Hanken Grotesk",
+   "role": "body",
+   "stack": "\"Hanken Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "neutral",
+   "editorial",
+   "sturdy"
+  ],
+  "industries": [
+   "agency",
+   "media",
+   "saas"
+  ],
+  "use": [
+   "landing",
+   "portfolio",
+   "article"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "-0.01em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/hanken-grotesk",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "A neutral grotesk with a bit more character than Inter."
+ },
+ {
+  "id": "bricolage-albert",
+  "name": "Bricolage Grotesque headings, Albert Sans body",
+  "display": {
+   "family": "Bricolage Grotesque",
+   "role": "display",
+   "stack": "\"Bricolage Grotesque\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Albert Sans",
+   "role": "body",
+   "stack": "\"Albert Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "expressive",
+   "bold",
+   "contemporary"
+  ],
+  "industries": [
+   "agency",
+   "media",
+   "events",
+   "consumer"
+  ],
+  "use": [
+   "landing",
+   "campaign",
+   "portfolio"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.5,
+   "track": "-0.02em on headings"
+  },
+  "fontsource": [
+   "@fontsource-variable/bricolage-grotesque",
+   "@fontsource-variable/albert-sans"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Albert+Sans:wght@400;500;700&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Spend the personality on one headline; the body face stays calm."
+ },
+ {
+  "id": "schibsted-solo",
+  "name": "Schibsted Grotesk alone",
+  "display": {
+   "family": "Schibsted Grotesk",
+   "role": "display",
+   "stack": "\"Schibsted Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Schibsted Grotesk",
+   "role": "body",
+   "stack": "\"Schibsted Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "news",
+   "clear",
+   "direct"
+  ],
+  "industries": [
+   "media",
+   "publishing",
+   "nonprofit"
+  ],
+  "use": [
+   "article",
+   "newsletter",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/schibsted-grotesk"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Tuned for news interfaces; reads well in dense lists."
+ },
+ {
+  "id": "atkinson-access",
+  "name": "Atkinson Hyperlegible Next alone",
+  "display": {
+   "family": "Atkinson Hyperlegible Next",
+   "role": "display",
+   "stack": "\"Atkinson Hyperlegible Next\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Atkinson Hyperlegible Next",
+   "role": "body",
+   "stack": "\"Atkinson Hyperlegible Next\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "JetBrains Mono",
+   "role": "mono",
+   "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "accessible",
+   "clear",
+   "friendly"
+  ],
+  "industries": [
+   "healthcare",
+   "government",
+   "education"
+  ],
+  "use": [
+   "forms",
+   "portal",
+   "patient-portal"
+  ],
+  "scale": {
+   "base": 17,
+   "lh": 1.6,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/atkinson-hyperlegible-next",
+   "@fontsource-variable/jetbrains-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Designed for low-vision readers; letterforms are unambiguous (I, l, 1). Use where accessibility is a headline requirement."
+ },
+ {
+  "id": "lexend-learn",
+  "name": "Lexend alone",
+  "display": {
+   "family": "Lexend",
+   "role": "display",
+   "stack": "\"Lexend\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Lexend",
+   "role": "body",
+   "stack": "\"Lexend\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "open",
+   "readable",
+   "spacious"
+  ],
+  "industries": [
+   "education",
+   "edtech",
+   "kids-parents"
+  ],
+  "use": [
+   "courses",
+   "forms"
+  ],
+  "scale": {
+   "base": 17,
+   "lh": 1.65,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/lexend"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Wide spacing reduces visual stress; it also makes layouts longer, so allow room."
+ },
+ {
+  "id": "franklin-plex",
+  "name": "Libre Franklin alone",
+  "display": {
+   "family": "Libre Franklin",
+   "role": "display",
+   "stack": "\"Libre Franklin\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "body": {
+   "family": "Libre Franklin",
+   "role": "body",
+   "stack": "\"Libre Franklin\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "IBM Plex Mono",
+   "role": "mono",
+   "stack": "\"IBM Plex Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "journalistic",
+   "solid",
+   "classic"
+  ],
+  "industries": [
+   "media",
+   "legal",
+   "research"
+  ],
+  "use": [
+   "article",
+   "reports"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/libre-franklin",
+   "@fontsource/ibm-plex-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "A solid news-style grotesque. Add a serif such as Source Serif 4 for pull quotes only if the design needs one."
+ },
+ {
+  "id": "worksans-playfair",
+  "name": "Playfair Display headings, Work Sans body",
+  "display": {
+   "family": "Playfair Display",
+   "role": "display",
+   "stack": "\"Playfair Display\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Work Sans",
+   "role": "body",
+   "stack": "\"Work Sans\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mood": [
+   "elegant",
+   "high-contrast",
+   "premium"
+  ],
+  "industries": [
+   "beauty",
+   "fashion",
+   "events",
+   "hospitality"
+  ],
+  "use": [
+   "landing",
+   "storefront"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/playfair-display",
+   "@fontsource-variable/work-sans"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "High-contrast display serif; use at 40px and above, never in UI controls."
+ },
+ {
+  "id": "crimson-geist",
+  "name": "Crimson Pro headings, Geist body",
+  "display": {
+   "family": "Crimson Pro",
+   "role": "display",
+   "stack": "\"Crimson Pro\", ui-serif, Georgia, \"Times New Roman\", serif"
+  },
+  "body": {
+   "family": "Geist",
+   "role": "body",
+   "stack": "\"Geist\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+  },
+  "mono": {
+   "family": "Geist Mono",
+   "role": "mono",
+   "stack": "\"Geist Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  },
+  "mood": [
+   "refined",
+   "modern-classic",
+   "calm"
+  ],
+  "industries": [
+   "research",
+   "finance",
+   "legal"
+  ],
+  "use": [
+   "reports",
+   "landing"
+  ],
+  "scale": {
+   "base": 16,
+   "lh": 1.55,
+   "track": "normal"
+  },
+  "fontsource": [
+   "@fontsource-variable/crimson-pro",
+   "@fontsource-variable/geist",
+   "@fontsource-variable/geist-mono"
+  ],
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap",
+  "license": "OFL (Google Fonts / Fontsource)",
+  "notes": "Crimson Pro runs small; set headings about 10% larger than other serif faces."
+ }
+]
