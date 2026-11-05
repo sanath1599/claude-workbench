@@ -1,0 +1,40 @@
+name: Validate and approve
+
+# Validates a maintenance PR and approves it when every check passes (see maintenance/validate-pr.sh).
+# Runs on PRs from maintenance/* branches opened by a person, and by hand for any PR number.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR number"
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.head_ref, 'maintenance/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR: ${{ inputs.pr || github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Keep main's validator, then check out the PR head
+        run: |
+          cp maintenance/validate-pr.sh "$RUNNER_TEMP/validate-pr.sh"
+          gh pr checkout "$PR"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Validate and approve
+        run: bash "$RUNNER_TEMP/validate-pr.sh"

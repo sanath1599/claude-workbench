@@ -89,6 +89,13 @@ jobs:
           url=$(gh pr create --base main --head "$branch" --title "Maintenance $(date -u +%F)" --body-file maintenance/out/report.md --label maintenance 2>/dev/null || gh pr create --base main --head "$branch" --title "Maintenance $(date -u +%F)" --body-file maintenance/out/report.md)
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
+      - name: Validate and approve the PR
+        if: steps.pr.outputs.url != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.pr.outputs.url }}
+        run: bash maintenance/validate-pr.sh
+
       - name: Email high/critical vulnerabilities
         if: steps.collect.outputs.major == 'true'
         env:
