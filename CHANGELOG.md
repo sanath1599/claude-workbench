@@ -11,3 +11,4 @@
 - 2026-11-05 · ops-and-sre 0.2.0 → 0.3.0 · RAG, optimisation, vault, house style, mobile watch list
 - 2026-11-05 · design-studio 0.1.0 → 0.2.0 · RAG, optimisation, vault, house style, mobile watch list
 - 2026-11-05 · workbench 0.3.0 → 0.3.1 · RAG, optimisation, vault, house style, mobile watch list
+- 2026-11-13 · design-studio 0.2.0 → 0.2.1
