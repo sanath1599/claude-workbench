@@ -49,3 +49,4 @@ Entries from real projects that were folded into skills, newest first. Format: `
 - kickoff:choosing-the-stack · long-lived workers get their own deployable · interview platform
 - kickoff:writing-the-design-spec · open-question owners, success measures · docs audit
 - 2026-11-13 · design-studio:verifying-ui-in-browser · mock fixtures must match the server wire format; view deployed charts by eye (a mock sweep passed while live chart axes showed raw ISO strings) · ops dashboard build
+2026-11-17 · stack-python:building-pydantic-ai-agents · owner-acting agents get their own scoped revocable creds + in-code approval gate (exact hashed command, no blank-cheque), setup mode default, outbound redaction · session: skyops-agent

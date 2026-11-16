@@ -79,6 +79,7 @@ Full examples and tuning flags are in `references/patterns.md`.
 | "NativeOutput is more reliable" | Not on Ollama Cloud. Use ToolOutput/PromptedOutput and validate. |
 | "pydantic-graph persistence will do durability" | Persistence modules were removed in v2. Use Temporal. |
 | "A resume or JD is just text for the prompt" | It is untrusted. Fence it, never let it choose tools or change instructions. |
+| "The agent acts for the owner, so give it the owner's keys and let an approval flip it to full access" | An agent that acts on infrastructure gets its OWN scoped, revocable credentials (a dedicated gateway key, its own SSH key, a fine-grained PAT), never the owner's personal ones. Enforce the approval gate in code, not the prompt: what the owner approves is the exact command or scoped task (hashed), run with no model in between — never a blanket "allow all". Default to a no-mutations setup mode until the owner enables changes, and redact secret shapes from every outbound channel. |
 
 ## Verification
 
