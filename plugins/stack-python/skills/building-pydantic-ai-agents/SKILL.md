@@ -51,10 +51,10 @@ Agents are Python + Pydantic AI (v2). Pick the smallest pattern that fits, valid
 | Model decides which specialist to ask | agent delegation through a tool, share `usage` |
 | Real branching, loops, parallel joins in one process | `pydantic-graph` |
 | Branching or loops that must survive restarts | Temporal workflow, not graph persistence |
-| Tool must be approved by a human | `requires_approval=True` or `ApprovalRequired` |
+| Tool must be approved by a human | `requires_approval=True` or `ApprovalRequired`. Let the person approve with one tap: a reply "yes"/👍 to the request (read the token from the quoted request) or a bare "approve" when exactly one is pending; never make them type a code, and never treat a bare "yes" outside a reply as approval |
 | Approval can take hours or days | `TemporalDurability` + `HandleDeferredToolCalls` waiting on a signal/update |
 | Work finishes elsewhere, result arrives later | `CallDeferred` + `deferred_tool_results` |
-| Multi-turn chat across requests | store `ModelMessagesTypeAdapter` JSON in Postgres JSONB |
+| Multi-turn chat across requests | store `ModelMessagesTypeAdapter` JSON in Postgres JSONB. If conversations expire or messages are sent outside a turn (reminders, notifications), prepend a capped recap of messages the history lacks (high-water mark on message id), and pass a quoted reply's text into the turn |
 | Chat UI needs partial output | `run_stream`, `stream_output()` |
 | Cost or loop runaway | `UsageLimits` |
 | Provider outage, 402, rate limit | `ModelFallback` capability (or `FallbackModel`) |
@@ -75,6 +75,7 @@ Full examples and tuning flags are in `references/patterns.md`.
 
 | Excuse | Do instead |
 |---|---|
+| "The session history is enough memory" | Sessions expire and notifications bypass them; a user's "what about this?" then has no referent. Recap what the history lacks. |
 | "I will write a retry loop around `agent.run`" | Let Temporal own retries for durable work; set provider `max_retries=0` there. Use `ModelRetry` for output problems only. |
 | "NativeOutput is more reliable" | Not on Ollama Cloud. Use ToolOutput/PromptedOutput and validate. |
 | "pydantic-graph persistence will do durability" | Persistence modules were removed in v2. Use Temporal. |

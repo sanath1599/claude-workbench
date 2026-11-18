@@ -54,3 +54,4 @@ Entries from real projects that were folded into skills, newest first. Format: `
 2026-11-18 · stack-web:handling-inbound-email-safely · Resend receiving: full_access key, subdomain counts against domain limit, 1 h attachment URLs, auth results, User-Agent · skyops-agent session
 2026-11-18 · engineering-craft:planning-tests · SQLite ignores VARCHAR lengths; a 42-char key failed only in production · skyops-agent session
 2026-11-18 · stack-python:calling-llms-reliably · reasoning models return empty content when max_tokens is small · skyops-agent session (gateway vision alias)
+2026-11-18 · stack-python:building-pydantic-ai-agents · one-tap approvals (reply yes/👍 to the request, bare approve when one is pending) and memory that survives expired sessions and out-of-turn sends · Skyops bot, team feedback + owner request
