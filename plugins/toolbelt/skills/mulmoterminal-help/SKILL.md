@@ -3,7 +3,7 @@ name: mulmoterminal-help
 description: Help desk for questions about MulmoTerminal itself — what it can do, how a feature or a part of the screen works, how to set something up, what is new in this version or in the latest one. Answers from the shipped guide, changelog, source and the running server, never from memory, and names where each fact was checked. Use when the user asks anything about MulmoTerminal that is not "it is broken" (that is mulmoterminal-bug-report) and not "change this setting for me" (that is mulmoterminal-config). Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.0.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # MulmoTerminal — ask anything about it
 

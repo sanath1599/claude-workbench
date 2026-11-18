@@ -3,7 +3,7 @@ name: mulmoterminal-theme
 description: Build a colour scheme of your own for MulmoTerminal — one that joins Midnight, Nord, Daylight and Solarized in Settings' theme picker and can then be pinned per project. Writes `themes` in `~/.mulmoterminal/config.json`, the whole-app palette (panels, borders, accent, text). Settings → Theme can copy an existing theme and change its colours one by one; this skill is for a scheme described in words or drawn from an image, contrast checking, and the terminal's own `term` palette. Use when the user wants their own theme, a dark/light variant that isn't shipped, a scheme drawn from a painting, a photo or a brand's colours, or says the built-in themes are too dark, too blue, too low-contrast. For colouring ONE project's cell (its badge and header), or assigning an existing theme to a directory, use mulmoterminal-dirs instead.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.0.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Make a colour scheme of your own
 
