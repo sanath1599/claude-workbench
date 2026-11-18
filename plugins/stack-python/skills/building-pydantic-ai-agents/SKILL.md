@@ -56,6 +56,7 @@ Agents are Python + Pydantic AI (v2). Pick the smallest pattern that fits, valid
 | Work finishes elsewhere, result arrives later | `CallDeferred` + `deferred_tool_results` |
 | Multi-turn chat across requests | store `ModelMessagesTypeAdapter` JSON in Postgres JSONB. If conversations expire or messages are sent outside a turn (reminders, notifications), prepend a capped recap of messages the history lacks (high-water mark on message id), and pass a quoted reply's text into the turn |
 | Chat UI needs partial output | `run_stream`, `stream_output()` |
+| Agent must chase people (unanswered questions, promised deadlines) | tools that record each item with a `next_check_at`; a scheduled job acts only in their working hours, closes items whose task is done, asks a model whether replies since settle it (an unreadable verdict waits, never nags), sends one combined nudge, and stops after two to escalate to the owner |
 | Cost or loop runaway | `UsageLimits` |
 | Provider outage, 402, rate limit | `ModelFallback` capability (or `FallbackModel`) |
 | Use an MCP server's tools | `MCP(...)` capability or `MCPToolset` |
