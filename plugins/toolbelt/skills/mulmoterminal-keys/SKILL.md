@@ -3,7 +3,7 @@ name: mulmoterminal-keys
 description: Bind keyboard shortcuts and fix keyboard/clipboard behaviour in MulmoTerminal. **Writes `keymap`** — Settings → Keyboard shortcuts also sets or clears ONE action's key by pressing it (single keystrokes; a two-key sequence and the `send` list are still written here), and its Recommended keys block adds this platform's starter set. **Explains `copyOnSelect`, `questionPaneEnabled`, `terminalSubmit` and `tmuxPrefix`**, which have their own Settings controls under Terminal keys — point the user at those, and write the key yourself only when they have no browser to hand. Covers zooming a cell, jumping to whichever agent is waiting for you, opening and closing terminals, copy/paste, sending raw bytes to the terminal so a key the shell understands can be reached from a key your keyboard has (Cmd+Right for end-of-line), copying by selecting with no key pressed, and the Enter-vs-newline binding. Use when the user wants a shortcut or hotkey, wants to switch cells or reach a waiting agent without the mouse, wants selecting text to copy it, or reports that Shift+Enter submits their prompt instead of adding a line, that Enter drops to a new line instead of sending, that Ctrl+C stopped interrupting, that a shortcut does nothing, or that on a Mac Cmd+Left / Cmd+Right / Cmd+Delete behave as though the Cmd were ignored — moving or deleting one character, the same as the unmodified key.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.0.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Keyboard, shortcuts and clipboard
 
