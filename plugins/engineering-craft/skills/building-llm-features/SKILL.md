@@ -113,6 +113,7 @@ Show progress from real events, not timers (`references/streaming-steps.md`).
 | Eval passes, users complain | The set lacks real traces; add the complaints as cases |
 | Model-proposed rubric has odd weights or keys | Normalise in code (`references/calibration.md`) |
 | Product invents support for a score | Verify evidence quotes against the stored text; no verified quote means Not Assessed |
+| Input the feature can't handle (an unsupported file, a voice note, a failed download, an oversized upload) | Never drop it silently. Reply in fixed code (not via the model) with what went wrong and one concrete fallback, such as another channel or format, then carry on with the rest of the message. Persist the input before any parsing, so a later failure still ends in that reply. Where the fallback is itself a channel, don't send a second failure back to it in a loop. |
 
 ## Rationalizations
 
@@ -122,6 +123,7 @@ Show progress from real events, not timers (`references/streaming-steps.md`).
 | "The judge model seems accurate" | Measure it against human labels first. |
 | "It is only a summary, injection does not matter" | Summaries get forwarded and acted on. Delimit and test anyway. |
 | "Higher scores keep candidates happy" | Generous scores make the product useless to the people who rely on it. |
+| "Unsupported input is an edge case; ignore it" | Silence reads as being ignored. The owner's rule: "instead of dropping it ask them to email it and continue". |
 
 ## Verification
 

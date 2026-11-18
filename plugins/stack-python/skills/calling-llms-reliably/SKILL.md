@@ -101,6 +101,7 @@ def fence(label: str, text: str, limit: int = 12_000) -> str:
 | "The resume is the candidate's own text" | It is attacker-controlled input. Fence it and constrain outputs. |
 | "A quick real call in the test is fine" | Mock provider. Real calls only in opt-in env-guarded checks. |
 | "No timeout, it usually answers" | 3 minutes, shorter on live paths. |
+| "`max_tokens` 400 is plenty for a short answer" | Reasoning models (vision included) spend the budget thinking and return empty `content` with status 200. Leave about 4000 tokens, and treat empty content as a failure, not an answer. |
 
 ## Verification
 

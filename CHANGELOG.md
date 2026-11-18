@@ -13,3 +13,6 @@
 - 2026-11-05 · workbench 0.3.0 → 0.3.1 · RAG, optimisation, vault, house style, mobile watch list
 - 2026-11-13 · design-studio 0.2.0 → 0.2.1
 - 2026-11-16 · stack-python 0.2.0 → 0.2.1
+- 2026-11-18 · engineering-craft 0.2.0 → 0.2.1
+- 2026-11-18 · stack-web 0.1.1 → 0.1.2
+- 2026-11-18 · stack-python 0.2.1 → 0.2.2

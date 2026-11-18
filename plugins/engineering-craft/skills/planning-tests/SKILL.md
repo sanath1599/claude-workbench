@@ -110,7 +110,7 @@ For critical logic, remove or break the code under test and confirm a test fails
 |---|---|
 | "I will write the test after the fix" | Then you never saw it fail. Reproduce first. |
 | "A short sleep is fine" | It is a flaky test on a slower machine. Wait on a condition. |
-| "SQLite is close enough" | Constraints, JSONB, locks and types differ. Use real Postgres. |
+| "SQLite is close enough" | Constraints, JSONB, locks and types differ, and SQLite ignores `VARCHAR(n)` lengths, so an over-long key passes the tests and fails in production. Use real Postgres, or assert such lengths in a unit test. |
 | "Just one real LLM call in CI" | Costs money, flakes, and leaks data. Opt-in only. |
 
 ## Verification

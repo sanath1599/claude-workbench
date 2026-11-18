@@ -45,6 +45,11 @@ Inbound email is untrusted input from anyone on the internet. If an agent or a w
 | Replay or retry | Dedupe on event id |
 | Injected instructions | Data block, no side-effect tools, schema-validated output |
 | Large attachments | Size cap, scan before opening |
+| Apex already has MX (Zoho, iCloud, Google) | Receive on a dedicated subdomain. Resend counts it against the plan's domain limit (free plan: 3); check the slots before promising an address. |
+| Reading received mail | Needs a `full_access` key: there's no read-only receiving scope. Make a dedicated key, keep it server-side and record its id for revocation. |
+| Attachment download | `download_url` expires after an hour: fetch it in the durable job, streaming with a size cap. Skip small inline images (signatures). |
+| Sender checks | The received email carries `authentication.spf/dkim/dmarc`; log them beside the trust decision. |
+| Resend API from a server | Send a `User-Agent` header, or Cloudflare answers 1010. |
 
 ## Rationalizations
 
@@ -66,3 +71,4 @@ Inbound email is untrusted input from anyone on the internet. If an agent or a w
 - resend 6.37.0 (npm) and 2.51.0 (PyPI), see `stack-web:sending-email-with-resend` (verified 2026-11-05, https://resend.com/docs/webhooks/verify-webhooks-requests)
 - svix 2.9.1 (verified 2026-11-05, https://registry.npmjs.org/svix/latest)
 - Read https://resend.com/docs/dashboard/receiving/introduction for current receiving setup before use.
+- Receiving: domains created with `capabilities: {sending: disabled, receiving: enabled}`; MX value comes from the API response (e.g. `receive-apne1.forge.rmta.net`); webhook signing secret is returned once by POST /webhooks (verified 2026-11-18, https://resend.com/docs/api-reference/domains/create-domain and /webhooks/create-webhook)

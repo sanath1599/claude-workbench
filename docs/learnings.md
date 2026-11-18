@@ -50,3 +50,7 @@ Entries from real projects that were folded into skills, newest first. Format: `
 - kickoff:writing-the-design-spec · open-question owners, success measures · docs audit
 - 2026-11-13 · design-studio:verifying-ui-in-browser · mock fixtures must match the server wire format; view deployed charts by eye (a mock sweep passed while live chart axes showed raw ISO strings) · ops dashboard build
 2026-11-17 · stack-python:building-pydantic-ai-agents · owner-acting agents get their own scoped revocable creds + in-code approval gate (exact hashed command, no blank-cheque), setup mode default, outbound redaction · session: skyops-agent
+2026-11-18 · engineering-craft:building-llm-features · never drop input the feature can't handle; fixed-code reply with one fallback, then continue · skyops-agent session (owner rule)
+2026-11-18 · stack-web:handling-inbound-email-safely · Resend receiving: full_access key, subdomain counts against domain limit, 1 h attachment URLs, auth results, User-Agent · skyops-agent session
+2026-11-18 · engineering-craft:planning-tests · SQLite ignores VARCHAR lengths; a 42-char key failed only in production · skyops-agent session
+2026-11-18 · stack-python:calling-llms-reliably · reasoning models return empty content when max_tokens is small · skyops-agent session (gateway vision alias)
