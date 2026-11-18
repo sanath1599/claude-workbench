@@ -120,6 +120,8 @@ def fence(label: str, text: str, limit: int = 12_000) -> str:
 
 ## Versions
 
+- LiteLLM-style gateways can list Claude ids in `/v1/models` yet refuse them on `/chat/completions` ("Invalid model name"); call them through the gateway's Anthropic route with the Anthropic client, and use full ids (`claude-sonnet-5-5`), since short aliases may be denied (verified 2026-11-19, Skyform gateway)
+
 - ollama (Python client) 0.6.3 (verified 2026-11-05, https://pypi.org/project/ollama/)
 - anthropic (Python SDK) 2.5.0 (verified 2026-11-05, https://pypi.org/project/anthropic/)
 - httpx 0.28.1 (verified 2026-11-05, https://pypi.org/project/httpx/)

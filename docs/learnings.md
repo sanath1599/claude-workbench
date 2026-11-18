@@ -56,3 +56,5 @@ Entries from real projects that were folded into skills, newest first. Format: `
 2026-11-18 · stack-python:calling-llms-reliably · reasoning models return empty content when max_tokens is small · skyops-agent session (gateway vision alias)
 2026-11-18 · stack-python:building-pydantic-ai-agents · one-tap approvals (reply yes/👍 to the request, bare approve when one is pending) and memory that survives expired sessions and out-of-turn sends · Skyops bot, team feedback + owner request
 2026-11-18 · stack-python:building-pydantic-ai-agents · follow-up pattern: track questions and commitments, nudge in working hours, model-checked replies, two nudges then escalate · Skyops bot, owner request
+2026-11-19 · stack-python:building-pydantic-ai-agents · per-turn model routing with a cheap classifier and a hand-up tool · Skyops bot, owner request
+2026-11-19 · stack-python:calling-llms-reliably · gateway lists Claude ids but serves them only on its Anthropic route · Skyops bot
