@@ -59,3 +59,4 @@ Entries from real projects that were folded into skills, newest first. Format: `
 2026-11-19 · stack-python:building-pydantic-ai-agents · per-turn model routing with a cheap classifier and a hand-up tool · Skyops bot, owner request
 2026-11-19 · stack-python:calling-llms-reliably · gateway lists Claude ids but serves them only on its Anthropic route · Skyops bot
 2026-11-19 · stack-python:building-pydantic-ai-agents · strong→cheap fallback on Claude ContentFilterError, drop foreign ThinkingParts, last-attempt apology; result.output drops an answer written beside tool calls · skyops-agent (9905816, 3e8084d)
+2026-11-19 · stack-python:building-pydantic-ai-agents · approved-task executor: say it's approved, require a STATUS line, Done only when confirmed; resolve the approval record on decision · skyops-agent (ed9fb72)

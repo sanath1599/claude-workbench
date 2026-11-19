@@ -52,7 +52,7 @@ Agents are Python + Pydantic AI (v2). Pick the smallest pattern that fits, valid
 | Real branching, loops, parallel joins in one process | `pydantic-graph` |
 | Branching or loops that must survive restarts | Temporal workflow, not graph persistence |
 | Tool must be approved by a human | `requires_approval=True` or `ApprovalRequired`. Let the person approve with one tap: a reply "yes"/👍 to the request (read the token from the quoted request) or a bare "approve" when exactly one is pending; never make them type a code, and never treat a bare "yes" outside a reply as approval |
-| Approval can take hours or days | `TemporalDurability` + `HandleDeferredToolCalls` waiting on a signal/update |
+| Approval can take hours or days | `TemporalDurability` + `HandleDeferredToolCalls` waiting on a signal/update. Mark the approval record resolved the moment the decision arrives. When an agent executes the approved task, tell it the task is approved (a task phrased "if X approves" gets refused) and require a final `STATUS: done|not_done|failed` line; report "Done" only for a confirmed done, never from the exit code |
 | Work finishes elsewhere, result arrives later | `CallDeferred` + `deferred_tool_results` |
 | Multi-turn chat across requests | store `ModelMessagesTypeAdapter` JSON in Postgres JSONB. If conversations expire or messages are sent outside a turn (reminders, notifications), prepend a capped recap of messages the history lacks (high-water mark on message id), and pass a quoted reply's text into the turn |
 | Chat UI needs partial output | `run_stream`, `stream_output()` |
