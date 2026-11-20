@@ -31,6 +31,7 @@ with workflow.unsafe.imports_passed_through():
 - Whole-module passthrough at worker level: `SandboxedWorkflowRunner(restrictions=SandboxRestrictions.default.with_passthrough_modules("myapp"))`.
 - Tiny escape hatch: `with workflow.unsafe.sandbox_unrestricted(): ...`. Use rarely and never for I/O.
 - Keep workflow modules small and free of import-time side effects. Do not share mutable module globals.
+- A test that monkeypatches a module constant (a timeout table, say) does not reach sandboxed workflow code, because the sandbox imports its own copy. For such timer tests, run the test worker with `workflow_runner=UnsandboxedWorkflowRunner()`.
 - Pydantic models as workflow and activity arguments: use `temporalio.contrib.pydantic.pydantic_data_converter` (the `PydanticAIPlugin` sets this for you).
 
 ## Time-skipping environment
@@ -54,6 +55,7 @@ async def test_approval_times_out():
 - `start_time_skipping()` downloads a test server on first use (needs network once; cache it in CI) and advances time while `execute_workflow` is awaited. Timers over days finish at once.
 - To control time manually: `await env.sleep(timedelta(days=2))` between a signal and an assertion.
 - `WorkflowEnvironment.start_local()` runs a real dev server with no time skipping; use it for tests that must not skip.
+- The time-skipping server does not skip an activity's schedule-to-start wait: a test whose activity no worker polls just hangs. Test "the worker never came" and heartbeat-timeout paths on `start_local()` with the timeouts shortened to seconds.
 - Experimental in 1.35: per-workflow time skipping (`start_time_skipping_v2`, `TimeSkipper`) lets one workflow skip while others run in real time. Treat as unstable.
 - Replace real activities with fakes of the same name and signature: `@activity.defn(name="notify_manager") async def fake(...)`.
 

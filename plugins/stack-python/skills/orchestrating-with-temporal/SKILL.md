@@ -121,4 +121,5 @@ Temporal is the default for durable work. The job is to pick the right pattern f
 - Standalone Activities GA since 1.33 (verified 2026-11-05, same source)
 - Worker Versioning, Serverless Workers (Public Preview), External Storage (Public Preview) (verified 2026-11-05, https://docs.temporal.io/serverless-workers.md and https://docs.temporal.io/external-storage.md)
 - Official agent skill: https://github.com/temporalio/skill-temporal-developer (verified 2026-11-05)
+- `WorkflowHandle.result()` takes no `result_type`: pass it to `client.get_workflow_handle(id, result_type=Model)` (verified 2026-11-20 on temporalio 1.36.1)
 - Upgrade hygiene: pin `temporalio`; three of the last six releases had breaking notes. Read https://github.com/temporalio/sdk-python/releases before bumping.

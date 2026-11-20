@@ -62,3 +62,4 @@ Entries from real projects that were folded into skills, newest first. Format: `
 2026-11-19 · stack-python:building-pydantic-ai-agents · approved-task executor: say it's approved, require a STATUS line, Done only when confirmed; resolve the approval record on decision · skyops-agent (ed9fb72)
 2026-11-20 · docs-and-data:producing-slide-decks · python-pptx placeholders need all four of left/top/width/height when moved; a partial set writes zero height · skyops team report deck
 2026-11-20 · stack-python:calling-llms-reliably · Claude's adaptive thinking can pass 13k tokens on large inputs; budget max_tokens for thinking plus output, about 20k without streaming · skyops team report
+2026-11-20 · stack-python:orchestrating-with-temporal · patched constants don't reach sandboxed workflows; the test server doesn't skip schedule-to-start; result_type goes on get_workflow_handle · skyops Mac link
