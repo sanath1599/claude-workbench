@@ -121,9 +121,9 @@ test("smoke test report template is HTML and complete", () => {
   for (const h of ["Verdict", "Scope", "Defects", "Automated verification"]) assert.ok(t.includes(h), h);
 });
 
-test("evals: five cases, one near-miss, graders have valid types", () => {
+test("evals: six cases, one near-miss, graders have valid types", () => {
   const dirs = readdirSync(join(root, "evals"));
-  assert.equal(dirs.length, 5);
+  assert.equal(dirs.length, 6);
   assert.ok(dirs.some((d) => d.startsWith("near-miss")));
   for (const d of dirs) {
     const { fm } = frontmatter(readFileSync(join(root, "evals", d, "prompt.md"), "utf8"));

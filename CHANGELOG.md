@@ -24,3 +24,4 @@
 - 2026-11-20 · docs-and-data 0.1.0 → 0.1.1
 - 2026-11-20 · stack-python 0.2.7 → 0.2.8
 - 2026-11-20 · stack-python 0.2.8 → 0.2.9
+- 2026-11-20 · engineering-craft 0.2.1 → 0.3.0
