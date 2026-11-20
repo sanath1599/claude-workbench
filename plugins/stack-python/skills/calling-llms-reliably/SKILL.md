@@ -102,6 +102,7 @@ def fence(label: str, text: str, limit: int = 12_000) -> str:
 | "A quick real call in the test is fine" | Mock provider. Real calls only in opt-in env-guarded checks. |
 | "No timeout, it usually answers" | 3 minutes, shorter on live paths. |
 | "`max_tokens` 400 is plenty for a short answer" | Reasoning models (vision included) spend the budget thinking and return empty `content` with status 200. Leave about 4000 tokens, and treat empty content as a failure, not an answer. |
+| "16k tokens is plenty for a 3k-token JSON answer" | Claude with adaptive thinking spent more than 13k tokens thinking on 118k characters of input, and the structured output was cut off (Pydantic AI `OutputTokenLimitExceeded`). Budget the thinking as well as the answer: about 20k is the most the Anthropic SDK takes without streaming (about 21.3k). Above that, stream. |
 
 ## Verification
 

@@ -31,6 +31,7 @@ Before any file: the audience, the decision or understanding you want at the end
 Check `python3 -c "import pptx"`; if it fails, use a virtual environment as in `producing-word-documents`. Rules:
 
 - Start from the client's template, or from a blank file whose slide size you set on purpose (13.333 x 7.5 inches for 16:9). Use the layouts and placeholders (`prs.slide_layouts`, `slide.shapes.title`), so titles show in outline view and the master controls fonts and colours.
+- The default blank template is 4:3, so after setting a 16:9 size, reposition each placeholder you use and set all four of `left`, `top`, `width` and `height`. Setting only some writes the rest as zero, and the title collapses onto the top edge. Rendering shows it; the inspector does not.
 - One title, then at most 3 short points or one visual per slide. Aim for under 60 words on a slide; the inspector flags more than 90.
 - Charts are native (`chart_data`, `add_chart`) so the client can edit the data. Tables are real tables. Screenshots only for UI.
 - Every picture gets alt text (`pic._element.nvPicPr.cNvPr.set("descr", "...")`). Fonts are the template's; do not embed a font the client lacks.

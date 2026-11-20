@@ -1,11 +1,20 @@
 {
   "name": "docs-and-data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Client deliverables and data work: Word documents with page numbers that match, Excel workbooks with live formulas, PowerPoint decks, PDFs, tabular data analysis and multi-source research with citations.",
   "author": {
     "name": "Claude Code / Codex Starter Pack contributors"
   },
   "repository": "https://github.com/sanath1599/claude-workbench",
   "license": "PolyForm-Noncommercial-1.0.0",
-  "keywords": ["word", "docx", "excel", "xlsx", "powerpoint", "pdf", "pandas", "research"]
+  "keywords": [
+    "word",
+    "docx",
+    "excel",
+    "xlsx",
+    "powerpoint",
+    "pdf",
+    "pandas",
+    "research"
+  ]
 }
