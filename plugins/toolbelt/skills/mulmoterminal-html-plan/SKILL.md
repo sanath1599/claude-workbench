@@ -3,7 +3,7 @@ name: mulmoterminal-html-plan
 description: Plan a change as an interactive HTML page the user decides on, instead of a wall of text. Lays out what is settled, what is assumed and what is still open; shows each real choice as live mockups or controls the user can try; and ends with a Send button that hands the user's decisions back to you as their next message. Opens in the pane on the right of the terminal (presentHtml). Use when the user asks for a plan, a spec or a design they want to look at and choose from, says "show me options", "mock it up", "HTML plan", or when a plan has several open choices that are easier to see than to describe. Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.6.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Plan in HTML, let the user decide, take the result back
 

@@ -3,7 +3,7 @@ name: mulmoterminal-data-analysis
 description: Analyse a CSV, TSV or Excel file, or answer a question about one (is B better than A, what is unusual here, what comes next month, what drives sales, who is likely to cancel), and show the answer in MulmoTerminal's Canvas as a spreadsheet with live formulas (presentSpreadsheet) and charts (presentChart) behind it. Reads the file, checks its columns, computes summary statistics with Node, puts what the user may want to change in formulas and the rest in values, picks charts that fit the data, and says where everything was saved. Use when the user asks to analyse, summarise, explore or chart tabular data or asks such a question of it, to read a spreadsheet again after editing it, or to keep an analysis as a skill of their own to run on the next file of the same kind. The user writes no code. Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.6.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Analyse a table of data
 

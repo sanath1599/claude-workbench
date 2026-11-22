@@ -3,7 +3,7 @@ name: mulmoterminal-decisions
 description: Check what this project's humans have already been asked, and how they answered, before asking them something similar. Reads MulmoTerminal's decision digest — the real questions from past sessions, the options each offered, and the answers they got, including the ones where the user rejected every option and wrote their own. Use before an AskUserQuestion in a project that has history, when deciding whether a question is worth asking at all, or when the user says "we've decided this before". Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.6.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # What has this project already decided?
 
@@ -13,7 +13,7 @@ stop asking in a shape that has already failed here.
 ## Get the digest
 
 ```sh
-curl --noproxy localhost -s "http://localhost:${MULMOTERMINAL_PORT:-34567}/api/decisions/digest?cwd=$(pwd)"
+curl --noproxy localhost -sG "http://localhost:${MULMOTERMINAL_PORT:-34567}/api/decisions/digest" --data-urlencode "cwd=$(pwd)"
 ```
 
 The reply is JSON:
