@@ -175,7 +175,7 @@ For retrieval-only runs without any library, use `scripts/eval_retrieval.py`.
 | Option | Fit | Fair note |
 |---|---|---|
 | `pydantic-evals` | Default here. Same ecosystem as Pydantic AI, typed cases, custom evaluators, `LLMJudge`, Logfire integration. | Few ready-made RAG metrics; you write retrieval and citation evaluators (about 20 lines each). |
-| Ragas | Ready-made RAG metrics (faithfulness, context precision and recall, answer relevancy) and synthetic test-set generation. | Metric APIs and defaults have changed between minor versions; pin the version and read its docs. Last release on PyPI was January 2026 when checked, so confirm it is maintained and compatible with your Python before adopting. Its judge prompts are generic; calibrate them like any other judge. |
+| Ragas | Ready-made RAG metrics (faithfulness, context precision and recall, answer relevancy) and synthetic test-set generation. | Metric APIs and defaults have changed between minor versions; pin the version and read its docs. Use 0.4.4 or later: earlier versions have an SSRF and local-file-read flaw in the multi-modal metrics (GHSA-95ww-475f-pr4f). Its judge prompts are generic; calibrate them like any other judge. |
 | DeepEval | pytest-style RAG metrics, large catalogue. | Heavier, with a commercial platform alongside; check which features need the hosted service. |
 | TruLens | Tracing plus feedback functions. | Overlaps with Logfire; adopt only if you want its dashboards. |
 
