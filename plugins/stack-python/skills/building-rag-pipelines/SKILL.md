@@ -187,6 +187,6 @@ Scripts (stdlib only): `python3 scripts/chunk.py FILE --max-chars 1200 --overlap
 - pgvector (Python package) 0.5.1 (verified 2026-11-05, https://pypi.org/project/pgvector/)
 - sentence-transformers 6.2.0 (verified 2026-11-05, https://pypi.org/project/sentence-transformers/)
 - fastembed 0.9.1 (verified 2026-11-05, https://pypi.org/project/fastembed/)
-- ragas 0.4.3, last release January 2026 (verified 2026-11-05, https://pypi.org/project/ragas/); optional, see references/evaluation.md for the fair note
+- ragas 0.4.4 (verified 2026-11-23, https://github.com/explodinggradients/ragas/releases); optional, see references/evaluation.md for the fair note. Use 0.4.4 or later: 0.2.3 through 0.4.3 have an SSRF and local-file-read flaw in `MultiModalFaithfulness` and `MultiModalRelevance` (GHSA-95ww-475f-pr4f), fixed in 0.4.4. Local image paths now load only when you opt in and name one allowed directory.
 - Embedding and reranker model names in the references (bge-m3, nomic-embed-text, bge-reranker-v2-m3 and others): availability and dimensions unverified live; read each model card and https://ollama.com/library before use.
 - Ollama Cloud embedding availability: unverified; check https://docs.ollama.com before assuming it.

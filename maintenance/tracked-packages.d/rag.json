@@ -56,7 +56,7 @@
   {
     "name": "ragas",
     "ecosystem": "PyPI",
-    "documented": "0.4.3",
+    "documented": "0.4.4",
     "changelog": "https://github.com/explodinggradients/ragas/releases",
     "skills": [
       "stack-python:building-rag-pipelines"
