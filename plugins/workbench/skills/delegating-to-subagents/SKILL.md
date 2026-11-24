@@ -33,6 +33,8 @@ Delegate when the work is independent and parallel, or needs a lot of reading wh
    - the files and docs to read;
    - the files it may change, since parallel agents must not share files;
    - constraints (no commits, no deploys, no evals that cost money unless asked);
+   - in unattended runs (an Orca worker, a loop, a coordinator who never clicks yes), nobody approves permission prompts, so a prompt stalls the build: tell the agent to put multi-step shell work into a `.sh` file in its scratchpad and run `bash <absolute path>`, with no `cd` chained with subshells, no `$VAR` paths inline and no `rm`;
+   - test secrets (fake API keys, session secrets) generated at runtime with `randomBytes`, never written as literals: the secret-scan hook and GitGuardian flag fake keys too;
    - the verification command that must pass;
    - the output format and size cap.
 

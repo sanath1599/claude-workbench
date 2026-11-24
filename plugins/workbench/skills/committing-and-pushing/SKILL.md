@@ -44,6 +44,7 @@ Each project's git policy lives in `.claude/workbench.json`, and that file wins.
    - Run a code review (the `code-review` skill or engineering-craft) before merging or deploying.
    - "Push, create a PR to main and merge it" means do all three, then report the PR URL and merge commit.
    - Cloud sessions work on a feature branch and never merge to main; the local session merges after re-running the checks (kickoff:landing-cloud-work).
+   - After a squash merge, cut the next branch from the updated main (`git fetch && git switch -c <next> origin/main`) instead of reusing the merged branch. A reused branch carries its already-merged commits into the next PR, so the diff repeats and PR scanners such as GitGuardian flag them again.
 
 ## Quick reference
 
@@ -54,6 +55,7 @@ Each project's git policy lives in `.claude/workbench.json`, and that file wins.
 | Owner said "only commit when I ask" | `commits: on-request`; stop after tests pass |
 | Owner said "every commit on its own branch" | `branchPolicy: branch-per-commit`; `git switch -c <change-name>` before each commit |
 | Secret-scan block | remove the secret, never bypass; rotation if it ever left the machine |
+| Next milestone after a squash merge | a fresh branch from `origin/main`, not the merged branch |
 
 ## Verification
 - [ ] The policy came from the file or from a one-time answer that is now saved.
