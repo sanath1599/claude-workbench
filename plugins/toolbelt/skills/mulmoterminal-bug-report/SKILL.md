@@ -3,7 +3,7 @@ name: mulmoterminal-bug-report
 description: Help desk for "MulmoTerminal is broken". Hears out the symptom, then checks whether the behaviour is actually configuration or by design — reading the real config, schema and version rather than guessing — searches the existing issues, and only files a GitHub issue for what survives all of that, with the environment and repro details collected and masked. Use when the user says MulmoTerminal is broken / weird / not working, wants to report a bug or file an issue about it, or asks why MulmoTerminal behaves the way it does. Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # MulmoTerminal — is it a bug?
 

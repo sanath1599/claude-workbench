@@ -3,7 +3,7 @@ name: mulmoterminal-video-edit
 description: Edit a video by talking about it — cut out a part, join clips, change the speed, even out or replace the sound, make it vertical — and add subtitles made from what is said in it, or captions and titles placed on screen (telops). Uses ffmpeg in the terminal and whisper.cpp for the speech, writes a new file beside the original, and opens the result in the pane on the right of the terminal (showInPane). Use when the user asks to trim, cut, join, speed up, resize, subtitle, caption, translate the subtitles of, or put text on a video. The user writes no commands. Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Edit a video
 

@@ -3,7 +3,7 @@ name: mulmoterminal-dirs
 description: Colour-code and order the directories you actually work in, from wherever you are. Writes each project's `<project>/.mulmoterminal.json` — name badge, project icon image, the seven chrome colours, xterm palette (`theme` / `colors`), terminal font size, `orderPriority` (where it sits in the grid and in the launcher's chips), and `worktreeEnv` (a value of its own per git worktree for each declared variable — a dev-server port, a database name — so two `yarn dev` do not fight over 3000). Starts from your recent MulmoTerminal directories rather than just the current one, reads the configs you already have, works out the convention you have been following, and continues it for the ones that are unset or off-pattern — so a newly cloned repo gets the colour and rank it should have had. Also owns what the header shows once a STATUS takes the background over — `headerStatusColors` (a colour per working / done / blocked) and `headerStatusTint` — in a project's file and as the global default in `~/.mulmoterminal/config.json`. Use when the user wants to colour-code, theme, rename, reorder, or resize projects in MulmoTerminal — "give this project a colour", "colour-code my repos", "keep my main repos at the top", "the new clone has no colour", "make them consistent", "terminal text is too small", "two worktrees fight over port 3000", "give each worktree its own port / database" — or when the header is hard to read or changes colour while a session is running — "I can't read the header while it's working", "the colour changes when it runs", "keep my header colour while running". For inventing a NEW reusable colour scheme that shows up in Settings, use mulmoterminal-theme instead.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.0 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Colour and order the directories you work in
 
@@ -424,7 +424,7 @@ default and renders nothing where no `worktreeEnv` is declared, so there is noth
 A managed git worktree (`~/.mulmoterminal/worktrees/<repo>-<hash>/<task>`) gets its own
 `.mulmoterminal.local.json` when MulmoTerminal creates it, derived from the project's: identity keys
 (`name` / `icon` / `theme` / `colors` / `fontSize` / `fontFamily` / `provider` / `model` /
-`worktreeEnv`) as written, the seven chrome colours rotated **12° further per worktree**, and
+`worktreeEnv` / `review`) as written, the seven chrome colours rotated **12° further per worktree**, and
 `orderPriority` at the project's rank **+ 1**. `sound` / `sounds` / `addDirs` are not carried.
 
 Two consequences for this skill:
@@ -444,8 +444,8 @@ Two consequences for this skill:
 
 `buttons` / `chips` → `mulmoterminal-header`. `provider` / `model` → `mulmoterminal-model`.
 `sound` / `sounds` → `mulmoterminal-notify`. `skills` (the header Skill menu's allowlist and order),
-`decks` (the header Mulmo menu's decks), `mobileFiles` (files the phone may open) and `appendSystemPrompt`
-(this directory's closing-summary override) → `mulmoterminal-config`.
+`decks` (the header Mulmo menu's decks), `mobileFiles` (files the phone may open), `appendSystemPrompt`
+(this directory's closing-summary override) and `review` (how its PRs are reviewed) → `mulmoterminal-config`.
 **Preserve them when you merge** — this skill writes appearance keys and must not drop the rest.
 
 ## Example — continuing a convention

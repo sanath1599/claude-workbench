@@ -2,20 +2,25 @@
   "mulmoterminal": {
     "package": "mulmoterminal",
     "ecosystem": "npm",
-    "version": "12.0.1",
+    "version": "13.8.0",
     "skills": [
       "mulmoterminal-bug-report",
       "mulmoterminal-config",
       "mulmoterminal-data-analysis",
       "mulmoterminal-decisions",
       "mulmoterminal-dirs",
+      "mulmoterminal-dispatch-issues",
       "mulmoterminal-header",
       "mulmoterminal-help",
       "mulmoterminal-html-plan",
+      "mulmoterminal-issue-to-merge",
       "mulmoterminal-keys",
+      "mulmoterminal-library",
       "mulmoterminal-model",
       "mulmoterminal-notify",
+      "mulmoterminal-review",
       "mulmoterminal-shared-app",
+      "mulmoterminal-skill-eval",
       "mulmoterminal-theme",
       "mulmoterminal-video-edit"
     ]
@@ -23,7 +28,7 @@
   "rea": {
     "package": "rea-agents",
     "ecosystem": "npm",
-    "version": "6.8.0",
+    "version": "6.10.1",
     "skills": [
       "reverse-engineer-anything"
     ]
@@ -31,10 +36,10 @@
   "graphify": {
     "package": "graphifyy",
     "ecosystem": "PyPI",
-    "version": "0.9.102",
+    "version": "0.9.119",
     "skills": [
       "graphify"
     ]
   },
-  "synced": "2026-11-05"
+  "synced": "2026-11-25"
 }
