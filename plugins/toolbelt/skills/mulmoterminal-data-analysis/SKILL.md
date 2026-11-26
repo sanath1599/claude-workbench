@@ -3,7 +3,7 @@ name: mulmoterminal-data-analysis
 description: Analyse a CSV, TSV or Excel file, or answer a question about one (is B better than A, what is unusual here, what comes next month, what drives sales, who is likely to cancel), and show the answer in MulmoTerminal's Canvas as a spreadsheet with live formulas (presentSpreadsheet) and charts (presentChart) behind it. Reads the file, checks its columns, computes summary statistics with Node, puts what the user may want to change in formulas and the rest in values, picks charts that fit the data, and says where everything was saved. Use when the user asks to analyse, summarise, explore or chart tabular data or asks such a question of it, to read a spreadsheet again after editing it, or to keep an analysis as a skill of their own to run on the next file of the same kind. The user writes no code. Works in whatever language the user writes in.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.2 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Analyse a table of data
 
@@ -15,7 +15,9 @@ Canvas. Talk to them in their language, and in words about their data, not about
 
 - `presentSpreadsheet` and `presentChart`. In a project directory they exist only when **Canvas**
   was switched on before the session started. If you do not have them, say so and stop: tell the
-  user to switch on Canvas in the launcher's MCP toggles and start a new session there.
+  user to switch on Canvas in the launcher's MCP toggles, then choose **Restart the agent** in this
+  cell's menu (it keeps the conversation) and ask once more. Reopening the cell is not enough: it
+  reattaches to the running agent, which keeps the tools it started with.
 - Node. Scripts are Node only — not Python, not a shell pipeline doing arithmetic.
 - For a large file, `manageCollection` (the **Workspace data** tools). It is optional: without it a
   large file is aggregated by a script instead (see *A large file* below).

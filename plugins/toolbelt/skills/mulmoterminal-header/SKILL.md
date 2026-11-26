@@ -3,7 +3,7 @@ name: mulmoterminal-header
 description: Put your own action buttons and info chips in a MulmoTerminal session header — either everywhere (`buttons` / `chips` in `~/.mulmoterminal/config.json`; the global chips, global buttons of every `run` type, and folders can also be changed in Settings → Header buttons and chips) or for one project (`<project>/.mulmoterminal.json`, also editable in Settings → Directory settings). Buttons run a shell command in a new cell, type text into the running agent (`/compact`), or open a URL, the file explorer, a diff/PR/wiki overlay, or a new terminal. Chips show live context — branch, context left, diff counts, the PR or issue being worked on. `commands` are written exactly like buttons but appear only in the command palette. Use when the user wants to add, remove, reorder or hide header buttons or chips, wants a one-click build/test/deploy on a session, wants the header to show something it doesn't, or asks why a button is missing or does nothing. For colours and grid order use mulmoterminal-dirs; for keyboard shortcuts use mulmoterminal-keys.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.2 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Header buttons and chips
 
@@ -188,6 +188,7 @@ button the header used to have:
 | `"mark-unread"` / `"terminal-park"` | Mark unread-read / set aside-wake |
 | `"terminal-timeline"` / `"terminal-talk"` | Activity timeline (Claude only) / talk to another terminal |
 | `"terminal-copy-code"` / `"terminal-insert-path"` / `"terminal-reveal"` / `"terminal-voice"` / `"terminal-diff"` / `"terminal-note"` | Copy the last code block / insert a file path / reveal the directory / mic on-off / changes panel / note |
+| `"terminal-send-turn"` / `"terminal-send-since"` / `"terminal-bring-turn"` / `"terminal-bring-since"` | Send this terminal's last exchange / everything since the last relay to its partner and go there, or bring the partner's here (partner: another agent terminal in the same directory or another worktree of the same repo) |
 | `"pane-files"` | The files PANE beside this cell (not the full-screen view `open.files` gives) |
 | `"pane-prompts"` / `"pane-transcript"` / `"pane-tools"` / `"pane-canvas"` / `"pane-collections"` | The History / Tools menu panes |
 | `"screen-*"` (e.g. `"screen-wiki"`), `"settings-open"`, `"sound-toggle"`, `"confetti"`, `"view-toggle"`, `"order-auto"` / `"-manual"` / `"-priority"`, `"page-next"` / `"page-prev"`, `"terminal-reopen"` | The toolbar's operations — act on the app, not this cell; a screen not set up (prs / rooms / worklog) shows a hint instead |
@@ -218,6 +219,19 @@ Three things to say when you offer it:
 
 It is also an item in the cell's Tools menu, and the `terminal-restart` shortcut (the
 `mulmoterminal-keys` skill, no default binding) does the same; this button is for one click.
+
+## `cellSendButton` — the send button the cell shows by itself
+
+Not a header button and not in `buttons`: every terminal shows a **send** button on header row 2,
+named after its partner (`codex #4`), while another agent terminal of the same repo is open. It runs
+`terminal-send-turn`. A user who does not want it sets this in `~/.mulmoterminal/config.json`
+(global only), or unticks it in Settings → Header buttons and chips:
+
+```json
+{ "cellSendButton": false }
+```
+
+On unless set to `false`. Listing `buttons` does not hide it, so "remove the send button" is this key.
 
 ## `commands` — entries for the command palette only
 
