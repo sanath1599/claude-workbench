@@ -3,7 +3,7 @@ name: mulmoterminal-notify
 description: Decide which moments MulmoTerminal beeps or pushes for, and what each one plays — `soundKinds`, `sounds` and `pushKinds` in `~/.mulmoterminal/config.json`, plus a per-project `sound` / `sounds` in `<project>/.mulmoterminal.json` so one repo can have its own chime. Six moments exist (a turn finished, the agent is waiting on you, a Run command succeeded or failed, a session exited, a PR's CI went red) but only two beep by default; the rest are opt-in. The per-project ones are also set in Settings → Directory settings → Change here. Use when the user says notifications are too noisy or too quiet, wants a sound only when an agent is waiting, wants a different sound per project or per event, wants to know when CI fails or a command finishes, or asks why their phone isn't getting notified.
 ---
 
-<!-- Vendored from mulmoterminal 12.0.1 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
+<!-- Vendored from mulmoterminal 13.8.2 (MIT, https://github.com/receptron/mulmoterminal). Refresh with node scripts/sync-vendored.mjs. -->
 
 # Which moments notify you, and how
 
